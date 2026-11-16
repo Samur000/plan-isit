@@ -1,0 +1,824 @@
+<style>
+/* Дорожная карта ОП — ДГУ. Все стили изолированы внутри #dgu-roadmap. */
+#dgu-roadmap {
+  --rm-blue: #024ABB;
+  --rm-blue-2: #0050CF;
+  --rm-navy: #1B3A6B;
+  --rm-ink: #1E2A3B;
+  --rm-muted: #5B6B82;
+  --rm-faint: #8A97AB;
+  --rm-line: #E1E7F0;
+  --rm-bg: #F5F8FD;
+  --rm-sky: #EEF5FF;
+  --rm-white: #FFFFFF;
+  --rm-radius: 14px;
+  --rm-label: 116px;
+  --rm-lane-min: 138px;
+  --rm-gap: 8px;
+  font-family: Geometria, "Montserrat", Arial, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  font-weight: 300; /* на dgu.ru «Geometria Regular» подключена как вес 300 */
+  line-height: 1.45;
+  color: var(--rm-ink);
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 28px 20px 48px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+#dgu-roadmap *, #dgu-roadmap *::before, #dgu-roadmap *::after { box-sizing: border-box; }
+#dgu-roadmap button { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: left; }
+#dgu-roadmap button:focus-visible, #dgu-roadmap a:focus-visible, #dgu-roadmap input:focus-visible {
+  outline: 2px solid var(--rm-blue-2); outline-offset: 2px;
+}
+#dgu-roadmap a { color: var(--rm-blue); text-decoration: none; }
+#dgu-roadmap h1, #dgu-roadmap h2, #dgu-roadmap h3, #dgu-roadmap p, #dgu-roadmap ul { margin: 0; padding: 0; }
+#dgu-roadmap ul { list-style: none; }
+#dgu-roadmap li::before, #dgu-roadmap li::marker { content: none; }
+
+/* ---------- Шапка ---------- */
+#dgu-roadmap .rm-head { background: var(--rm-white); border-radius: 20px; padding: 28px 32px; border: 1px solid var(--rm-line); }
+#dgu-roadmap .rm-eyebrow { font-size: 13px; color: var(--rm-muted); }
+#dgu-roadmap .rm-title { font-size: 34px; line-height: 1.15; font-weight: 600; color: var(--rm-navy); margin-top: 6px !important; letter-spacing: -0.01em; }
+#dgu-roadmap .rm-switch { display: inline-flex; flex-wrap: wrap; gap: 4px; background: var(--rm-sky); padding: 4px; border-radius: 12px; margin-top: 18px; }
+#dgu-roadmap .rm-switch button { padding: 9px 16px; border-radius: 9px; font-size: 14px; font-weight: 500; color: var(--rm-navy); white-space: nowrap; transition: background .15s, color .15s; }
+#dgu-roadmap .rm-switch button:hover { background: rgba(2, 74, 187, .08); }
+#dgu-roadmap .rm-switch button[aria-selected="true"] { background: var(--rm-blue); color: #fff; }
+#dgu-roadmap .rm-switch button small { font-weight: 300; opacity: .8; margin-left: 4px; }
+#dgu-roadmap .rm-program { margin-top: 16px; }
+#dgu-roadmap .rm-program-name { font-size: 20px; font-weight: 600; color: var(--rm-navy); }
+#dgu-roadmap .rm-program-profile { font-size: 15px; color: var(--rm-muted); margin-top: 2px; }
+#dgu-roadmap .rm-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 10px; margin-top: 20px !important; }
+#dgu-roadmap .rm-stats li { background: var(--rm-bg); border-radius: 12px; padding: 12px 14px; }
+#dgu-roadmap .rm-stats b { display: block; font-size: 24px; line-height: 1.1; font-weight: 600; color: var(--rm-blue); }
+#dgu-roadmap .rm-stats span { font-size: 13px; color: var(--rm-muted); }
+#dgu-roadmap .rm-links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 16px; font-size: 14px; }
+#dgu-roadmap .rm-links a { display: inline-flex; align-items: center; gap: 6px; }
+#dgu-roadmap .rm-links a:hover { text-decoration: underline; }
+#dgu-roadmap .rm-links svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ---------- Панель и фильтры ---------- */
+#dgu-roadmap .rm-panel { background: var(--rm-white); border-radius: 20px; padding: 22px 24px 24px; border: 1px solid var(--rm-line); margin-top: 16px; }
+#dgu-roadmap .rm-toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+#dgu-roadmap .rm-tracks { display: flex; flex-wrap: wrap; gap: 6px; }
+#dgu-roadmap .rm-chip { display: inline-flex; align-items: center; gap: 7px; padding: 7px 12px; border-radius: 999px; border: 1px solid var(--rm-line); font-size: 13.5px; color: var(--rm-ink); background: var(--rm-white); white-space: nowrap; transition: border-color .15s, background .15s; }
+#dgu-roadmap .rm-chip:hover { border-color: #C5D1E3; }
+#dgu-roadmap .rm-chip i { width: 10px; height: 10px; border-radius: 50%; background: var(--c, var(--rm-blue)); flex: none; }
+#dgu-roadmap .rm-chip[aria-pressed="true"] { background: var(--t, var(--rm-sky)); border-color: var(--c, var(--rm-blue)); color: var(--d, var(--rm-navy)); font-weight: 500; }
+#dgu-roadmap .rm-search { position: relative; display: flex; align-items: center; min-width: 220px; flex: 0 1 280px; }
+#dgu-roadmap .rm-search svg { position: absolute; left: 12px; width: 16px; height: 16px; fill: none; stroke: var(--rm-faint); stroke-width: 2; stroke-linecap: round; }
+#dgu-roadmap .rm-search input { width: 100%; height: 38px; border: 1px solid var(--rm-line); border-radius: 999px; padding: 0 14px 0 36px; font: inherit; font-size: 14px; color: var(--rm-ink); background: var(--rm-bg); }
+#dgu-roadmap .rm-search input:focus { background: var(--rm-white); border-color: var(--rm-blue-2); outline: none; }
+#dgu-roadmap .rm-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-top: 14px; font-size: 12.5px; color: var(--rm-muted); }
+#dgu-roadmap .rm-legend span { display: inline-flex; align-items: center; gap: 7px; }
+#dgu-roadmap .rm-lg { display: inline-block; width: 22px; height: 14px; border-radius: 5px; }
+#dgu-roadmap .rm-lg--card { background: #fff; border: 1px solid #CBD5E1; box-shadow: inset 0 3px 0 #94A3B8; }
+#dgu-roadmap .rm-lg--choice { background: #F8FAFC; border: 1.5px dashed #94A3B8; }
+#dgu-roadmap .rm-lg--practice { background: #DCF5E3; border: 1px solid #A7E3BA; }
+#dgu-roadmap .rm-lg--optional { background: #fff; border: 1.5px dotted #94A3B8; }
+#dgu-roadmap .rm-lg--arrow { height: 2px; border-radius: 2px; background: #94A3B8; position: relative; }
+#dgu-roadmap .rm-lg--arrow::after { content: ""; position: absolute; right: -2px; top: -4px; border: 5px solid transparent; border-left: 7px solid #94A3B8; border-right: 0; }
+#dgu-roadmap .rm-hint { font-size: 13px; color: var(--rm-faint); margin-top: 8px !important; }
+#dgu-roadmap .rm-focusbar { position: sticky; top: 12px; z-index: 6; box-shadow: 0 6px 20px rgba(27, 58, 107, .14); display: none; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 12px; padding: 8px 8px 8px 14px; background: var(--rm-sky); border-radius: 12px; font-size: 13.5px; color: var(--rm-navy); }
+#dgu-roadmap.rm--pinned .rm-focusbar { display: flex; }
+#dgu-roadmap .rm-btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 9px 14px; font-size: 14px; font-weight: 500; transition: background .15s, color .15s, border-color .15s; }
+#dgu-roadmap .rm-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+#dgu-roadmap .rm-btn--primary { background: var(--rm-blue); color: #fff; }
+#dgu-roadmap .rm-btn--primary:hover { background: #003B98; }
+#dgu-roadmap .rm-btn--outline { border: 1.5px solid var(--rm-blue); color: var(--rm-blue); }
+#dgu-roadmap .rm-btn--outline:hover { background: var(--rm-sky); }
+#dgu-roadmap .rm-btn--ghost { color: var(--rm-blue); padding: 6px 12px; }
+#dgu-roadmap .rm-btn--ghost:hover { background: rgba(2, 74, 187, .08); }
+
+/* ---------- Дерево ---------- */
+#dgu-roadmap .rm-scroll { margin-top: 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 16px; }
+#dgu-roadmap .rm-tree { position: relative; min-width: calc(var(--rm-label) + var(--rm-lanes, 7) * var(--rm-lane-min)); }
+#dgu-roadmap .rm-edges { position: absolute; left: 0; top: 0; z-index: 0; overflow: visible; pointer-events: none; }
+#dgu-roadmap .rm-grid { position: relative; z-index: 1; display: grid; grid-template-columns: var(--rm-label) repeat(var(--rm-lanes, 7), minmax(var(--rm-lane-min), 1fr)); }
+#dgu-roadmap .rm-lanehead { padding: 10px 6px 12px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
+#dgu-roadmap .rm-lanehead b { font-size: 13px; font-weight: 600; color: var(--d); line-height: 1.2; }
+#dgu-roadmap .rm-lanehead span { font-size: 11.5px; color: var(--rm-faint); }
+#dgu-roadmap .rm-lanehead i { width: 26px; height: 6px; border-radius: 3px; background: var(--c); }
+#dgu-roadmap .rm-corner { position: sticky; left: 0; z-index: 3; background: var(--rm-white); }
+#dgu-roadmap .rm-rowlabel { position: sticky; left: 0; z-index: 3; background: var(--rm-white); padding: 14px 10px 14px 4px; border-top: 1px solid var(--rm-line); }
+#dgu-roadmap .rm-rowlabel.rm-course { border-top: 2px solid #C9D6EA; }
+#dgu-roadmap .rm-rowlabel b { display: block; font-size: 15px; font-weight: 600; color: var(--rm-navy); line-height: 1.2; }
+#dgu-roadmap .rm-rowlabel span { display: block; font-size: 12px; color: var(--rm-muted); margin-top: 2px; }
+#dgu-roadmap .rm-rowlabel em { display: inline-block; font-style: normal; font-size: 11.5px; color: var(--rm-blue); background: var(--rm-sky); border-radius: 6px; padding: 1px 6px; margin-top: 6px; }
+#dgu-roadmap .rm-rowlabel--final b { color: #14532D; }
+#dgu-roadmap .rm-cell { padding: 12px 6px; display: flex; flex-direction: column; gap: var(--rm-gap); border-top: 1px solid var(--rm-line); min-width: 0; }
+#dgu-roadmap .rm-cell.rm-course { border-top: 2px solid #C9D6EA; }
+
+#dgu-roadmap .rm-card { position: relative; display: flex; flex-direction: column; gap: 6px; width: 100%; background: var(--rm-white); border: 1px solid var(--rm-line); border-radius: var(--rm-radius); padding: 11px 12px 10px; box-shadow: inset 0 3px 0 var(--c); transition: transform .15s, box-shadow .15s, opacity .2s, border-color .15s; }
+#dgu-roadmap button.rm-card:hover, #dgu-roadmap .rm-opt:hover { border-color: var(--c); box-shadow: inset 0 3px 0 var(--c), 0 6px 18px rgba(27, 58, 107, .12); transform: translateY(-1px); }
+#dgu-roadmap .rm-card-name, #dgu-roadmap .rm-opt { -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word; }
+#dgu-roadmap .rm-card-name { font-size: 13.5px; line-height: 1.3; font-weight: 500; color: var(--rm-ink); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+#dgu-roadmap .rm-card-meta { display: flex; flex-wrap: wrap; gap: 4px; font-size: 11.5px; color: var(--rm-muted); }
+#dgu-roadmap .rm-pill { display: inline-block; padding: 1px 7px; border-radius: 999px; background: var(--rm-bg); white-space: nowrap; }
+#dgu-roadmap .rm-pill--c { background: var(--t); color: var(--d); }
+#dgu-roadmap .rm-pill--exam { background: #FFF1E0; color: #9A4A00; }
+#dgu-roadmap .rm-card--practice { background: var(--t); border-color: transparent; box-shadow: none; }
+#dgu-roadmap .rm-card--practice .rm-card-name { color: var(--d); }
+#dgu-roadmap .rm-card--practice .rm-pill { background: rgba(255, 255, 255, .7); }
+#dgu-roadmap .rm-card--gia { background: var(--c); border-color: var(--c); box-shadow: none; }
+#dgu-roadmap .rm-card--gia .rm-card-name { color: #fff; }
+#dgu-roadmap .rm-card--gia .rm-pill { background: rgba(255, 255, 255, .2); color: #fff; }
+#dgu-roadmap button.rm-card--gia:hover { box-shadow: 0 6px 18px rgba(20, 83, 45, .25); }
+#dgu-roadmap .rm-card--optional { border: 1.5px dotted #A9B6C9; box-shadow: none; }
+#dgu-roadmap .rm-card--compact { padding: 7px 10px 6px; gap: 2px; border-radius: 11px; box-shadow: none; border-color: #E6EAF0; }
+#dgu-roadmap .rm-card--compact .rm-card-name { font-size: 12.5px; font-weight: 300; line-height: 1.25; -webkit-line-clamp: 2; }
+#dgu-roadmap .rm-card--compact .rm-card-meta { font-size: 11px; color: var(--rm-faint); display: block; }
+#dgu-roadmap .rm-card--choice { background: #FAFBFD; border: 1.5px dashed var(--c); box-shadow: none; padding: 9px 8px 8px; gap: 5px; }
+#dgu-roadmap .rm-choice-head { display: flex; justify-content: space-between; gap: 6px; font-size: 11.5px; color: var(--d); font-weight: 500; padding: 0 3px; }
+#dgu-roadmap .rm-choice-head span { color: var(--rm-muted); font-weight: 300; white-space: nowrap; }
+#dgu-roadmap .rm-opt { display: block; width: 100%; background: var(--rm-white); border: 1px solid var(--rm-line); border-radius: 10px; padding: 7px 9px; font-size: 12.5px; line-height: 1.3; color: var(--rm-ink); transition: border-color .15s, box-shadow .15s, transform .15s; }
+#dgu-roadmap .rm-or { font-size: 11px; color: var(--rm-faint); text-align: center; line-height: 1; }
+
+/* Подсветка и фильтры */
+#dgu-roadmap .rm-edge { fill: none; stroke-width: 1.6; opacity: .55; transition: opacity .2s, stroke-width .2s; }
+#dgu-roadmap .rm-dim .rm-card, #dgu-roadmap .rm-dim .rm-card--choice { opacity: .22; }
+#dgu-roadmap .rm-dim .rm-card.is-on { opacity: 1; }
+#dgu-roadmap .rm-dim .rm-edge { opacity: .06; }
+#dgu-roadmap .rm-dim .rm-edge.is-on { opacity: 1; stroke-width: 2.4; }
+#dgu-roadmap .rm-card.is-self { border-color: var(--c); box-shadow: 0 0 0 3px var(--t), inset 0 3px 0 var(--c); }
+#dgu-roadmap .rm-card.is-match { border-color: var(--rm-blue-2); box-shadow: 0 0 0 3px #CFE0FF; }
+
+/* ---------- Модальное окно ---------- */
+#dgu-roadmap .rm-modal { position: fixed; inset: 0; z-index: 10000; display: none; align-items: center; justify-content: center; padding: 24px; }
+#dgu-roadmap .rm-modal.is-open { display: flex; }
+#dgu-roadmap .rm-modal-backdrop { position: absolute; inset: 0; background: rgba(16, 32, 64, .45); animation: rm-fade .18s ease-out; }
+#dgu-roadmap .rm-modal-panel { position: relative; width: 100%; max-width: 640px; max-height: calc(100vh - 48px); overflow-y: auto; background: var(--rm-white); border-radius: 20px; box-shadow: 0 24px 64px rgba(16, 32, 64, .28); animation: rm-pop .2s ease-out; outline: none; }
+@keyframes rm-fade { from { opacity: 0; } }
+@keyframes rm-pop { from { opacity: 0; transform: translateY(12px) scale(.98); } }
+#dgu-roadmap .rm-m-top { height: 8px; background: var(--c); border-radius: 20px 20px 0 0; }
+#dgu-roadmap .rm-m-body { padding: 20px 26px 26px; }
+#dgu-roadmap .rm-m-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+#dgu-roadmap .rm-m-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+#dgu-roadmap .rm-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; padding: 3px 10px; border-radius: 999px; background: var(--rm-bg); color: var(--rm-muted); }
+#dgu-roadmap .rm-tag--c { background: var(--t); color: var(--d); font-weight: 500; }
+#dgu-roadmap .rm-tag--c i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+#dgu-roadmap .rm-close { flex: none; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: var(--rm-muted); margin: -4px -8px 0 0 !important; }
+#dgu-roadmap .rm-close:hover { background: var(--rm-bg); color: var(--rm-ink); }
+#dgu-roadmap .rm-close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; }
+#dgu-roadmap .rm-m-code { font-size: 12.5px; color: var(--rm-faint); margin-top: 14px; }
+#dgu-roadmap .rm-m-title { font-size: 23px; line-height: 1.25; font-weight: 600; color: var(--rm-navy); margin-top: 4px !important; }
+#dgu-roadmap .rm-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 18px; }
+#dgu-roadmap .rm-fact { background: var(--rm-bg); border-radius: 12px; padding: 10px 12px; }
+#dgu-roadmap .rm-fact span { display: block; font-size: 12px; color: var(--rm-muted); }
+#dgu-roadmap .rm-fact b { display: block; font-size: 15px; font-weight: 600; color: var(--rm-ink); margin-top: 2px; line-height: 1.3; }
+#dgu-roadmap .rm-sec { margin-top: 20px; }
+#dgu-roadmap .rm-sec-title { font-size: 13px; font-weight: 600; color: var(--rm-muted); margin-bottom: 8px; }
+#dgu-roadmap .rm-bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: var(--rm-bg); gap: 2px; }
+#dgu-roadmap .rm-bar i { display: block; height: 100%; }
+#dgu-roadmap .rm-bar-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; margin-top: 8px; font-size: 12.5px; color: var(--rm-muted); }
+#dgu-roadmap .rm-bar-legend span { display: inline-flex; align-items: center; gap: 6px; }
+#dgu-roadmap .rm-bar-legend i { width: 9px; height: 9px; border-radius: 3px; }
+#dgu-roadmap .rm-bar-legend b { color: var(--rm-ink); font-weight: 600; }
+#dgu-roadmap .rm-sems { display: grid; gap: 6px; }
+#dgu-roadmap .rm-semrow { display: grid; grid-template-columns: 92px 1fr auto; gap: 10px; align-items: center; font-size: 13.5px; padding: 8px 12px; border-radius: 10px; background: var(--rm-bg); }
+#dgu-roadmap .rm-semrow b { font-weight: 600; color: var(--rm-navy); }
+#dgu-roadmap .rm-semrow span { color: var(--rm-muted); font-size: 12.5px; }
+#dgu-roadmap .rm-semrow em { font-style: normal; font-size: 12px; color: var(--rm-ink); white-space: nowrap; }
+#dgu-roadmap .rm-choicebox { background: var(--rm-sky); border-radius: 12px; padding: 12px 14px; font-size: 13.5px; color: var(--rm-navy); }
+#dgu-roadmap .rm-choicebox button { color: var(--rm-blue); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; }
+#dgu-roadmap .rm-rel { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+#dgu-roadmap .rm-rel-list { display: flex; flex-direction: column; gap: 6px; }
+#dgu-roadmap .rm-rel-item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--rm-line); font-size: 13px; line-height: 1.25; }
+#dgu-roadmap .rm-rel-item:hover { border-color: var(--c); background: var(--t); }
+#dgu-roadmap .rm-rel-item i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }
+#dgu-roadmap .rm-rel-item small { color: var(--rm-faint); margin-left: auto; white-space: nowrap; font-size: 11.5px; }
+#dgu-roadmap .rm-rel-empty { font-size: 13px; color: var(--rm-faint); }
+#dgu-roadmap .rm-docs { display: flex; flex-wrap: wrap; gap: 8px; }
+#dgu-roadmap .rm-docs-empty { font-size: 13px; color: var(--rm-muted); background: var(--rm-bg); border-radius: 10px; padding: 10px 12px; }
+#dgu-roadmap .rm-m-foot { font-size: 12px; color: var(--rm-faint); margin-top: 18px !important; }
+#dgu-roadmap .rm-note { font-size: 12.5px; color: var(--rm-faint); margin-top: 16px !important; max-width: 900px; }
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 1100px) {
+  #dgu-roadmap { --rm-label: 96px; --rm-lane-min: 132px; }
+}
+@media (max-width: 760px) {
+  #dgu-roadmap { --rm-label: 66px; --rm-lane-min: 150px; padding: 16px 12px 32px; font-size: 14px; }
+  #dgu-roadmap .rm-head { padding: 20px 18px; border-radius: 16px; }
+  #dgu-roadmap .rm-title { font-size: 26px; }
+  #dgu-roadmap .rm-switch { display: flex; }
+  #dgu-roadmap .rm-switch button { flex: 1 1 auto; text-align: center; padding: 9px 10px; }
+  #dgu-roadmap .rm-panel { padding: 16px 12px 18px; border-radius: 16px; }
+  #dgu-roadmap .rm-tracks { flex-wrap: nowrap; overflow-x: auto; margin: 0 -12px; padding: 0 12px 4px; scrollbar-width: none; }
+  #dgu-roadmap .rm-tracks::-webkit-scrollbar { display: none; }
+  #dgu-roadmap .rm-search { flex: 1 1 100%; }
+  #dgu-roadmap .rm-legend { gap: 6px 12px; }
+  #dgu-roadmap .rm-rowlabel { padding: 12px 6px 12px 2px; }
+  #dgu-roadmap .rm-rowlabel b { font-size: 13px; }
+  #dgu-roadmap .rm-rowlabel span { font-size: 11px; }
+  #dgu-roadmap .rm-rowlabel em { display: none; }
+  #dgu-roadmap .rm-modal { padding: 0; align-items: flex-end; }
+  #dgu-roadmap .rm-modal-panel { max-width: none; max-height: 92vh; border-radius: 20px 20px 0 0; animation: rm-sheet .22s ease-out; }
+  @keyframes rm-sheet { from { transform: translateY(40px); opacity: .4; } }
+  #dgu-roadmap .rm-m-body { padding: 16px 18px 24px; }
+  #dgu-roadmap .rm-m-title { font-size: 20px; }
+  #dgu-roadmap .rm-facts { grid-template-columns: 1fr 1fr; }
+  #dgu-roadmap .rm-facts .rm-fact:last-child { grid-column: 1 / -1; }
+  #dgu-roadmap .rm-rel { grid-template-columns: 1fr; }
+  #dgu-roadmap .rm-semrow { grid-template-columns: 80px 1fr; }
+  #dgu-roadmap .rm-semrow em { grid-column: 2; }
+  #dgu-roadmap .rm-docs .rm-btn { flex: 1 1 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #dgu-roadmap * { animation: none !important; transition: none !important; }
+}
+
+</style>
+<div id="dgu-roadmap" class="rm" lang="ru">
+  <header class="rm-head">
+    <div class="rm-eyebrow">Дагестанский государственный университет · <span data-rm="faculty"></span></div>
+    <h1 class="rm-title">Дорожная карта обучения</h1>
+    <div class="rm-switch" role="tablist" aria-label="Направление подготовки"></div>
+    <div class="rm-program">
+      <div class="rm-program-name" data-rm="name"></div>
+      <div class="rm-program-profile" data-rm="profile"></div>
+    </div>
+    <ul class="rm-stats" data-rm="stats"></ul>
+    <div class="rm-links" data-rm="links"></div>
+  </header>
+
+  <section class="rm-panel">
+    <div class="rm-toolbar">
+      <div class="rm-tracks" role="group" aria-label="Показать направление" data-rm="tracks"></div>
+      <label class="rm-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" placeholder="Найти дисциплину" aria-label="Найти дисциплину" data-rm="search">
+      </label>
+    </div>
+    <div class="rm-legend" aria-hidden="true">
+      <span><i class="rm-lg rm-lg--card"></i>Дисциплина</span>
+      <span><i class="rm-lg rm-lg--choice"></i>По выбору: одна из двух</span>
+      <span><i class="rm-lg rm-lg--practice"></i>Практика</span>
+      <span><i class="rm-lg rm-lg--optional"></i>Факультатив</span>
+      <span><i class="rm-lg rm-lg--arrow"></i>Связь: знания нужны дальше</span>
+    </div>
+    <p class="rm-hint" data-rm="hint">Нажмите на блок, чтобы открыть подробности. Наведите курсор — подсветится вся цепочка связей.</p>
+    <div class="rm-focusbar" data-rm="focusbar">
+      <span>Показана цепочка: <b data-rm="focusname"></b></span>
+      <button type="button" class="rm-btn rm-btn--ghost" data-rm="unfocus">Показать всё</button>
+    </div>
+
+    <div class="rm-scroll" data-rm="scroll">
+      <div class="rm-tree" data-rm="tree">
+        <svg class="rm-edges" data-rm="edges" aria-hidden="true"></svg>
+        <div class="rm-grid" data-rm="grid"></div>
+      </div>
+    </div>
+
+    <p class="rm-note">Блоки и семестры — по утверждённому учебному плану. Стрелки показывают логику обучения: какие дисциплины готовят к следующим. Они составлены по плану и содержанию дисциплин и носят рекомендательный характер. Рабочие программы и оценочные средства открываются из ЭОР ДГУ.</p>
+  </section>
+
+  <div class="rm-modal" data-rm="modal" aria-hidden="true">
+    <div class="rm-modal-backdrop" data-rm="close"></div>
+    <div class="rm-modal-panel" role="dialog" aria-modal="true" aria-labelledby="rm-modal-title" tabindex="-1" data-rm="panel"></div>
+  </div>
+</div>
+
+<script>
+window.DGU_ROADMAP_DATA={"programs":[{"id":"isit","meta":{"code":"09.03.02","short":"ИСИТ","title":"Информационные системы и технологии","profile":"Технологии разработки безопасного программного обеспечения информационных систем","faculty":"Факультет информатики и информационных технологий","level":"Бакалавриат","qualification":"Бакалавр","form":"Очная","years":4,"startYear":2026,"fgos":"ФГОС ВО № 926 от 19.09.2017","approved":"Учёный совет ДГУ, протокол № 5 от 29.01.2026","taskTypes":["научно-исследовательский (основной)","производственно-технологический"],"planUrl":"https://dgu.ru/files-oop/10062026_104111_Ucheb_plan_Napr_09_03_02_ISIT_TRBPOIS_Ochn_2026.pdf","eorUrl":"https://oop.dgu.ru/sved/eor.html?profileId=16456"},"tracks":[{"id":"math","name":"Математика и физика"},{"id":"prog","name":"Программирование"},{"id":"data","name":"Данные и ИИ"},{"id":"sys","name":"Системы и сети"},{"id":"sec","name":"Безопасность"},{"id":"prac","name":"Практика и ВКР"},{"id":"gen","name":"Общая подготовка"}],"nodes":[{"code":"Б1.О.01.01","name":"Философия","short":"Философия","kind":"core","part":"Обязательная часть","counted":true,"sems":[4],"ze":3,"hours":108,"hoursBy":{"lec":28,"lab":0,"pr":30,"self":50,"control":0},"perSem":[{"sem":4,"ze":3,"forms":["Зачёт"],"lec":28,"lab":null,"pr":30,"self":50,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/30062026_031922_20263006fiit65-1.pdf","fos":"https://oop.dgu.ru/sved/files-oop/30062026_041622_FOS_20260630fiit65-1.pdf","module":"Общеобразовательный модуль","track":"gen","start":4},{"code":"Б1.О.01.02","name":"История России","short":"История России","kind":"core","part":"Обязательная часть","counted":true,"sems":[1,2],"ze":4,"hours":144,"hoursBy":{"lec":58,"lab":0,"pr":58,"self":28,"control":0},"perSem":[{"sem":1,"ze":2,"forms":["Зачёт"],"lec":30,"lab":null,"pr":30,"self":12,"control":null},{"sem":2,"ze":2,"forms":["Зачёт с оценкой"],"lec":28,"lab":null,"pr":28,"self":16,"control":null}],"forms":["Зачёт","Зачёт с оценкой"],"rpd":"https://oop.dgu.ru/sved/files-oop/06072026_005310_20260607fiit65-3.pdf","fos":"https://oop.dgu.ru/sved/files-oop/06072026_525710_FOS_20260607fiit65-3.pdf","module":"Общеобразовательный модуль","track":"gen","start":1},{"code":"Б1.О.01.03","name":"Правоведение","short":"Правоведение","kind":"core","part":"Обязательная часть","counted":true,"sems":[2],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":14,"self":42,"control":0},"perSem":[{"sem":2,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":14,"self":42,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/27102026_324711_20261027fiit65-1.pdf","fos":"https://oop.dgu.ru/sved/files-oop/27102026_493611_FOS20261027fiit65-1.pdf","module":"Общеобразовательный модуль","track":"gen","start":2},{"code":"Б1.О.01.04","name":"Менеджмент","short":"Менеджмент","kind":"core","part":"Обязательная часть","counted":true,"sems":[3],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":14,"self":42,"control":0},"perSem":[{"sem":3,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":14,"self":42,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/15072026_243717_20261507fiit65-2.pdf","fos":"https://oop.dgu.ru/sved/files-oop/15072026_493717_FOS_20261507fiit65-2.pdf","module":"Общеобразовательный модуль","track":"gen","start":3},{"code":"Б1.О.01.05","name":"Управление персоналом","short":"Управление персоналом","kind":"core","part":"Обязательная часть","counted":true,"sems":[7],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":14,"self":42,"control":0},"perSem":[{"sem":7,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":14,"self":42,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/30062026_534022_20263006fiit65-3.pdf","fos":"https://oop.dgu.ru/sved/files-oop/30062026_473822_FOS_20263006fiit65-3.pdf","module":"Общеобразовательный модуль","track":"gen","start":7},{"code":"Б1.О.01.06","name":"Религиоведение","short":"Религиоведение","kind":"core","part":"Обязательная часть","counted":true,"sems":[3],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":14,"self":42,"control":0},"perSem":[{"sem":3,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":14,"self":42,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/27082026_464014_15102025_105914_20251015fiit65-3.docx","fos":"https://oop.dgu.ru/sved/files-oop/22072026_581911_FOS_20262207fiit65-2.pdf","module":"Общеобразовательный модуль","track":"gen","start":3},{"code":"Б1.О.01.07","name":"Экономика","short":"Экономика","kind":"core","part":"Обязательная часть","counted":true,"sems":[2],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":16,"self":40,"control":0},"perSem":[{"sem":2,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":16,"self":40,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/06072026_400311_20260607fiit65-6.pdf","fos":"https://oop.dgu.ru/sved/files-oop/06072026_220511_FOS_20260607fiit65-5.pdf","module":"Общеобразовательный модуль","track":"gen","start":2},{"code":"Б1.О.01.08","name":"Основы российской государственности","short":"Основы российской государственности","kind":"core","part":"Обязательная часть","counted":true,"sems":[1],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":16,"self":40,"control":0},"perSem":[{"sem":1,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":16,"self":40,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/06072026_273510_20260607fiit65-2.pdf","fos":"https://oop.dgu.ru/sved/files-oop/06072026_334110_FOS_20260607fiit65-1.pdf","module":"Общеобразовательный модуль","track":"gen","start":1},{"code":"Б1.О.02.01","name":"Основы военной подготовки","short":"Основы военной подготовки","kind":"core","part":"Обязательная часть","counted":true,"sems":[4],"ze":2,"hours":72,"hoursBy":{"lec":28,"lab":0,"pr":28,"self":16,"control":0},"perSem":[{"sem":4,"ze":2,"forms":["Зачёт"],"lec":28,"lab":null,"pr":28,"self":16,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/08072026_484211_RP_OSN.docx","fos":"https://oop.dgu.ru/sved/files-oop/08072026_264311_FOS_Osn.docx","module":"Модуль: Безопасность жизнедеятельности","track":"gen","start":4},{"code":"Б1.О.02.02","name":"Безопасность жизнедеятельности","short":"Безопасность жизнедеятельности","kind":"core","part":"Обязательная часть","counted":true,"sems":[3],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":14,"self":42,"control":0},"perSem":[{"sem":3,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":14,"self":42,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/30062026_245822_20263006fiit65-5.pdf","fos":"https://oop.dgu.ru/sved/files-oop/30062026_251423_FOS_20263006fiit65-5.pdf","module":"Модуль: Безопасность жизнедеятельности","track":"gen","start":3},{"code":"Б1.О.03.01","name":"Иностранный язык (базовый курс)","short":"Иностранный язык","kind":"core","part":"Обязательная часть","counted":true,"sems":[1,2,3,4],"ze":10,"hours":360,"hoursBy":{"lec":0,"lab":0,"pr":192,"self":168,"control":0},"perSem":[{"sem":1,"ze":2,"forms":[],"lec":null,"lab":null,"pr":48,"self":24,"control":null},{"sem":2,"ze":2,"forms":["Зачёт"],"lec":null,"lab":null,"pr":48,"self":24,"control":null},{"sem":3,"ze":2,"forms":[],"lec":null,"lab":null,"pr":48,"self":24,"control":null},{"sem":4,"ze":4,"forms":["Зачёт с оценкой"],"lec":null,"lab":null,"pr":48,"self":96,"control":null}],"forms":["Зачёт","Зачёт с оценкой"],"rpd":"https://oop.dgu.ru/sved/files-oop/30062026_543223_20263006fiit65-7.pdf","fos":"https://oop.dgu.ru/sved/files-oop/30062026_364023_FOS_20263006fiit65-8.pdf","module":"Модуль: Коммуникация","track":"gen","start":1},{"code":"Б1.О.03.02","name":"Русский язык и культура речи","short":"Русский язык и культура речи","kind":"core","part":"Обязательная часть","counted":true,"sems":[1],"ze":2,"hours":72,"hoursBy":{"lec":0,"lab":0,"pr":32,"self":40,"control":0},"perSem":[{"sem":1,"ze":2,"forms":["Зачёт"],"lec":null,"lab":null,"pr":32,"self":40,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/08072026_275211_20260807fiit65-2.pdf","fos":"https://oop.dgu.ru/sved/files-oop/08072026_423811_FOS_20260807fiit65-1.pdf","module":"Модуль: Коммуникация","track":"gen","start":1},{"code":"Б1.О.04.01","name":"Введение в информационные технологии","short":"Введение в информационные технологии","kind":"core","part":"Обязательная часть","counted":true,"sems":[1],"ze":3,"hours":108,"hoursBy":{"lec":0,"lab":34,"pr":0,"self":38,"control":36},"perSem":[{"sem":1,"ze":3,"forms":["Экзамен"],"lec":null,"lab":34,"pr":null,"self":38,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/01072026_095522_05092025_134510_RPVVedenueVitIsit26.doc","fos":"https://oop.dgu.ru/sved/files-oop/01072026_140123_05092025_294610_FOSVVedenieVitIsit2026.docx","module":"Модуль: Информационные технологии","track":"data","start":1},{"code":"Б1.О.04.02","name":"Системы искусственного интеллекта","short":"Системы искусственного интеллекта","kind":"core","part":"Обязательная часть","counted":true,"sems":[3],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":16,"self":40,"control":0},"perSem":[{"sem":3,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":16,"self":40,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/01072026_520223_08092025_312413_RP_SII_isit-26.docx","fos":"https://oop.dgu.ru/sved/files-oop/01072026_360523_08092025_352013_FOS_SII_Isit_2026.docx","module":"Модуль: Информационные технологии","track":"data","start":3},{"code":"Б1.О.05.01","name":"Математический анализ","short":"Математический анализ","kind":"core","part":"Обязательная часть","counted":true,"sems":[1,2],"ze":8,"hours":288,"hoursBy":{"lec":66,"lab":0,"pr":50,"self":136,"control":36},"perSem":[{"sem":1,"ze":3,"forms":["Зачёт"],"lec":32,"lab":null,"pr":16,"self":60,"control":null},{"sem":2,"ze":5,"forms":["Экзамен"],"lec":34,"lab":null,"pr":34,"self":76,"control":36}],"forms":["Экзамен","Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_190517_20260207fiit65-2.pdf","fos":"https://oop.dgu.ru/sved/files-oop/02072026_470517_FOS_20260207fiit65-2.pdf","module":"Базовый модуль направления","track":"math","start":1},{"code":"Б1.О.05.02","name":"Алгебра и геометрия","short":"Алгебра и геометрия","kind":"core","part":"Обязательная часть","counted":true,"sems":[3],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":16,"self":40,"control":0},"perSem":[{"sem":3,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":16,"self":40,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/01072026_432300_20263006fiit65-11.pdf","fos":"https://oop.dgu.ru/sved/files-oop/01072026_402500_FOS_20263006fiit65-11.pdf","module":"Базовый модуль направления","track":"math","start":3},{"code":"Б1.О.05.03","name":"Методы анализа и обработки данных","short":"Методы анализа и обработки данных","kind":"core","part":"Обязательная часть","counted":true,"sems":[4],"ze":4,"hours":144,"hoursBy":{"lec":16,"lab":0,"pr":32,"self":60,"control":36},"perSem":[{"sem":4,"ze":4,"forms":["Экзамен"],"lec":16,"lab":null,"pr":32,"self":60,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/27082026_434714_15092025_094518_методы_анализа_25.docx","fos":"https://oop.dgu.ru/sved/files-oop/27082026_554214_21102025_502217_FOS_MAOID_ISIT2025.docx","module":"Базовый модуль направления","track":"data","start":4},{"code":"Б1.О.05.04","name":"Вычислительная математика","short":"Вычислительная математика","kind":"core","part":"Обязательная часть","counted":true,"sems":[3],"ze":3,"hours":108,"hoursBy":{"lec":16,"lab":0,"pr":16,"self":76,"control":0},"perSem":[{"sem":3,"ze":3,"forms":["Зачёт"],"lec":16,"lab":null,"pr":16,"self":76,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/07072026_033516_20260707fiit65-5.pdf","fos":"https://oop.dgu.ru/sved/files-oop/07072026_473816_FOS_20260707fiit65-4.pdf","module":"Базовый модуль направления","track":"math","start":3},{"code":"Б1.О.05.05","name":"Физика","short":"Физика","kind":"core","part":"Обязательная часть","counted":true,"sems":[1,2],"ze":8,"hours":288,"hoursBy":{"lec":50,"lab":68,"pr":0,"self":134,"control":36},"perSem":[{"sem":1,"ze":3,"forms":["Зачёт"],"lec":18,"lab":36,"pr":null,"self":54,"control":null},{"sem":2,"ze":5,"forms":["Экзамен"],"lec":32,"lab":32,"pr":null,"self":80,"control":36}],"forms":["Экзамен","Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/01072026_111300_20263006fiit65-10.pdf","fos":"https://oop.dgu.ru/sved/files-oop/01072026_011600_FOS_20263006fiit65-9.pdf","module":"Базовый модуль направления","track":"math","start":1},{"code":"Б1.О.05.06","name":"Схемотехника и электроника","short":"Схемотехника и электроника","kind":"core","part":"Обязательная часть","counted":true,"sems":[6],"ze":4,"hours":144,"hoursBy":{"lec":32,"lab":32,"pr":18,"self":62,"control":0},"perSem":[{"sem":6,"ze":4,"forms":["Зачёт"],"lec":32,"lab":32,"pr":18,"self":62,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/07072026_544411_20260707fiit65-2.pdf","fos":"https://oop.dgu.ru/sved/files-oop/07072026_114811_FOS_20260707fiit65-1.pdf","module":"Базовый модуль направления","track":"sys","start":6},{"code":"Б1.О.05.07","name":"Теория информации, данные, знания","short":"Теория информации, данные, знания","kind":"core","part":"Обязательная часть","counted":true,"sems":[4],"ze":4,"hours":144,"hoursBy":{"lec":16,"lab":0,"pr":32,"self":96,"control":0},"perSem":[{"sem":4,"ze":4,"forms":["Зачёт"],"lec":16,"lab":null,"pr":32,"self":96,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/11092026_055013_RP_TI_26.pdf","fos":"https://oop.dgu.ru/sved/files-oop/11092026_405213_FOS_TI_26.pdf","module":"Базовый модуль направления","track":"data","start":4},{"code":"Б1.О.05.08","name":"Архитектура информационных систем","short":"Архитектура информационных систем","kind":"core","part":"Обязательная часть","counted":true,"sems":[8],"ze":4,"hours":144,"hoursBy":{"lec":18,"lab":16,"pr":0,"self":110,"control":0},"perSem":[{"sem":8,"ze":4,"forms":["Зачёт"],"lec":18,"lab":16,"pr":null,"self":110,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/06072026_132911_z_RP_AIS_ISIT2026.docx","fos":"https://oop.dgu.ru/sved/files-oop/06072026_073311_Z_FOS_AIS_ISIT2026_(1).docx","module":"Базовый модуль направления","track":"sys","start":8},{"code":"Б1.О.05.09","name":"Информационные технологии и программирование","short":"ИТ и программирование","kind":"core","part":"Обязательная часть","counted":true,"sems":[1],"ze":5,"hours":180,"hoursBy":{"lec":36,"lab":18,"pr":0,"self":90,"control":36},"perSem":[{"sem":1,"ze":5,"forms":["Экзамен"],"lec":36,"lab":18,"pr":null,"self":90,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/01072026_051423_15092025_300209_20250915fiit65-3R.docx","fos":"https://oop.dgu.ru/sved/files-oop/01072026_351523_15092025_082109_FOS20250915fiit65-2F.docx","module":"Базовый модуль направления","track":"prog","start":1},{"code":"Б1.О.05.10","name":"Методы и средства проектирования информационных систем","short":"Методы и средства проектирования ИС","kind":"core","part":"Обязательная часть","counted":true,"sems":[6],"ze":4,"hours":144,"hoursBy":{"lec":18,"lab":18,"pr":0,"self":108,"control":0},"perSem":[{"sem":6,"ze":4,"forms":["Зачёт"],"lec":18,"lab":18,"pr":null,"self":108,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/06072026_584211_z_RP_MIS_PIS_26.docx","fos":"https://oop.dgu.ru/sved/files-oop/06072026_254311_z_FOS_MIS_PIC_266.docx","module":"Базовый модуль направления","track":"sys","start":6},{"code":"Б1.О.05.11","name":"Информационная безопасность и защита информации","short":"Информационная безопасность и защита информации","kind":"core","part":"Обязательная часть","counted":true,"sems":[5],"ze":4,"hours":144,"hoursBy":{"lec":28,"lab":32,"pr":0,"self":84,"control":0},"perSem":[{"sem":5,"ze":4,"forms":["Зачёт"],"lec":28,"lab":32,"pr":null,"self":84,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/01072026_462923_12092025_111616_20250912fiit65-5IBIZI.docx","fos":"https://oop.dgu.ru/sved/files-oop/01072026_183123_12092025_262516_FOS20250912fiit65-5ibizi.docx","module":"Базовый модуль направления","track":"sec","start":5},{"code":"Б1.О.05.12","name":"Вычислительные сети","short":"Вычислительные сети","kind":"core","part":"Обязательная часть","counted":true,"sems":[6],"ze":5,"hours":180,"hoursBy":{"lec":32,"lab":32,"pr":32,"self":48,"control":36},"perSem":[{"sem":6,"ze":5,"forms":["Экзамен"],"lec":32,"lab":32,"pr":32,"self":48,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/21082026_310213_РП_ВЫЧИСЛИТЕЛЬНЫЕ_СЕТИ_ИСиТ_2026.pdf","fos":"https://oop.dgu.ru/sved/files-oop/06072026_462316_ФОС_Вычислительные_сети_ИСИТ_2026_1.pdf","module":"Базовый модуль направления","track":"sys","start":6},{"code":"Б1.О.05.13","name":"Технологии программирования","short":"Технологии программирования","kind":"core","part":"Обязательная часть","counted":true,"sems":[4],"ze":4,"hours":144,"hoursBy":{"lec":32,"lab":32,"pr":0,"self":44,"control":36},"perSem":[{"sem":4,"ze":4,"forms":["Экзамен"],"lec":32,"lab":32,"pr":null,"self":44,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/06072026_150612_z_RP_TIMPR_isit_26_(1).docx","fos":"https://oop.dgu.ru/sved/files-oop/06072026_400612_z_FOS_TIMPR_isit_26_(1).docx","module":"Базовый модуль направления","track":"prog","start":4},{"code":"Б1.О.05.14","name":"Алгоритмы и структуры данных","short":"Алгоритмы и структуры данных","kind":"core","part":"Обязательная часть","counted":true,"sems":[2],"ze":5,"hours":180,"hoursBy":{"lec":32,"lab":32,"pr":0,"self":80,"control":36},"perSem":[{"sem":2,"ze":5,"forms":["Экзамен"],"lec":32,"lab":32,"pr":null,"self":80,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/06072026_301312_z_RP_AD_tagudin_2026_(1).docx","fos":"https://oop.dgu.ru/sved/files-oop/06072026_451312_z_FOS_ISIT_AISD_26_(1).docx","module":"Базовый модуль направления","track":"prog","start":2},{"code":"Б1.В.01.01","name":"Информатика и программирование на языке Python","short":"Информатика и программирование на языке Python","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[1,2],"ze":8,"hours":288,"hoursBy":{"lec":48,"lab":46,"pr":0,"self":122,"control":72},"perSem":[{"sem":1,"ze":4,"forms":["Экзамен"],"lec":30,"lab":28,"pr":null,"self":50,"control":36},{"sem":2,"ze":4,"forms":["Экзамен"],"lec":18,"lab":18,"pr":null,"self":72,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/11092026_064513_RP_Python_220.pdf","fos":"https://oop.dgu.ru/sved/files-oop/08072025_291022_FOS_PROG_ISIT25.pdf","module":"Модуль профильной направленности","track":"prog","start":1},{"code":"Б1.В.01.02","name":"Операционные системы","short":"Операционные системы","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[7,8],"ze":9,"hours":324,"hoursBy":{"lec":60,"lab":60,"pr":28,"self":140,"control":36},"perSem":[{"sem":7,"ze":4,"forms":[],"lec":28,"lab":28,"pr":28,"self":60,"control":null},{"sem":8,"ze":5,"forms":["Экзамен"],"lec":32,"lab":32,"pr":null,"self":80,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_160718_15092025_114312_20250915fiit65-9.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_440818_15092025_335313_FOS20250915fiit65-7_(1).docx","module":"Модуль профильной направленности","track":"sys","start":7},{"code":"Б1.В.01.03","name":"Защита программ и данных","short":"Защита программ и данных","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[5],"ze":5,"hours":180,"hoursBy":{"lec":28,"lab":32,"pr":0,"self":48,"control":36},"perSem":[{"sem":5,"ze":5,"forms":["Экзамен"],"lec":28,"lab":32,"pr":null,"self":48,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_361118_15092025_523016_20250915fiit65-12r-tr.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_121318_15092025_563616_FOS20250915fiit65-10аf.docx","module":"Модуль профильной направленности","track":"sec","start":5},{"code":"Б1.В.01.04","name":"Компьютерная геометрия и графика","short":"Компьютерная геометрия и графика","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[7],"ze":5,"hours":180,"hoursBy":{"lec":28,"lab":28,"pr":28,"self":60,"control":36},"perSem":[{"sem":7,"ze":5,"forms":["Экзамен"],"lec":28,"lab":28,"pr":28,"self":60,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_221518_15092025_000509_20250915fiit65-4r.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_451618_15092025_062309_FOS20250915fiit65-3_(1).docx","module":"Модуль профильной направленности","track":"prog","start":7},{"code":"Б1.В.01.05","name":"Физические основы построения ЭВМ","short":"Физические основы построения ЭВМ","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[1],"ze":3,"hours":108,"hoursBy":{"lec":16,"lab":16,"pr":0,"self":76,"control":0},"perSem":[{"sem":1,"ze":3,"forms":["Зачёт"],"lec":16,"lab":16,"pr":null,"self":76,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_221818_08092025_021313_RP_FIZ_osn_isit_2025.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_251918_08092025_422713_Fos_Tagudin_2025.docx","module":"Модуль профильной направленности","track":"sys","start":1},{"code":"Б1.В.01.06","name":"Роботизированные комплексы и системы","short":"Роботизированные комплексы и системы","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[4],"ze":5,"hours":180,"hoursBy":{"lec":32,"lab":32,"pr":0,"self":80,"control":36},"perSem":[{"sem":4,"ze":5,"forms":["Экзамен"],"lec":32,"lab":32,"pr":null,"self":80,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_212018_15092025_081409_20250915fiit65-7_(1).docx","fos":"https://oop.dgu.ru/sved/files-oop/21082026_412811_Роботизированные_комплексы_и_системы_ФОС_ИСиТ.pdf","module":"Модуль профильной направленности","track":"sys","start":4},{"code":"Б1.В.01.07","name":"Системы управления базами данных","short":"Системы управления базами данных","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[3],"ze":4,"hours":144,"hoursBy":{"lec":32,"lab":32,"pr":32,"self":12,"control":36},"perSem":[{"sem":3,"ze":4,"forms":["Экзамен"],"lec":32,"lab":32,"pr":32,"self":12,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_282218_15092025_270219_субд_2025_(1).docx","fos":"https://oop.dgu.ru/sved/files-oop/15092025_460219_фос_субд_2025.docx","module":"Модуль профильной направленности","track":"data","start":3},{"code":"Б1.В.01.08","name":"Администрирование информационных систем","short":"Администрирование информационных систем","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[5],"ze":4,"hours":144,"hoursBy":{"lec":28,"lab":32,"pr":28,"self":56,"control":0},"perSem":[{"sem":5,"ze":4,"forms":["Зачёт"],"lec":28,"lab":32,"pr":28,"self":56,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_282418_14092025_091522_РП_Аминистрирование_ИС.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_472518_14092025_041222_Администрирование_а_ИС_2025_ИСИТ_(1).docx","module":"Модуль профильной направленности","track":"sys","start":5},{"code":"Б1.В.01.09","name":"Программирование на языке высокого уровня","short":"Программирование на языке высокого уровня","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[2,3],"ze":6,"hours":216,"hoursBy":{"lec":34,"lab":50,"pr":0,"self":96,"control":36},"perSem":[{"sem":2,"ze":2,"forms":["Зачёт"],"lec":18,"lab":18,"pr":null,"self":36,"control":null},{"sem":3,"ze":4,"forms":["Экзамен","Курсовая работа"],"lec":16,"lab":32,"pr":null,"self":60,"control":36}],"forms":["Экзамен","Зачёт","Курсовая работа"],"rpd":"https://oop.dgu.ru/sved/files-oop/08072026_010412_z_RPProgrammISIT25_(2).docx","fos":"https://oop.dgu.ru/sved/files-oop/08072026_170412_FOS_C++26.docx","module":"Модуль профильной направленности","track":"prog","start":2},{"code":"Б1.В.01.10","name":"Разработка Интернет приложений","short":"Разработка интернет-приложений","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[7],"ze":5,"hours":180,"hoursBy":{"lec":28,"lab":28,"pr":28,"self":60,"control":36},"perSem":[{"sem":7,"ze":5,"forms":["Экзамен","Курсовая работа"],"lec":28,"lab":28,"pr":28,"self":60,"control":36}],"forms":["Экзамен","Курсовая работа"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_262918_15092025_414416_20250915fiit65-13.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_023018_15092025_445016_FOS20250915fiit65-11.docx","module":"Модуль профильной направленности","track":"prog","start":7},{"code":"Б1.В.01.11","name":"Управление данными","short":"Управление данными","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[4],"ze":4,"hours":144,"hoursBy":{"lec":32,"lab":32,"pr":0,"self":44,"control":36},"perSem":[{"sem":4,"ze":4,"forms":["Экзамен"],"lec":32,"lab":32,"pr":null,"self":44,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_283118_15092025_000017_20250915fiit65-14.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_213218_15092025_081017_FOS20250915fiit65-12.docx","module":"Модуль профильной направленности","track":"data","start":4},{"code":"Б1.В.01.12","name":"Объектно-ориентированное программирование на JAVA","short":"ООП на Java","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[7],"ze":4,"hours":144,"hoursBy":{"lec":28,"lab":28,"pr":28,"self":60,"control":0},"perSem":[{"sem":7,"ze":4,"forms":["Зачёт"],"lec":28,"lab":28,"pr":28,"self":60,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/11092026_365613_RP_OOP_Java_26.pdf","fos":"https://oop.dgu.ru/sved/files-oop/11092026_545613_FOS_OOP_Java_26.pdf","module":"Модуль профильной направленности","track":"prog","start":7},{"code":"Б1.В.01.13","name":"Большие данные","short":"Большие данные","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[6],"ze":5,"hours":180,"hoursBy":{"lec":18,"lab":32,"pr":16,"self":78,"control":36},"perSem":[{"sem":6,"ze":5,"forms":["Экзамен"],"lec":18,"lab":32,"pr":16,"self":78,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_173818_15092025_110619_большие_данные_2025.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_263918_15092025_230819_фос_большие_данные_2025.docx","module":"Модуль профильной направленности","track":"data","start":6},{"code":"Б1.В.01.14","name":"Экономико-правовые основы инженерной деятельности","short":"Экономико-правовые основы инженерной деятельности","kind":"variable","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[6],"ze":2,"hours":72,"hoursBy":{"lec":18,"lab":0,"pr":18,"self":36,"control":0},"perSem":[{"sem":6,"ze":2,"forms":["Зачёт"],"lec":18,"lab":null,"pr":18,"self":36,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/27082026_190215_21102025_184516_RP_2025.docx","fos":"https://oop.dgu.ru/sved/files-oop/27082026_460515_21102025_324516_FOS_2025.docx","module":"Модуль профильной направленности","track":"gen","start":6},{"code":"Б1.В.ДВ.01","name":"Дисциплина по выбору","short":"Дисциплина по выбору","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[6],"ze":5,"hours":180,"hoursBy":{"lec":32,"lab":32,"pr":0,"self":80,"control":36},"perSem":[{"sem":6,"ze":5,"forms":["Экзамен"],"lec":32,"lab":32,"pr":null,"self":80,"control":36}],"forms":["Экзамен"],"rpd":null,"fos":null,"options":[{"code":"Б1.В.ДВ.01.01","name":"Компьютерное моделирование в среде Matlab","short":"Моделирование в Matlab","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[6],"ze":5,"hours":180,"hoursBy":{"lec":32,"lab":32,"pr":0,"self":80,"control":36},"perSem":[{"sem":6,"ze":5,"forms":["Экзамен"],"lec":32,"lab":32,"pr":null,"self":80,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/21082026_422311_Компьютерное_моделирование_в_среде_Matlab_РПД_ИСиТ.pdf","fos":"https://oop.dgu.ru/sved/files-oop/21082026_033411_Компьютерное_моделирование_в_среде_Matlab_ФОС_ИСиТ.pdf"},{"code":"Б1.В.ДВ.01.02","name":"Интернет программирование","short":"Интернет программирование","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":false,"sems":[6],"ze":5,"hours":180,"hoursBy":{"lec":32,"lab":32,"pr":0,"self":80,"control":36},"perSem":[{"sem":6,"ze":5,"forms":["Экзамен"],"lec":32,"lab":32,"pr":null,"self":80,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/21082026_353111_Интернет_программирование_РПД_ИСиТ.pdf","fos":"https://oop.dgu.ru/sved/files-oop/21082026_043711_Интернет_программирование_ФОС_ИСиТ.pdf"}],"module":"Дисциплина по выбору","track":"prog","start":6},{"code":"Б1.В.ДВ.02","name":"Дисциплина по выбору","short":"Дисциплина по выбору","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[3],"ze":2,"hours":72,"hoursBy":{"lec":0,"lab":30,"pr":0,"self":42,"control":0},"perSem":[{"sem":3,"ze":2,"forms":["Зачёт"],"lec":null,"lab":30,"pr":null,"self":42,"control":null}],"forms":["Зачёт"],"rpd":null,"fos":null,"options":[{"code":"Б1.В.ДВ.02.01","name":"Цифровой практикум на Python","short":"Цифровой практикум на Python","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[3],"ze":2,"hours":72,"hoursBy":{"lec":0,"lab":30,"pr":0,"self":42,"control":0},"perSem":[{"sem":3,"ze":2,"forms":["Зачёт"],"lec":null,"lab":30,"pr":null,"self":42,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_354818_15092025_033617_20250915fiit65-16_(1).docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_314918_15092025_033917_FOS20250915fiit65-14.docx"},{"code":"Б1.В.ДВ.02.02","name":"Моделирование и программирование в среде Blender","short":"Моделирование в Blender","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":false,"sems":[3],"ze":2,"hours":72,"hoursBy":{"lec":0,"lab":30,"pr":0,"self":42,"control":0},"perSem":[{"sem":3,"ze":2,"forms":["Зачёт"],"lec":null,"lab":30,"pr":null,"self":42,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_195018_15092025_594317_20250915fiit65-17.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_055118_15092025_424717_FOS20250915fiit65-15.docx"}],"module":"Дисциплина по выбору","track":"prog","start":3},{"code":"Б1.В.ДВ.03","name":"Дисциплина по выбору","short":"Дисциплина по выбору","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[8],"ze":4,"hours":144,"hoursBy":{"lec":30,"lab":32,"pr":32,"self":14,"control":36},"perSem":[{"sem":8,"ze":4,"forms":["Экзамен"],"lec":30,"lab":32,"pr":32,"self":14,"control":36}],"forms":["Экзамен"],"rpd":null,"fos":null,"options":[{"code":"Б1.В.ДВ.03.01","name":"Безопасность сетей","short":"Безопасность сетей","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[8],"ze":4,"hours":144,"hoursBy":{"lec":30,"lab":32,"pr":32,"self":14,"control":36},"perSem":[{"sem":8,"ze":4,"forms":["Экзамен"],"lec":30,"lab":32,"pr":32,"self":14,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/15102026_054316_20261015fiit65-8.pdf","fos":"https://oop.dgu.ru/sved/files-oop/02072026_035318_14092025_115021_ФОС_БЕЗОПАСНОСТЬ_СЕТЕЙ_ИСИТ_2025.docx"},{"code":"Б1.В.ДВ.03.02","name":"Геоинформационные системы","short":"Геоинформационные системы","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":false,"sems":[8],"ze":4,"hours":144,"hoursBy":{"lec":30,"lab":32,"pr":32,"self":14,"control":36},"perSem":[{"sem":8,"ze":4,"forms":["Экзамен"],"lec":30,"lab":32,"pr":32,"self":14,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_425318_15092025_200009_20250915fiit65-2.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_065518_15092025_071909_FOS20250915fiit65-1.docx"}],"module":"Дисциплина по выбору","track":"sec","start":8},{"code":"Б1.В.ДВ.04","name":"Дисциплина по выбору","short":"Дисциплина по выбору","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[3],"ze":5,"hours":180,"hoursBy":{"lec":30,"lab":30,"pr":0,"self":84,"control":36},"perSem":[{"sem":3,"ze":5,"forms":["Экзамен"],"lec":30,"lab":30,"pr":null,"self":84,"control":36}],"forms":["Экзамен"],"rpd":null,"fos":null,"options":[{"code":"Б1.В.ДВ.04.01","name":"Перспективные технологии и языки веб-разработки","short":"Перспективные технологии веб-разработки","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[3],"ze":5,"hours":180,"hoursBy":{"lec":30,"lab":30,"pr":0,"self":84,"control":36},"perSem":[{"sem":3,"ze":5,"forms":["Экзамен"],"lec":30,"lab":30,"pr":null,"self":84,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_175618_15092025_151109_20250915fiit65-6.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_295718_15092025_593009_FOS20250915fiit65-5.docx"},{"code":"Б1.В.ДВ.04.02","name":"Электронный документооборот","short":"Электронный документооборот","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":false,"sems":[3],"ze":5,"hours":180,"hoursBy":{"lec":30,"lab":30,"pr":0,"self":84,"control":36},"perSem":[{"sem":3,"ze":5,"forms":["Экзамен"],"lec":30,"lab":30,"pr":null,"self":84,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_145818_09092025_505111_rpddokumentooborot_2025__ISIT.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_360019_09092025_333011_fos2025isitdokumentooborot.docx"}],"module":"Дисциплина по выбору","track":"prog","start":3},{"code":"Б1.В.ДВ.05","name":"Дисциплина по выбору","short":"Дисциплина по выбору","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[5],"ze":5,"hours":180,"hoursBy":{"lec":28,"lab":32,"pr":0,"self":84,"control":36},"perSem":[{"sem":5,"ze":5,"forms":["Экзамен"],"lec":28,"lab":32,"pr":null,"self":84,"control":36}],"forms":["Экзамен"],"rpd":null,"fos":null,"options":[{"code":"Б1.В.ДВ.05.01","name":"Инженерно-техническая защита информации","short":"Инженерно-техническая защита информации","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[5],"ze":5,"hours":180,"hoursBy":{"lec":28,"lab":32,"pr":0,"self":84,"control":36},"perSem":[{"sem":5,"ze":5,"forms":["Экзамен"],"lec":28,"lab":32,"pr":null,"self":84,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_420119_12092025_403516_20250912fiit65-6.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_440219_12092025_244016_FOS20250912fiit65-6.docx"},{"code":"Б1.В.ДВ.05.02","name":"Техническая защита информации","short":"Техническая защита информации","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":false,"sems":[5],"ze":5,"hours":180,"hoursBy":{"lec":28,"lab":32,"pr":0,"self":84,"control":36},"perSem":[{"sem":5,"ze":5,"forms":["Экзамен"],"lec":28,"lab":32,"pr":null,"self":84,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_270519_09092025_073812_RP_TZI_ISIT_2025.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_500619_09092025_084812_FOS_TZI_ISIT_2025.docx"}],"module":"Дисциплина по выбору","track":"sec","start":5},{"code":"Б1.В.ДВ.06","name":"Дисциплина по выбору","short":"Дисциплина по выбору","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[5],"ze":6,"hours":216,"hoursBy":{"lec":28,"lab":32,"pr":0,"self":120,"control":36},"perSem":[{"sem":5,"ze":6,"forms":["Экзамен"],"lec":28,"lab":32,"pr":null,"self":120,"control":36}],"forms":["Экзамен"],"rpd":null,"fos":null,"options":[{"code":"Б1.В.ДВ.06.01","name":"Разработка мобильных приложений","short":"Разработка мобильных приложений","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[5],"ze":6,"hours":216,"hoursBy":{"lec":28,"lab":32,"pr":0,"self":120,"control":36},"perSem":[{"sem":5,"ze":6,"forms":["Экзамен"],"lec":28,"lab":32,"pr":null,"self":120,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/11092026_311014_Rp_Aida-26.pdf","fos":"https://oop.dgu.ru/sved/files-oop/11092026_461014_FOS_Aida_26.pdf"},{"code":"Б1.В.ДВ.06.02","name":"Инструментальные средства в управлении проектами","short":"Инструменты управления проектами","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":false,"sems":[5],"ze":6,"hours":216,"hoursBy":{"lec":28,"lab":32,"pr":0,"self":120,"control":36},"perSem":[{"sem":5,"ze":6,"forms":["Экзамен"],"lec":28,"lab":32,"pr":null,"self":120,"control":36}],"forms":["Экзамен"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_480919_08092025_104609_20250908fiit65-1.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_331019_10092025_594111_FOS_ISIT_INSTRUM_2025.docx"}],"module":"Дисциплина по выбору","track":"prog","start":5},{"code":"Б1.В.ДВ.07","name":"Дисциплина по выбору","short":"Дисциплина по выбору","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[8],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":16,"self":40,"control":0},"perSem":[{"sem":8,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":16,"self":40,"control":null}],"forms":["Зачёт"],"rpd":null,"fos":null,"options":[{"code":"Б1.В.ДВ.07.01","name":"Метрология, стандартизация, сертификация и техническое документоведение","short":"Метрология, стандартизация и сертификация","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[8],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":16,"self":40,"control":0},"perSem":[{"sem":8,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":16,"self":40,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_381119_15092025_382819_метрология2025.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_131219_15092025_563019_фос_метрология2025.docx"},{"code":"Б1.В.ДВ.07.02","name":"Приборы и методы контроля информационных систем","short":"Приборы и методы контроля ИС","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":false,"sems":[8],"ze":2,"hours":72,"hoursBy":{"lec":16,"lab":0,"pr":16,"self":40,"control":0},"perSem":[{"sem":8,"ze":2,"forms":["Зачёт"],"lec":16,"lab":null,"pr":16,"self":40,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_321319_15092025_081819_приборы_и_методы_контр2025.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_171419_15092025_502019_фос_приборы_и_методы_контр2025.docx"}],"module":"Дисциплина по выбору","track":"sys","start":8},{"code":"Б1.В.ДВ.08","name":"Модуль мобильности","short":"Модуль мобильности","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[7],"ze":4,"hours":144,"hoursBy":{"lec":14,"lab":0,"pr":0,"self":130,"control":0},"perSem":[{"sem":7,"ze":4,"forms":["Зачёт"],"lec":14,"lab":null,"pr":null,"self":130,"control":null}],"forms":["Зачёт"],"rpd":null,"fos":null,"options":[{"code":"Б1.В.ДВ.08.01","name":"Технологии облачных вычислений (Онлайн-курс НОУ ИНТУИТ)","short":"Облачные вычисления (онлайн, ИНТУИТ)","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":true,"sems":[7],"ze":4,"hours":144,"hoursBy":{"lec":14,"lab":0,"pr":0,"self":130,"control":0},"perSem":[{"sem":7,"ze":4,"forms":["Зачёт"],"lec":14,"lab":null,"pr":null,"self":130,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_191519_15092025_331219_технология_облачных_выч_2025.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_171619_15092025_201519_фос_облачные_выч2025.docx"},{"code":"Б1.В.ДВ.08.02","name":"Физические основы информационных технологий (Онлайн-курс СПбГЭТУ «ЛЭТИ»)","short":"Физ. основы ИТ (онлайн, ЛЭТИ)","kind":"choice","part":"Часть, формируемая участниками образовательных отношений","counted":false,"sems":[7],"ze":4,"hours":144,"hoursBy":{"lec":14,"lab":0,"pr":0,"self":130,"control":0},"perSem":[{"sem":7,"ze":4,"forms":["Зачёт"],"lec":14,"lab":null,"pr":null,"self":130,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_141719_15092025_362319_физические_основы2025.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_591719_15092025_402519_фос_физические_основы2025.docx"}],"module":"Модуль мобильности","track":"sys","start":7},{"code":"К.М.01.01","name":"Физическая культура и спорт","short":"Физическая культура и спорт","kind":"sport","part":"Комплексный модуль: физическая культура и спорт","counted":true,"sems":[1,2],"ze":2,"hours":72,"hoursBy":{"lec":0,"lab":0,"pr":32,"self":40,"control":0},"perSem":[{"sem":1,"ze":1,"forms":[],"lec":null,"lab":null,"pr":16,"self":20,"control":null},{"sem":2,"ze":1,"forms":["Зачёт"],"lec":null,"lab":null,"pr":16,"self":20,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/03082026_171814_20260308fiit65-3.pdf","fos":"https://oop.dgu.ru/sved/files-oop/03082026_101514_FOS_20260308fiit65-3.pdf","module":"Комплексный модуль: физическая культура и спорт","track":"gen","start":1},{"code":"К.М.01.02","name":"Элективные дисциплины по физической культуре и спорту","short":"Элективы по физкультуре","kind":"sport","part":"Комплексный модуль: физическая культура и спорт","counted":true,"sems":[1,2,3,4,5,6,7],"ze":null,"hours":328,"hoursBy":{"lec":0,"lab":0,"pr":146,"self":182,"control":0},"perSem":[{"sem":1,"ze":null,"forms":[],"lec":null,"lab":null,"pr":16,"self":38,"control":null},{"sem":2,"ze":null,"forms":[],"lec":null,"lab":null,"pr":16,"self":38,"control":null},{"sem":3,"ze":null,"forms":[],"lec":null,"lab":null,"pr":32,"self":22,"control":null},{"sem":4,"ze":null,"forms":["Зачёт"],"lec":null,"lab":null,"pr":32,"self":22,"control":null},{"sem":5,"ze":null,"forms":[],"lec":null,"lab":null,"pr":16,"self":20,"control":null},{"sem":6,"ze":null,"forms":["Зачёт"],"lec":null,"lab":null,"pr":18,"self":18,"control":null},{"sem":7,"ze":null,"forms":["Зачёт"],"lec":null,"lab":null,"pr":16,"self":24,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/03082026_432014_20260308fiit65-4.pdf","fos":"https://oop.dgu.ru/sved/files-oop/03082026_221614_FOS_20260308fiit65-4.pdf","module":"Комплексный модуль: физическая культура и спорт","track":"gen","start":1},{"code":"Б2.О.О.01(У)","name":"Учебная практика, научно-исследовательская работа (получение первичных навыков научно-исследовательской работы)","short":"Учебная практика: НИР","kind":"practice","part":"Блок 2. Практика","counted":true,"sems":[5],"ze":6,"hours":216,"hoursBy":{"lec":0,"lab":0,"pr":0,"self":216,"control":0},"perSem":[{"sem":5,"ze":6,"forms":["Зачёт"],"lec":null,"lab":null,"pr":null,"self":216,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/09092026_391313_02072026_572219_05092025_395512_RP_UCHEB_Prak_ISIT.pdf","fos":"https://oop.dgu.ru/sved/files-oop/02072026_382319_05092025_452613_FOS_2025_UCHEB_PRAC_ISIT_NIR.docx","module":null,"track":"prac","start":5},{"code":"Б2.О.О.02(П)","name":"Производственная практика, научно-исследовательская работа","short":"Производственная практика: НИР","kind":"practice","part":"Блок 2. Практика","counted":true,"sems":[8],"ze":6,"hours":216,"hoursBy":{"lec":0,"lab":0,"pr":0,"self":216,"control":0},"perSem":[{"sem":8,"ze":6,"forms":["Зачёт с оценкой"],"lec":null,"lab":null,"pr":null,"self":216,"control":null}],"forms":["Зачёт с оценкой"],"rpd":"https://oop.dgu.ru/sved/files-oop/09092026_172514_02072026_062419_05092025_515311_RP_ISIT_PROIZ_NIR_2025.pdf","fos":"https://oop.dgu.ru/sved/files-oop/02072026_452519_05092025_550813_FOS_PRAK_NIR_ISIT_2025.docx","module":null,"track":"prac","start":8},{"code":"Б2.О.В.01(У)","name":"Учебная практика, технологическая(проектно-технологическая)","short":"Учебная практика: проектно-технологическая","kind":"practice","part":"Блок 2. Практика","counted":true,"sems":[7],"ze":6,"hours":216,"hoursBy":{"lec":0,"lab":0,"pr":0,"self":216,"control":0},"perSem":[{"sem":7,"ze":6,"forms":["Зачёт"],"lec":null,"lab":null,"pr":null,"self":216,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/09092026_522013_02072026_151919_05092025_395212_RR_UCheb_prakt_Tekhnolog_ISIT.pdf","fos":"https://oop.dgu.ru/sved/files-oop/02072026_561919_05092025_522013_FOS_2025_UCHEB_PRAC_ISIT.docx","module":null,"track":"prac","start":7},{"code":"Б2.О.В.02(П)","name":"Производственная практика, эксплуатационная","short":"Производственная практика: эксплуатационная","kind":"practice","part":"Блок 2. Практика","counted":true,"sems":[6],"ze":5,"hours":180,"hoursBy":{"lec":0,"lab":0,"pr":0,"self":180,"control":0},"perSem":[{"sem":6,"ze":5,"forms":["Зачёт"],"lec":null,"lab":null,"pr":null,"self":180,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/09092026_422214_02072026_032119_05092025_182012_RP_ISIT_PROIZ_PRAK_Yakspl2025.pdf","fos":"https://oop.dgu.ru/sved/files-oop/02072026_402119_05092025_593911_FOSPROIZPRAK_ISIT_24.docx","module":null,"track":"prac","start":6},{"code":"Б3.О.01(Д)","name":"Подготовка к процедуре защиты и защита выпускной квалификационной работы","short":"Защита выпускной квалификационной работы","kind":"gia","part":"Блок 3. Государственная итоговая аттестация","counted":true,"sems":[8],"ze":9,"hours":324,"hoursBy":{"lec":0,"lab":0,"pr":144,"self":180,"control":0},"perSem":[{"sem":8,"ze":9,"forms":[],"lec":null,"lab":null,"pr":144,"self":180,"control":null}],"forms":["Защита ВКР"],"rpd":"https://oop.dgu.ru/sved/files-oop/09092026_403614_Z_Ига_2026.pdf","fos":"https://oop.dgu.ru/sved/files-oop/09092026_424014_27082026_471015_21102025_365116_FosGiaIsit2025.pdf","module":null,"track":"prac","start":9},{"code":"ФТД.В.01","name":"Нейронные сети","short":"Нейронные сети","kind":"optional","part":"Факультатив (по желанию, не входит в 240 з.е.)","counted":true,"sems":[7],"ze":1,"hours":36,"hoursBy":{"lec":12,"lab":0,"pr":0,"self":24,"control":0},"perSem":[{"sem":7,"ze":1,"forms":["Зачёт"],"lec":12,"lab":null,"pr":null,"self":24,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_182819_21102025_292917_RP_NS_ISIT2025.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_362919_21102025_472917_FOS_NS_ISIT2025.docx","module":null,"track":"data","start":7},{"code":"ФТД.В.02","name":"IP-телефония","short":"IP-телефония","kind":"optional","part":"Факультатив (по желанию, не входит в 240 з.е.)","counted":true,"sems":[7],"ze":1,"hours":36,"hoursBy":{"lec":12,"lab":0,"pr":0,"self":24,"control":0},"perSem":[{"sem":7,"ze":1,"forms":["Зачёт"],"lec":12,"lab":null,"pr":null,"self":24,"control":null}],"forms":["Зачёт"],"rpd":"https://oop.dgu.ru/sved/files-oop/02072026_403019_21102025_252617_RP_IPTEL_ISIT2025.docx","fos":"https://oop.dgu.ru/sved/files-oop/02072026_003219_21102025_462617__FOS_IPTEL_ISIT2025.docx","module":null,"track":"sys","start":7}],"edges":[["Б1.О.05.09","Б1.О.05.14"],["Б1.В.01.01","Б1.В.01.09"],["Б1.В.01.01","Б1.В.ДВ.02"],["Б1.В.01.09","Б1.В.ДВ.04"],["Б1.О.05.14","Б1.О.05.13"],["Б1.В.01.09","Б1.О.05.13"],["Б1.О.05.13","Б1.В.ДВ.06"],["Б1.О.05.13","Б1.В.01.12"],["Б1.В.ДВ.04","Б1.В.ДВ.01"],["Б1.В.ДВ.01","Б1.В.01.10"],["Б1.О.05.02","Б1.В.01.04"],["Б1.О.04.01","Б1.О.04.02"],["Б1.О.04.01","Б1.В.01.07"],["Б1.В.01.07","Б1.В.01.11"],["Б1.О.04.02","Б1.О.05.03"],["Б1.В.01.11","Б1.В.01.13"],["Б1.О.05.03","Б1.В.01.13"],["Б1.О.05.03","ФТД.В.01"],["Б1.О.05.07","Б1.О.05.11"],["Б1.В.01.07","Б1.В.01.08"],["Б1.О.05.01","Б1.О.05.04"],["Б1.О.05.04","Б1.О.05.03"],["Б1.О.05.04","Б1.В.ДВ.01"],["Б1.О.05.05","Б1.О.05.06"],["Б1.О.05.05","Б1.В.ДВ.05"],["Б1.В.01.05","Б1.В.01.06"],["Б1.В.01.05","Б1.О.05.06"],["Б1.В.01.05","Б1.В.01.02"],["Б1.О.05.13","Б1.О.05.10"],["Б1.О.05.12","Б1.В.ДВ.08"],["Б1.О.05.12","ФТД.В.02"],["Б1.О.05.12","Б1.В.ДВ.03"],["Б1.О.05.10","Б1.О.05.08"],["Б1.В.01.02","Б1.О.05.08"],["Б1.О.05.06","Б1.В.ДВ.07"],["Б1.О.05.13","Б1.В.01.03"],["Б1.О.05.11","Б1.В.ДВ.03"],["Б1.В.01.08","Б2.О.В.02(П)"],["Б1.О.05.10","Б2.О.В.01(У)"],["Б2.О.О.01(У)","Б2.О.О.02(П)"],["Б2.О.О.02(П)","Б3.О.01(Д)"],["Б1.О.05.08","Б3.О.01(Д)"],["Б1.О.01.02","Б1.О.01.01"],["Б1.О.01.07","Б1.О.01.04"],["Б1.О.01.04","Б1.О.01.05"],["Б1.О.01.04","Б1.В.ДВ.06"],["Б1.О.01.03","Б1.В.01.14"],["Б1.О.01.07","Б1.В.01.14"]]}]};
+</script>
+<script>
+/* Дорожная карта ОП — ДГУ. Без зависимостей. Данные: window.DGU_ROADMAP_DATA */
+(function () {
+  'use strict';
+
+  var DATA = window.DGU_ROADMAP_DATA;
+  var root = document.getElementById('dgu-roadmap');
+  if (!root || !DATA || !DATA.programs || !DATA.programs.length) return;
+
+  var PALETTE = {
+    math:   { c: '#D97706', t: '#FEF3C7', d: '#92400E' },
+    prog:   { c: '#1D5FD6', t: '#DCE8FC', d: '#123E8C' },
+    data:   { c: '#0F9488', t: '#CCF2EC', d: '#0B5F57' },
+    sys:    { c: '#7C3AED', t: '#EDE7FD', d: '#4C1D95' },
+    sec:    { c: '#DC2626', t: '#FDE2E2', d: '#8F1D1D' },
+    crypto: { c: '#DB2777', t: '#FCE4F0', d: '#8A1747' },
+    prac:   { c: '#16A34A', t: '#DCF5E3', d: '#14532D' },
+    gen:    { c: '#64748B', t: '#EEF1F5', d: '#334155' }
+  };
+  var FALLBACK = PALETTE.gen;
+  var HOURS = [
+    ['lec', 'Лекции', '#1D5FD6'],
+    ['lab', 'Лабораторные', '#0F9488'],
+    ['pr', 'Практические', '#7C3AED'],
+    ['self', 'Самостоятельная работа', '#B6C2D4'],
+    ['control', 'Контроль', '#F59E0B']
+  ];
+  var SHORT_HOURS = { lec: 'лекции', lab: 'лаб.', pr: 'практ.', self: 'самост.', control: 'контроль' };
+  var NS = 'http://www.w3.org/2000/svg';
+  var ICON_DOC = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>';
+  var ICON_LINK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+  var ICON_X = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+
+  var mqNarrow = window.matchMedia('(max-width: 760px)');
+  var state = { pi: 0, track: 'all', query: '', hover: null, pinned: null };
+  var P, byCode, outAdj, inAdj, cardEls, edgeEls, lastOpener, prevOverflow;
+
+  // ---------- утилиты ----------
+  function $(name) { return root.querySelector('[data-rm="' + name + '"]'); }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+    });
+  }
+  function vars(track) { var p = PALETTE[track] || FALLBACK; return '--c:' + p.c + ';--t:' + p.t + ';--d:' + p.d; }
+  function color(track) { return (PALETTE[track] || FALLBACK).c; }
+  function plural(n, one, few, many) {
+    var m10 = n % 10, m100 = n % 100;
+    if (m10 === 1 && m100 !== 11) return one;
+    if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
+    return many;
+  }
+  function range(arr) { return arr.length > 1 ? arr[0] + '–' + arr[arr.length - 1] : String(arr[0]); }
+  function courses(sems) {
+    var c = sems.map(function (s) { return Math.ceil(s / 2); });
+    c = c.filter(function (v, i) { return c.indexOf(v) === i; });
+    return range(c) + ' курс';
+  }
+  function mainForm(n) {
+    if (n.kind === 'gia') return 'защита';
+    var f = n.forms || [];
+    if (f.indexOf('Экзамен') >= 0) return 'экзамен';
+    if (f.indexOf('Зачёт с оценкой') >= 0) return 'зачёт с оц.';
+    if (f.indexOf('Зачёт') >= 0) return 'зачёт';
+    return '';
+  }
+  function volume(n) { return n.ze ? n.ze + ' з.е.' : (n.hours ? n.hours + ' ч' : ''); }
+  function norm(s) { return String(s || '').toLowerCase().replace(/ё/g, 'е'); }
+
+  // ---------- данные программы ----------
+  function indexProgram() {
+    P = DATA.programs[state.pi];
+    byCode = {}; outAdj = {}; inAdj = {};
+    P.nodes.forEach(function (n) {
+      byCode[n.code] = { node: n, parent: null };
+      (n.options || []).forEach(function (o) { byCode[o.code] = { node: o, parent: n }; });
+    });
+    P.edges.forEach(function (e) {
+      (outAdj[e[0]] = outAdj[e[0]] || []).push(e[1]);
+      (inAdj[e[1]] = inAdj[e[1]] || []).push(e[0]);
+    });
+  }
+  function related(code) {
+    var set = {}; set[code] = true;
+    [outAdj, inAdj].forEach(function (adj) {
+      var stack = [code];
+      while (stack.length) {
+        var c = stack.pop();
+        (adj[c] || []).forEach(function (x) { if (!set[x]) { set[x] = true; stack.push(x); } });
+      }
+    });
+    return set;
+  }
+  function matches(n, q) {
+    if (!q) return false;
+    var hay = norm(n.name + ' ' + n.short + ' ' + n.code);
+    (n.options || []).forEach(function (o) { hay += ' ' + norm(o.name + ' ' + o.short); });
+    return hay.indexOf(q) >= 0;
+  }
+
+  // ---------- шапка ----------
+  function renderHeader() {
+    var m = P.meta;
+    $('faculty').textContent = m.faculty;
+    $('name').textContent = m.code + ' ' + m.title;
+    $('profile').textContent = 'Направленность (профиль): ' + m.profile;
+
+    var sw = root.querySelector('.rm-switch');
+    sw.style.display = DATA.programs.length > 1 ? '' : 'none';
+    sw.innerHTML = DATA.programs.map(function (p, i) {
+      return '<button type="button" role="tab" aria-selected="' + (i === state.pi) + '" data-pi="' + i + '">' +
+        esc(p.meta.code) + '<small>' + esc(p.meta.short) + '</small></button>';
+    }).join('');
+
+    var counted = P.nodes.filter(function (n) { return n.kind !== 'optional'; });
+    var ze = counted.reduce(function (s, n) { return s + (n.ze || 0); }, 0);
+    var disc = P.nodes.filter(function (n) { return ['core', 'variable', 'sport'].indexOf(n.kind) >= 0; }).length;
+    var choices = P.nodes.filter(function (n) { return n.kind === 'choice'; }).length;
+    var practices = P.nodes.filter(function (n) { return n.kind === 'practice'; }).length;
+    var stats = [
+      [m.years, plural(m.years, 'год', 'года', 'лет') + ' обучения, ' + m.form.toLowerCase() + ' форма'],
+      [ze, 'зачётных единиц'],
+      [disc, plural(disc, 'обязательная дисциплина', 'обязательные дисциплины', 'обязательных дисциплин')],
+      [choices, plural(choices, 'выбор', 'выбора', 'выборов') + ' из двух дисциплин'],
+      [practices, plural(practices, 'практика', 'практики', 'практик') + ' и защита ВКР']
+    ];
+    $('stats').innerHTML = stats.map(function (s) { return '<li><b>' + s[0] + '</b><span>' + esc(s[1]) + '</span></li>'; }).join('');
+    $('links').innerHTML =
+      '<a href="' + esc(m.planUrl) + '" target="_blank" rel="noopener">' + ICON_DOC + 'Учебный план (PDF)</a>' +
+      '<a href="' + esc(m.eorUrl) + '" target="_blank" rel="noopener">' + ICON_LINK + 'Электронные образовательные ресурсы</a>' +
+      '<span style="color:var(--rm-faint)">' + esc(m.fgos) + ' · набор ' + m.startYear + ' г.</span>';
+  }
+
+  function renderTracks() {
+    var html = '<button type="button" class="rm-chip" data-track="all" aria-pressed="' + (state.track === 'all') + '">Все направления</button>';
+    P.tracks.forEach(function (t) {
+      html += '<button type="button" class="rm-chip" data-track="' + t.id + '" style="' + vars(t.id) + '" aria-pressed="' +
+        (state.track === t.id) + '"><i></i>' + esc(t.name) + '</button>';
+    });
+    $('tracks').innerHTML = html;
+  }
+
+  // ---------- дерево ----------
+  function cardHtml(n) {
+    if (n.kind === 'choice') {
+      var head = n.name === 'Модуль мобильности' ? 'Модуль мобильности' : 'По выбору';
+      var opts = n.options.map(function (o) {
+        return '<button type="button" class="rm-opt" data-open="' + esc(o.code) + '" title="' + esc(o.name) + '">' + esc(o.short) + '</button>';
+      }).join('<span class="rm-or">или</span>');
+      return '<div class="rm-card rm-card--choice" data-code="' + esc(n.code) + '" style="' + vars(n.track) + '">' +
+        '<div class="rm-choice-head">' + head + '<span>' + esc(volume(n)) + (mainForm(n) ? ' · ' + mainForm(n) : '') + '</span></div>' +
+        opts + '</div>';
+    }
+    var cls = 'rm-card';
+    if (n.track === 'gen') cls += ' rm-card--compact';
+    if (n.kind === 'practice') cls += ' rm-card--practice';
+    if (n.kind === 'gia') cls += ' rm-card--gia';
+    if (n.kind === 'optional') cls += ' rm-card--optional';
+    var form = mainForm(n);
+    if (n.track === 'gen') {
+      var bits = [volume(n), form, n.sems.length > 1 ? range(n.sems) + ' сем.' : ''].filter(Boolean).join(' · ');
+      return '<button type="button" class="' + cls + '" data-code="' + esc(n.code) + '" data-open="' + esc(n.code) + '" style="' + vars(n.track) + '" aria-label="' + esc(n.name) + '">' +
+        '<span class="rm-card-name">' + esc(n.short) + '</span><span class="rm-card-meta">' + esc(bits) + '</span></button>';
+    }
+    var meta = '<span class="rm-pill">' + esc(volume(n)) + '</span>';
+    if (form) meta += '<span class="rm-pill' + (form === 'экзамен' ? ' rm-pill--exam' : '') + '">' + form + '</span>';
+    if (n.sems.length > 1) meta += '<span class="rm-pill rm-pill--c">' + range(n.sems) + ' сем.</span>';
+    if (n.kind === 'optional') meta += '<span class="rm-pill">факультатив</span>';
+    return '<button type="button" class="' + cls + '" data-code="' + esc(n.code) + '" data-open="' + esc(n.code) + '" style="' + vars(n.track) + '" aria-label="' + esc(n.name) + '">' +
+      '<span class="rm-card-name">' + esc(n.short) + '</span><span class="rm-card-meta">' + meta + '</span></button>';
+  }
+
+  function semSummary(sem) {
+    var ze = 0, exams = 0;
+    P.nodes.forEach(function (n) {
+      if (n.kind === 'optional') return;
+      (n.perSem || []).forEach(function (p) {
+        if (p.sem !== sem) return;
+        ze += p.ze || 0;
+        if (p.forms.indexOf('Экзамен') >= 0) exams++;
+      });
+    });
+    return ze + ' з.е. · ' + exams + ' ' + plural(exams, 'экзамен', 'экзамена', 'экзаменов');
+  }
+
+  // порядок внутри ячейки: обязательные -> профильные -> по выбору -> факультативы
+  var RANK = { core: 0, practice: 0, gia: 0, variable: 1, sport: 1, choice: 2, optional: 3 };
+  function rank(n) { return RANK[n.kind] == null ? 1 : RANK[n.kind]; }
+
+  function renderGrid() {
+    var lanes = (mqNarrow.matches && state.track !== 'all')
+      ? P.tracks.filter(function (t) { return t.id === state.track; })
+      : P.tracks;
+    var grid = $('grid');
+    root.style.setProperty('--rm-lanes', lanes.length);
+    var maxRow = Math.max.apply(null, P.nodes.map(function (n) { return n.start; }));
+
+    var html = '<div class="rm-corner"></div>';
+    lanes.forEach(function (t) {
+      var cnt = P.nodes.filter(function (n) { return n.track === t.id; }).length;
+      html += '<div class="rm-lanehead" data-lane="' + t.id + '" style="' + vars(t.id) + '"><i></i><b>' + esc(t.name) + '</b><span>' +
+        cnt + ' ' + plural(cnt, 'блок', 'блока', 'блоков') + '</span></div>';
+    });
+    for (var row = 1; row <= maxRow; row++) {
+      var final = row === 9;
+      var course = !final && row % 2 === 1 ? ' rm-course' : '';
+      html += final
+        ? '<div class="rm-rowlabel rm-rowlabel--final rm-course"><b>Финиш</b><span>итоговая аттестация</span></div>'
+        : '<div class="rm-rowlabel' + course + '"><b>' + row + ' семестр</b><span>' + Math.ceil(row / 2) + ' курс · ' +
+          (row % 2 ? 'осень' : 'весна') + '</span><em>' + semSummary(row) + '</em></div>';
+      lanes.forEach(function (t) {
+        var cards = P.nodes.filter(function (n) { return n.start === row && n.track === t.id; })
+          .sort(function (a, b) { return rank(a) - rank(b) || b.sems.length - a.sems.length || (a.code < b.code ? -1 : 1); })
+          .map(cardHtml).join('');
+        html += '<div class="rm-cell' + (final ? ' rm-course' : course) + '">' + cards + '</div>';
+      });
+    }
+    grid.innerHTML = html;
+    cardEls = {};
+    grid.querySelectorAll('[data-code]').forEach(function (elm) { cardEls[elm.getAttribute('data-code')] = elm; });
+    applyState();
+    scheduleDraw();
+  }
+
+  var drawPending = false;
+  function scheduleDraw() {
+    if (drawPending) return;
+    drawPending = true;
+    requestAnimationFrame(function () { drawPending = false; drawEdges(); });
+  }
+
+  function drawEdges() {
+    var tree = $('tree'), svg = $('edges'), grid = $('grid');
+    var W = grid.scrollWidth, H = grid.offsetHeight;
+    svg.setAttribute('width', W); svg.setAttribute('height', H);
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    var tr = tree.getBoundingClientRect();
+    function box(elm) {
+      var r = elm.getBoundingClientRect();
+      return { l: r.left - tr.left, t: r.top - tr.top, w: r.width, h: r.height, cx: r.left - tr.left + r.width / 2 };
+    }
+
+    var out = '<defs>';
+    Object.keys(PALETTE).forEach(function (k) {
+      out += '<marker id="rm-ah-' + k + '" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto">' +
+        '<path d="M0 0.5 L10 5 L0 9.5 Z" fill="' + PALETTE[k].c + '"/></marker>';
+    });
+    out += '</defs>';
+
+    // фоновые «ветки»: полосы направлений
+    grid.querySelectorAll('.rm-lanehead').forEach(function (h) {
+      var b = box(h), p = PALETTE[h.getAttribute('data-lane')] || FALLBACK;
+      out += '<rect x="' + (b.l + 3) + '" y="2" width="' + (b.w - 6) + '" height="' + (H - 4) + '" rx="16" fill="' + p.t + '" fill-opacity=".38"/>';
+    });
+
+    // точки выхода/входа разносим, чтобы стрелки не сливались
+    var boxes = {}, outs = {}, ins = {};
+    P.edges.forEach(function (e) {
+      if (!cardEls[e[0]] || !cardEls[e[1]]) return;
+      boxes[e[0]] = boxes[e[0]] || box(cardEls[e[0]]);
+      boxes[e[1]] = boxes[e[1]] || box(cardEls[e[1]]);
+      (outs[e[0]] = outs[e[0]] || []).push(e);
+      (ins[e[1]] = ins[e[1]] || []).push(e);
+    });
+    function spread(list, key, otherKey) {
+      list.sort(function (a, b) { return boxes[a[otherKey]].cx - boxes[b[otherKey]].cx; });
+      var b = boxes[list[0][key]], n = list.length, pos = {};
+      list.forEach(function (e, i) {
+        var f = n === 1 ? 0.5 : 0.25 + 0.5 * i / (n - 1);
+        pos[e[0] + '>' + e[1]] = b.l + b.w * f;
+      });
+      return pos;
+    }
+    var xOut = {}, xIn = {};
+    Object.keys(outs).forEach(function (k) { var p = spread(outs[k], 0, 1); for (var x in p) xOut[x] = p[x]; });
+    Object.keys(ins).forEach(function (k) { var p = spread(ins[k], 1, 0); for (var x in p) xIn[x] = p[x]; });
+
+    edgeEls = [];
+    P.edges.forEach(function (e) {
+      var a = boxes[e[0]], b = boxes[e[1]];
+      if (!a || !b) return;
+      var key = e[0] + '>' + e[1];
+      var x1 = xOut[key], y1 = a.t + a.h, x2 = xIn[key], y2 = b.t - 1;
+      var dy = Math.max(26, Math.min(140, (y2 - y1) * 0.45));
+      var track = byCode[e[0]].node.track;
+      out += '<path class="rm-edge" data-a="' + esc(e[0]) + '" data-b="' + esc(e[1]) + '" d="M' + x1.toFixed(1) + ' ' + y1.toFixed(1) +
+        ' C' + x1.toFixed(1) + ' ' + (y1 + dy).toFixed(1) + ' ' + x2.toFixed(1) + ' ' + (y2 - dy).toFixed(1) + ' ' + x2.toFixed(1) + ' ' + y2.toFixed(1) +
+        '" stroke="' + color(track) + '" marker-end="url(#rm-ah-' + (PALETTE[track] ? track : 'gen') + ')"/>';
+    });
+    svg.innerHTML = out;
+    svg.querySelectorAll('.rm-edge').forEach(function (p) {
+      edgeEls.push({ a: p.getAttribute('data-a'), b: p.getAttribute('data-b'), el: p });
+    });
+    applyState();
+  }
+
+  // ---------- подсветка, фильтр, поиск ----------
+  function applyState() {
+    if (!cardEls) return;
+    var focus = state.hover || state.pinned;
+    var q = norm(state.query);
+    var active = null, mode = null;
+    if (focus && byCode[focus]) { active = related(focus); mode = 'focus'; }
+    else if (q) {
+      active = {}; mode = 'search';
+      P.nodes.forEach(function (n) { if (matches(n, q)) active[n.code] = true; });
+    } else if (state.track !== 'all') {
+      active = {}; mode = 'track';
+      P.nodes.forEach(function (n) { if (n.track === state.track) active[n.code] = true; });
+    }
+    $('tree').classList.toggle('rm-dim', !!active);
+    Object.keys(cardEls).forEach(function (code) {
+      var c = cardEls[code];
+      c.classList.toggle('is-on', !!(active && active[code]));
+      c.classList.toggle('is-self', mode === 'focus' && code === focus);
+      c.classList.toggle('is-match', mode === 'search' && !!active[code]);
+    });
+    (edgeEls || []).forEach(function (e) {
+      e.el.classList.toggle('is-on', !!(active && active[e.a] && active[e.b]));
+    });
+    var pinned = state.pinned && byCode[state.pinned];
+    root.classList.toggle('rm--pinned', !!pinned);
+    if (pinned) {
+      var n = pinned.node;
+      $('focusname').textContent = n.kind === 'choice' ? n.options.map(function (o) { return o.short; }).join(' / ') : n.name;
+    }
+  }
+
+  // ---------- модальное окно ----------
+  function relItem(code) {
+    var n = byCode[code].node;
+    var label = n.kind === 'choice' ? 'По выбору: ' + n.options.map(function (o) { return o.short; }).join(' / ') : n.short;
+    var target = n.kind === 'choice' ? n.options[0].code : code;
+    var when = n.kind === 'gia' ? 'финиш' : range(n.sems) + ' сем.';
+    return '<button type="button" class="rm-rel-item" data-goto="' + esc(target) + '" style="' + vars(n.track) + '"><i></i><span>' +
+      esc(label) + '</span><small>' + when + '</small></button>';
+  }
+
+  function formsSummary(n) {
+    var cnt = {}, order = [];
+    (n.perSem || []).forEach(function (p) {
+      p.forms.forEach(function (f) { if (!cnt[f]) { cnt[f] = 0; order.push(f); } cnt[f]++; });
+    });
+    if (!order.length) return n.kind === 'gia' ? 'Защита ВКР' : '—';
+    return order.map(function (f) { return f + (cnt[f] > 1 ? ' ×' + cnt[f] : ''); }).join(', ');
+  }
+
+  function modalHtml(code) {
+    var entry = byCode[code], n = entry.node, g = entry.parent, base = g || n;
+    var track = P.tracks.filter(function (t) { return t.id === base.track; })[0];
+    var tags = '<span class="rm-tag rm-tag--c"><i></i>' + esc(track ? track.name : '') + '</span>' +
+      '<span class="rm-tag">' + esc(n.part || base.part) + '</span>';
+    var when = n.kind === 'gia' ? '8 семестр' : (n.sems.length > 1 ? range(n.sems) + ' семестры' : n.sems[0] + ' семестр');
+    var facts =
+      '<div class="rm-fact"><span>Когда</span><b>' + when + '</b><span>' + courses(n.sems) + '</span></div>' +
+      '<div class="rm-fact"><span>Объём</span><b>' + (n.ze ? n.ze + ' з.е.' : '—') + '</b><span>' + (n.hours ? n.hours + ' ' + plural(n.hours, 'час', 'часа', 'часов') : '') + '</span></div>' +
+      '<div class="rm-fact"><span>Аттестация</span><b>' + esc(formsSummary(n)) + '</b></div>';
+
+    var html = '<div class="rm-m-top" style="' + vars(base.track) + '"></div><div class="rm-m-body" style="' + vars(base.track) + '">' +
+      '<div class="rm-m-row"><div class="rm-m-tags">' + tags + '</div><button type="button" class="rm-close" data-rm="close" aria-label="Закрыть">' + ICON_X + '</button></div>' +
+      '<div class="rm-m-code">' + esc(n.code) + (base.module ? ' · ' + esc(base.module) : '') + '</div>' +
+      '<h2 class="rm-m-title" id="rm-modal-title">' + esc(n.name) + '</h2>' +
+      '<div class="rm-facts">' + facts + '</div>';
+
+    if (g) {
+      var alt = g.options.filter(function (o) { return o.code !== n.code; })[0];
+      var what = g.name === 'Модуль мобильности'
+        ? 'Модуль мобильности: онлайн-курс партнёрского вуза. Студент выбирает один из двух курсов.'
+        : 'Дисциплина по выбору: студент изучает одну из двух дисциплин.';
+      html += '<div class="rm-sec"><div class="rm-choicebox">' + what + (alt ? ' Вторая: <button type="button" data-goto="' + esc(alt.code) + '">' + esc(alt.name) + '</button>' : '') + '</div></div>';
+    }
+    if (n.kind === 'optional') {
+      html += '<div class="rm-sec"><div class="rm-choicebox">Факультатив: изучается по желанию и не входит в 240 з.е. программы.</div></div>';
+    }
+
+    var hb = n.hoursBy || {}, total = HOURS.reduce(function (s, h) { return s + (hb[h[0]] || 0); }, 0);
+    if (total > 0) {
+      html += '<div class="rm-sec"><div class="rm-sec-title">Из чего состоят ' + total + ' ' + plural(total, 'час', 'часа', 'часов') + '</div><div class="rm-bar">' +
+        HOURS.filter(function (h) { return hb[h[0]]; }).map(function (h) {
+          return '<i style="flex:' + hb[h[0]] + ';background:' + h[2] + '" title="' + h[1] + ': ' + hb[h[0]] + ' ч"></i>';
+        }).join('') + '</div><div class="rm-bar-legend">' +
+        HOURS.filter(function (h) { return hb[h[0]]; }).map(function (h) {
+          return '<span><i style="background:' + h[2] + '"></i>' + h[1] + ' <b>' + hb[h[0]] + '</b></span>';
+        }).join('') + '</div></div>';
+    } else if (n.hours && (n.kind === 'practice' || n.kind === 'gia')) {
+      html += '<div class="rm-sec"><div class="rm-choicebox">' + (n.kind === 'gia'
+        ? 'Подготовка к защите и защита выпускной квалификационной работы — завершающий этап обучения.'
+        : 'Практика: работа в лаборатории, на кафедре или в организации-партнёре.') +
+        ' Объём — ' + n.hours + ' ' + plural(n.hours, 'час', 'часа', 'часов') + '.</div></div>';
+    }
+
+    if (n.perSem && n.perSem.length > 1) {
+      html += '<div class="rm-sec"><div class="rm-sec-title">По семестрам</div><div class="rm-sems">' + n.perSem.map(function (p) {
+        var parts = HOURS.filter(function (h) { return p[h[0]]; }).map(function (h) { return SHORT_HOURS[h[0]] + ' ' + p[h[0]]; }).join(' · ');
+        return '<div class="rm-semrow"><b>' + p.sem + ' семестр</b><span>' + (p.ze ? p.ze + ' з.е.' : '') + (parts ? (p.ze ? ' · ' : '') + parts : '') +
+          '</span><em>' + esc(p.forms.join(', ') || 'без аттестации') + '</em></div>';
+      }).join('') + '</div></div>';
+    }
+
+    var key = base.code;
+    var ins = (inAdj[key] || []), outs = (outAdj[key] || []);
+    html += '<div class="rm-sec rm-rel">' +
+      '<div><div class="rm-sec-title">Опирается на</div><div class="rm-rel-list">' +
+      (ins.length ? ins.map(relItem).join('') : '<span class="rm-rel-empty">Стартовая дисциплина ветки</span>') + '</div></div>' +
+      '<div><div class="rm-sec-title">Готовит к</div><div class="rm-rel-list">' +
+      (outs.length ? outs.map(relItem).join('') : '<span class="rm-rel-empty">' + (n.kind === 'gia' ? 'Диплом бакалавра' : 'Завершает ветку') + '</span>') + '</div></div></div>';
+
+    html += '<div class="rm-sec"><div class="rm-sec-title">Документы</div>';
+    if (n.rpd || n.fos) {
+      html += '<div class="rm-docs">' +
+        (n.rpd ? '<a class="rm-btn rm-btn--primary" href="' + esc(n.rpd) + '" target="_blank" rel="noopener">' + ICON_DOC + 'Рабочая программа</a>' : '') +
+        (n.fos ? '<a class="rm-btn rm-btn--outline" href="' + esc(n.fos) + '" target="_blank" rel="noopener">' + ICON_DOC + 'Оценочные материалы (ФОС)</a>' : '') +
+        '</div>';
+    } else {
+      html += '<div class="rm-docs-empty">Рабочая программа пока не размещена в ЭОР.</div>';
+    }
+    html += '</div><p class="rm-m-foot">Источник: учебный план ' + esc(P.meta.code) + ', набор ' + P.meta.startYear + ' г.; документы — ЭОР ДГУ.</p></div>';
+    return html;
+  }
+
+  function openModal(code, opener) {
+    if (!byCode[code]) return;
+    var modal = $('modal'), panel = $('panel'), wasOpen = modal.classList.contains('is-open');
+    if (!wasOpen) lastOpener = opener || document.activeElement;
+    panel.innerHTML = modalHtml(code);
+    panel.scrollTop = 0;
+    if (!wasOpen) {
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      prevOverflow = document.documentElement.style.overflow;
+      document.documentElement.style.overflow = 'hidden';
+    }
+    panel.focus();
+    var entry = byCode[code];
+    state.pinned = (entry.parent || entry.node).code;
+    state.hover = null;
+    applyState();
+    setHash(code);
+  }
+
+  function closeModal() {
+    var modal = $('modal');
+    if (!modal.classList.contains('is-open')) return;
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.documentElement.style.overflow = prevOverflow || '';
+    setHash(null);
+    if (lastOpener && document.body.contains(lastOpener)) lastOpener.focus({ preventScroll: true });
+  }
+
+  function setHash(code) {
+    if (!window.history || !history.replaceState) return;
+    var url = location.pathname + location.search + (code ? '#roadmap=' + encodeURIComponent(P.id + ':' + code) : '');
+    history.replaceState(null, '', url);
+  }
+  function readHash() {
+    var m = /#roadmap=([^&]+)/.exec(location.hash);
+    if (!m) return;
+    var parts = decodeURIComponent(m[1]).split(':');
+    var pi = DATA.programs.map(function (p) { return p.id; }).indexOf(parts[0]);
+    if (pi < 0) return;
+    if (pi !== state.pi) { state.pi = pi; renderAll(); }
+    if (byCode[parts[1]]) openModal(parts[1]);
+  }
+
+  // ---------- события ----------
+  root.addEventListener('click', function (ev) {
+    var t = ev.target;
+    var sw = t.closest('.rm-switch button');
+    if (sw) { state.pi = +sw.getAttribute('data-pi'); state.track = 'all'; state.pinned = null; renderAll(); return; }
+    var chip = t.closest('[data-track]');
+    if (chip) {
+      state.track = chip.getAttribute('data-track'); state.pinned = null;
+      renderTracks();
+      if (mqNarrow.matches) renderGrid(); else applyState();
+      return;
+    }
+    if (t.closest('[data-rm="close"]')) { closeModal(); return; }
+    if (t.closest('[data-rm="unfocus"]')) { state.pinned = null; applyState(); return; }
+    var go = t.closest('[data-goto]');
+    if (go) { openModal(go.getAttribute('data-goto')); return; }
+    var open = t.closest('[data-open]');
+    if (open) { openModal(open.getAttribute('data-open'), open); return; }
+    if (t.closest('[data-rm="grid"]') && !t.closest('.rm-card') && state.pinned) { state.pinned = null; applyState(); }
+  });
+
+  root.addEventListener('pointerover', function (ev) {
+    if (ev.pointerType !== 'mouse') return;
+    var c = ev.target.closest('[data-rm="grid"] [data-code]');
+    var code = c ? c.getAttribute('data-code') : null;
+    if (code !== state.hover) { state.hover = code; applyState(); }
+  });
+  $('grid').addEventListener('pointerleave', function () { if (state.hover) { state.hover = null; applyState(); } });
+
+  $('search').addEventListener('input', function (ev) { state.query = ev.target.value.trim(); state.pinned = null; applyState(); });
+  $('search').addEventListener('keydown', function (ev) {
+    if (ev.key !== 'Enter') return;
+    var first = $('grid').querySelector('.is-match');
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+  });
+
+  document.addEventListener('keydown', function (ev) {
+    var modal = $('modal');
+    if (!modal.classList.contains('is-open')) return;
+    if (ev.key === 'Escape') { ev.preventDefault(); closeModal(); return; }
+    if (ev.key === 'Tab') {
+      var f = $('panel').querySelectorAll('a[href], button');
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (ev.shiftKey && (document.activeElement === first || document.activeElement === $('panel'))) { ev.preventDefault(); last.focus(); }
+      else if (!ev.shiftKey && document.activeElement === last) { ev.preventDefault(); first.focus(); }
+    }
+  });
+
+  if (window.ResizeObserver) new ResizeObserver(scheduleDraw).observe($('grid'));
+  else window.addEventListener('resize', scheduleDraw);
+  var onMq = function () { renderHint(); renderGrid(); };
+  if (mqNarrow.addEventListener) mqNarrow.addEventListener('change', onMq); else mqNarrow.addListener(onMq);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleDraw);
+
+  function renderHint() {
+    var touch = window.matchMedia('(hover: none)').matches;
+    $('hint').textContent = touch
+      ? 'Нажмите на блок — откроются подробности, а на дереве подсветится цепочка связей.' +
+        (mqNarrow.matches ? ' Дерево листается вбок; кнопки направлений показывают одну ветку.' : '')
+      : 'Нажмите на блок, чтобы открыть подробности. Наведите курсор — подсветится вся цепочка связей.';
+  }
+
+  function renderAll() {
+    renderHint();
+    indexProgram();
+    renderHeader();
+    renderTracks();
+    renderGrid();
+  }
+  renderAll();
+  readHash();
+})();
+
+</script>

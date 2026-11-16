@@ -1,0 +1,49 @@
+<div id="dgu-roadmap" class="rm" lang="ru">
+  <header class="rm-head">
+    <div class="rm-eyebrow">Дагестанский государственный университет · <span data-rm="faculty"></span></div>
+    <h1 class="rm-title">Дорожная карта обучения</h1>
+    <div class="rm-switch" role="tablist" aria-label="Направление подготовки"></div>
+    <div class="rm-program">
+      <div class="rm-program-name" data-rm="name"></div>
+      <div class="rm-program-profile" data-rm="profile"></div>
+    </div>
+    <ul class="rm-stats" data-rm="stats"></ul>
+    <div class="rm-links" data-rm="links"></div>
+  </header>
+
+  <section class="rm-panel">
+    <div class="rm-toolbar">
+      <div class="rm-tracks" role="group" aria-label="Показать направление" data-rm="tracks"></div>
+      <label class="rm-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" placeholder="Найти дисциплину" aria-label="Найти дисциплину" data-rm="search">
+      </label>
+    </div>
+    <div class="rm-legend" aria-hidden="true">
+      <span><i class="rm-lg rm-lg--card"></i>Дисциплина</span>
+      <span><i class="rm-lg rm-lg--choice"></i>По выбору: одна из двух</span>
+      <span><i class="rm-lg rm-lg--practice"></i>Практика</span>
+      <span><i class="rm-lg rm-lg--optional"></i>Факультатив</span>
+      <span><i class="rm-lg rm-lg--arrow"></i>Связь: знания нужны дальше</span>
+    </div>
+    <p class="rm-hint" data-rm="hint">Нажмите на блок, чтобы открыть подробности. Наведите курсор — подсветится вся цепочка связей.</p>
+    <div class="rm-focusbar" data-rm="focusbar">
+      <span>Показана цепочка: <b data-rm="focusname"></b></span>
+      <button type="button" class="rm-btn rm-btn--ghost" data-rm="unfocus">Показать всё</button>
+    </div>
+
+    <div class="rm-scroll" data-rm="scroll">
+      <div class="rm-tree" data-rm="tree">
+        <svg class="rm-edges" data-rm="edges" aria-hidden="true"></svg>
+        <div class="rm-grid" data-rm="grid"></div>
+      </div>
+    </div>
+
+    <p class="rm-note">Блоки и семестры — по утверждённому учебному плану. Стрелки показывают логику обучения: какие дисциплины готовят к следующим. Они составлены по плану и содержанию дисциплин и носят рекомендательный характер. Рабочие программы и оценочные средства открываются из ЭОР ДГУ.</p>
+  </section>
+
+  <div class="rm-modal" data-rm="modal" aria-hidden="true">
+    <div class="rm-modal-backdrop" data-rm="close"></div>
+    <div class="rm-modal-panel" role="dialog" aria-modal="true" aria-labelledby="rm-modal-title" tabindex="-1" data-rm="panel"></div>
+  </div>
+</div>

@@ -1,0 +1,2797 @@
+[
+ {
+  "code": "Б1.О.01",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Общеобразовательный модуль",
+  "lineName": "Общеобразовательный модуль",
+  "forms": {
+   "credit": [
+    3,
+    4,
+    7
+   ],
+   "gradedCredit": [
+    2
+   ]
+  },
+  "totals": {
+   "ze": 19,
+   "hours": 684,
+   "contact": 358,
+   "self": 326
+  },
+  "semesters": {
+   "1": {
+    "ze": 4,
+    "lec": 46,
+    "pr": 46,
+    "self": 52
+   },
+   "2": {
+    "ze": 6,
+    "lec": 60,
+    "pr": 58,
+    "self": 98
+   },
+   "3": {
+    "ze": 4,
+    "lec": 32,
+    "pr": 28,
+    "self": 84
+   },
+   "4": {
+    "ze": 3,
+    "lec": 28,
+    "pr": 30,
+    "self": 50
+   },
+   "7": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 14,
+    "self": 42
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.О.01.01",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Философия",
+  "lineName": "Философия",
+  "forms": {
+   "credit": [
+    4
+   ]
+  },
+  "totals": {
+   "ze": 3,
+   "hours": 108,
+   "contact": 58,
+   "self": 50
+  },
+  "semesters": {
+   "4": {
+    "ze": 3,
+    "lec": 28,
+    "pr": 30,
+    "self": 50
+   }
+  },
+  "dept": "41",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.01.02",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "История России",
+  "lineName": "История России",
+  "forms": {
+   "credit": [
+    1
+   ],
+   "gradedCredit": [
+    2
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 116,
+   "self": 28
+  },
+  "semesters": {
+   "1": {
+    "ze": 2,
+    "lec": 30,
+    "pr": 30,
+    "self": 12
+   },
+   "2": {
+    "ze": 2,
+    "lec": 28,
+    "pr": 28,
+    "self": 16
+   }
+  },
+  "dept": "80",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.01.03",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Правоведение",
+  "lineName": "Правоведение",
+  "forms": {
+   "credit": [
+    2
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 30,
+   "self": 42
+  },
+  "semesters": {
+   "2": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 14,
+    "self": 42
+   }
+  },
+  "dept": "8",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.01.04",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Менеджмент",
+  "lineName": "Менеджмент",
+  "forms": {
+   "credit": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 30,
+   "self": 42
+  },
+  "semesters": {
+   "3": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 14,
+    "self": 42
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.01.05",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Управление персоналом",
+  "lineName": "Управление персоналом",
+  "forms": {
+   "credit": [
+    7
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 30,
+   "self": 42
+  },
+  "semesters": {
+   "7": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 14,
+    "self": 42
+   }
+  },
+  "dept": "90",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.01.06",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Религиоведение",
+  "lineName": "Религиоведение",
+  "forms": {
+   "credit": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 30,
+   "self": 42
+  },
+  "semesters": {
+   "3": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 14,
+    "self": 42
+   }
+  },
+  "dept": "104",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.01.07",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Экономика",
+  "lineName": "Экономика",
+  "forms": {
+   "credit": [
+    2
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 32,
+   "self": 40
+  },
+  "semesters": {
+   "2": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 16,
+    "self": 40
+   }
+  },
+  "dept": "87",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.01.08",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Основы российской государственности",
+  "lineName": "Основы российской государственности",
+  "forms": {
+   "credit": [
+    1
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 32,
+   "self": 40
+  },
+  "semesters": {
+   "1": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 16,
+    "self": 40
+   }
+  },
+  "dept": "79",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.02",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Модуль: Безопасность жизнедеятельности",
+  "lineName": "Модуль: Безопасность жизнедеятельности",
+  "forms": {
+   "credit": [
+    3,
+    4
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 86,
+   "self": 58
+  },
+  "semesters": {
+   "3": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 14,
+    "self": 42
+   },
+   "4": {
+    "ze": 2,
+    "lec": 28,
+    "pr": 28,
+    "self": 16
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.О.02.01",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Основы военной подготовки",
+  "lineName": "Основы военной подготовки",
+  "forms": {
+   "credit": [
+    4
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 56,
+   "self": 16
+  },
+  "semesters": {
+   "4": {
+    "ze": 2,
+    "lec": 28,
+    "pr": 28,
+    "self": 16
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.02.02",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Безопасность жизнедеятельности",
+  "lineName": "Безопасность жизнедеятельности",
+  "forms": {
+   "credit": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 30,
+   "self": 42
+  },
+  "semesters": {
+   "3": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 14,
+    "self": 42
+   }
+  },
+  "dept": "101",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.03",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Модуль: Коммуникация",
+  "lineName": "Модуль: Коммуникация",
+  "forms": {
+   "credit": [
+    1,
+    2
+   ],
+   "gradedCredit": [
+    4
+   ]
+  },
+  "totals": {
+   "ze": 12,
+   "hours": 432,
+   "contact": 224,
+   "self": 208
+  },
+  "semesters": {
+   "1": {
+    "ze": 4,
+    "pr": 80,
+    "self": 64
+   },
+   "2": {
+    "ze": 2,
+    "pr": 48,
+    "self": 24
+   },
+   "3": {
+    "ze": 2,
+    "pr": 48,
+    "self": 24
+   },
+   "4": {
+    "ze": 4,
+    "pr": 48,
+    "self": 96
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.О.03.01",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Иностранный язык (базовый курс)",
+  "lineName": "Иностранный язык (базовый курс)",
+  "forms": {
+   "credit": [
+    2
+   ],
+   "gradedCredit": [
+    4
+   ]
+  },
+  "totals": {
+   "ze": 10,
+   "hours": 360,
+   "contact": 192,
+   "self": 168
+  },
+  "semesters": {
+   "1": {
+    "ze": 2,
+    "pr": 48,
+    "self": 24
+   },
+   "2": {
+    "ze": 2,
+    "pr": 48,
+    "self": 24
+   },
+   "3": {
+    "ze": 2,
+    "pr": 48,
+    "self": 24
+   },
+   "4": {
+    "ze": 4,
+    "pr": 48,
+    "self": 96
+   }
+  },
+  "dept": "98",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.03.02",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Русский язык и культура речи",
+  "lineName": "Русский язык и культура речи",
+  "forms": {
+   "credit": [
+    1
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 32,
+   "self": 40
+  },
+  "semesters": {
+   "1": {
+    "ze": 2,
+    "pr": 32,
+    "self": 40
+   }
+  },
+  "dept": "52",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.04",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Модуль: Информационные технологии",
+  "lineName": "Модуль: Информационные технологии",
+  "forms": {
+   "exam": [
+    1
+   ],
+   "credit": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 66,
+   "self": 78,
+   "control": 36
+  },
+  "semesters": {
+   "1": {
+    "ze": 3,
+    "lab": 34,
+    "self": 38,
+    "control": 36
+   },
+   "3": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 16,
+    "self": 40
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.О.04.01",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Введение в информационные технологии",
+  "lineName": "Введение в информационные технологии",
+  "forms": {
+   "exam": [
+    1
+   ]
+  },
+  "totals": {
+   "ze": 3,
+   "hours": 108,
+   "contact": 34,
+   "self": 38,
+   "control": 36
+  },
+  "semesters": {
+   "1": {
+    "ze": 3,
+    "lab": 34,
+    "self": 38,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.04.02",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Системы искусственного интеллекта",
+  "lineName": "Системы искусственного интеллекта",
+  "forms": {
+   "credit": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 32,
+   "self": 40
+  },
+  "semesters": {
+   "3": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 16,
+    "self": 40
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Базовый модуль направления",
+  "lineName": "Базовый модуль направления",
+  "forms": {
+   "exam": [
+    4,
+    6
+   ],
+   "credit": [
+    5,
+    6,
+    8
+   ]
+  },
+  "totals": {
+   "ze": 64,
+   "hours": 2304,
+   "contact": 884,
+   "self": 1168,
+   "control": 252
+  },
+  "semesters": {
+   "1": {
+    "ze": 11,
+    "lec": 86,
+    "lab": 54,
+    "pr": 16,
+    "self": 204,
+    "control": 36
+   },
+   "2": {
+    "ze": 15,
+    "lec": 98,
+    "lab": 64,
+    "pr": 34,
+    "self": 236,
+    "control": 108
+   },
+   "3": {
+    "ze": 5,
+    "lec": 32,
+    "pr": 32,
+    "self": 116
+   },
+   "4": {
+    "ze": 12,
+    "lec": 64,
+    "lab": 32,
+    "pr": 64,
+    "self": 200,
+    "control": 72
+   },
+   "5": {
+    "ze": 4,
+    "lec": 28,
+    "lab": 32,
+    "self": 84
+   },
+   "6": {
+    "ze": 13,
+    "lec": 82,
+    "lab": 82,
+    "pr": 50,
+    "self": 218,
+    "control": 36
+   },
+   "8": {
+    "ze": 4,
+    "lec": 18,
+    "lab": 16,
+    "self": 110
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.О.05.01",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Математический анализ",
+  "lineName": "Математический анализ",
+  "forms": {
+   "exam": [
+    2
+   ],
+   "credit": [
+    1
+   ]
+  },
+  "totals": {
+   "ze": 8,
+   "hours": 288,
+   "contact": 116,
+   "self": 136,
+   "control": 36
+  },
+  "semesters": {
+   "1": {
+    "ze": 3,
+    "lec": 32,
+    "pr": 16,
+    "self": 60
+   },
+   "2": {
+    "ze": 5,
+    "lec": 34,
+    "pr": 34,
+    "self": 76,
+    "control": 36
+   }
+  },
+  "dept": "26",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.02",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Алгебра и геометрия",
+  "lineName": "Алгебра и геометрия",
+  "forms": {
+   "credit": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 32,
+   "self": 40
+  },
+  "semesters": {
+   "3": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 16,
+    "self": 40
+   }
+  },
+  "dept": "29",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.03",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Методы анализа и обработки данных",
+  "lineName": "Методы анализа и обработки данных",
+  "forms": {
+   "exam": [
+    4
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 48,
+   "self": 60,
+   "control": 36
+  },
+  "semesters": {
+   "4": {
+    "ze": 4,
+    "lec": 16,
+    "pr": 32,
+    "self": 60,
+    "control": 36
+   }
+  },
+  "dept": "27",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.04",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Вычислительная математика",
+  "lineName": "Вычислительная математика",
+  "forms": {
+   "credit": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 3,
+   "hours": 108,
+   "contact": 32,
+   "self": 76
+  },
+  "semesters": {
+   "3": {
+    "ze": 3,
+    "lec": 16,
+    "pr": 16,
+    "self": 76
+   }
+  },
+  "dept": "27",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.05",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Физика",
+  "lineName": "Физика",
+  "forms": {
+   "exam": [
+    2
+   ],
+   "credit": [
+    1
+   ]
+  },
+  "totals": {
+   "ze": 8,
+   "hours": 288,
+   "contact": 118,
+   "self": 134,
+   "control": 36
+  },
+  "semesters": {
+   "1": {
+    "ze": 3,
+    "lec": 18,
+    "lab": 36,
+    "self": 54
+   },
+   "2": {
+    "ze": 5,
+    "lec": 32,
+    "lab": 32,
+    "self": 80,
+    "control": 36
+   }
+  },
+  "dept": "60",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.06",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Схемотехника и электроника",
+  "lineName": "Схемотехника и электроника",
+  "forms": {
+   "credit": [
+    6
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 82,
+   "self": 62
+  },
+  "semesters": {
+   "6": {
+    "ze": 4,
+    "lec": 32,
+    "lab": 32,
+    "pr": 18,
+    "self": 62
+   }
+  },
+  "dept": "62",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.07",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Теория информации, данные, знания",
+  "lineName": "Теория информации, данные, знания",
+  "forms": {
+   "credit": [
+    4
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 48,
+   "self": 96
+  },
+  "semesters": {
+   "4": {
+    "ze": 4,
+    "lec": 16,
+    "pr": 32,
+    "self": 96
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.08",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Архитектура информационных систем Информационные технологии и",
+  "lineName": "Архитектура информационных систем",
+  "forms": {
+   "credit": [
+    8
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 34,
+   "self": 110
+  },
+  "semesters": {
+   "8": {
+    "ze": 4,
+    "lec": 18,
+    "lab": 16,
+    "self": 110
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.09",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "программирование Методы и средства проектирования",
+  "lineName": "Информационные программирование технологии и",
+  "forms": {
+   "exam": [
+    1
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 54,
+   "self": 90,
+   "control": 36
+  },
+  "semesters": {
+   "1": {
+    "ze": 5,
+    "lec": 36,
+    "lab": 18,
+    "self": 90,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.10",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "информационных систем Информационная безопасность и защита",
+  "lineName": "Методы информационных и средства систем проектирования",
+  "forms": {
+   "credit": [
+    6
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 36,
+   "self": 108
+  },
+  "semesters": {
+   "6": {
+    "ze": 4,
+    "lec": 18,
+    "lab": 18,
+    "self": 108
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.11",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "информации",
+  "lineName": "Информационная информации безопасность и защита",
+  "forms": {
+   "credit": [
+    5
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 60,
+   "self": 84
+  },
+  "semesters": {
+   "5": {
+    "ze": 4,
+    "lec": 28,
+    "lab": 32,
+    "self": 84
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.12",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Вычислительные сети",
+  "lineName": "Вычислительные сети",
+  "forms": {
+   "exam": [
+    6
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 96,
+   "self": 48,
+   "control": 36
+  },
+  "semesters": {
+   "6": {
+    "ze": 5,
+    "lec": 32,
+    "lab": 32,
+    "pr": 32,
+    "self": 48,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.13",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Технологии программирования",
+  "lineName": "Технологии программирования",
+  "forms": {
+   "exam": [
+    4
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 64,
+   "self": 44,
+   "control": 36
+  },
+  "semesters": {
+   "4": {
+    "ze": 4,
+    "lec": 32,
+    "lab": 32,
+    "self": 44,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.О.05.14",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Алгоритмы и структуры данных участниками образовательных отношений",
+  "lineName": "Алгоритмы и структуры данных",
+  "forms": {
+   "exam": [
+    2
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 64,
+   "self": 80,
+   "control": 36
+  },
+  "semesters": {
+   "2": {
+    "ze": 5,
+    "lec": 32,
+    "lab": 32,
+    "self": 80,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Модуль профильной направленности Информатика и программирование на языке",
+  "lineName": "Модуль профильной направленности",
+  "forms": {
+   "exam": [
+    4,
+    5,
+    6,
+    7
+   ],
+   "credit": [
+    1,
+    2,
+    5,
+    6,
+    7
+   ],
+   "courseWork": [
+    3,
+    7
+   ]
+  },
+  "totals": {
+   "ze": 69,
+   "hours": 2484,
+   "contact": 1120,
+   "self": 968,
+   "control": 396,
+   "practical": 143
+  },
+  "semesters": {
+   "1": {
+    "ze": 7,
+    "lec": 46,
+    "lab": 44,
+    "self": 126,
+    "control": 36
+   },
+   "2": {
+    "ze": 6,
+    "lec": 36,
+    "lab": 36,
+    "self": 108,
+    "control": 36
+   },
+   "3": {
+    "ze": 8,
+    "lec": 48,
+    "lab": 64,
+    "pr": 32,
+    "self": 72,
+    "control": 72
+   },
+   "4": {
+    "ze": 9,
+    "lec": 64,
+    "lab": 64,
+    "self": 124,
+    "control": 72
+   },
+   "5": {
+    "ze": 9,
+    "lec": 56,
+    "lab": 64,
+    "pr": 28,
+    "self": 104,
+    "control": 36
+   },
+   "6": {
+    "ze": 7,
+    "lec": 36,
+    "lab": 32,
+    "pr": 34,
+    "self": 114,
+    "control": 36
+   },
+   "7": {
+    "ze": 18,
+    "lec": 112,
+    "lab": 112,
+    "pr": 112,
+    "self": 240,
+    "control": 72
+   },
+   "8": {
+    "ze": 5,
+    "lec": 32,
+    "lab": 32,
+    "self": 80,
+    "control": 36
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.В.01.01",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Python",
+  "lineName": "Информатика Python и программирование на языке",
+  "forms": {
+   "exam": [
+    1,
+    2
+   ]
+  },
+  "totals": {
+   "ze": 8,
+   "hours": 288,
+   "contact": 94,
+   "self": 122,
+   "control": 72,
+   "practical": 34
+  },
+  "semesters": {
+   "1": {
+    "ze": 4,
+    "lec": 30,
+    "lab": 28,
+    "self": 50,
+    "control": 36
+   },
+   "2": {
+    "ze": 4,
+    "lec": 18,
+    "lab": 18,
+    "self": 72,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.02",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Операционные системы",
+  "lineName": "Операционные системы",
+  "forms": {
+   "exam": [
+    8
+   ]
+  },
+  "totals": {
+   "ze": 9,
+   "hours": 324,
+   "contact": 148,
+   "self": 140,
+   "control": 36,
+   "practical": 27
+  },
+  "semesters": {
+   "7": {
+    "ze": 4,
+    "lec": 28,
+    "lab": 28,
+    "pr": 28,
+    "self": 60
+   },
+   "8": {
+    "ze": 5,
+    "lec": 32,
+    "lab": 32,
+    "self": 80,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.03",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Защита программ и данных",
+  "lineName": "Защита программ и данных",
+  "forms": {
+   "exam": [
+    5
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 96,
+   "self": 48,
+   "control": 36,
+   "practical": 16
+  },
+  "semesters": {
+   "5": {
+    "ze": 5,
+    "lec": 28,
+    "lab": 32,
+    "self": 48,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.04",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Компьютерная геометрия и графика",
+  "lineName": "Компьютерная геометрия и графика",
+  "forms": {
+   "exam": [
+    7
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 84,
+   "self": 60,
+   "control": 36,
+   "practical": 12
+  },
+  "semesters": {
+   "7": {
+    "ze": 5,
+    "lec": 28,
+    "lab": 28,
+    "pr": 28,
+    "self": 60,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.05",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Физические основы построения ЭВМ",
+  "lineName": "Физические основы построения ЭВМ",
+  "forms": {
+   "credit": [
+    1
+   ]
+  },
+  "totals": {
+   "ze": 3,
+   "hours": 108,
+   "contact": 32,
+   "self": 76,
+   "practical": 8
+  },
+  "semesters": {
+   "1": {
+    "ze": 3,
+    "lec": 16,
+    "lab": 16,
+    "self": 76
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.06",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Роботизированные комплексы и системы",
+  "lineName": "Роботизированные комплексы и системы",
+  "forms": {
+   "exam": [
+    4
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 64,
+   "self": 80,
+   "control": 36,
+   "practical": 14
+  },
+  "semesters": {
+   "4": {
+    "ze": 5,
+    "lec": 32,
+    "lab": 32,
+    "self": 80,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.07",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Системы управления базами данных",
+  "lineName": "Системы управления базами данных",
+  "forms": {
+   "exam": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 96,
+   "self": 12,
+   "control": 36,
+   "practical": 18
+  },
+  "semesters": {
+   "3": {
+    "ze": 4,
+    "lec": 32,
+    "lab": 32,
+    "pr": 32,
+    "self": 12,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.08",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Администрирование информационных систем",
+  "lineName": "Администрирование информационных систем",
+  "forms": {
+   "credit": [
+    5
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 88,
+   "self": 56,
+   "practical": 14
+  },
+  "semesters": {
+   "5": {
+    "ze": 4,
+    "lec": 28,
+    "lab": 32,
+    "pr": 28,
+    "self": 56
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.09",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Программирование на языке высокого уровня",
+  "lineName": "Программирование на языке высокого уровня",
+  "forms": {
+   "exam": [
+    3
+   ],
+   "credit": [
+    2
+   ],
+   "courseWork": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 6,
+   "hours": 216,
+   "contact": 84,
+   "self": 96,
+   "control": 36
+  },
+  "semesters": {
+   "2": {
+    "ze": 2,
+    "lec": 18,
+    "lab": 18,
+    "self": 36
+   },
+   "3": {
+    "ze": 4,
+    "lec": 16,
+    "lab": 32,
+    "self": 60,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.10",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Разработка Интернет приложений",
+  "lineName": "Разработка Интернет приложений",
+  "forms": {
+   "exam": [
+    7
+   ],
+   "courseWork": [
+    7
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 84,
+   "self": 60,
+   "control": 36
+  },
+  "semesters": {
+   "7": {
+    "ze": 5,
+    "lec": 28,
+    "lab": 28,
+    "pr": 28,
+    "self": 60,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.11",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Управление данными Объектно-ориентированное программирование",
+  "lineName": "Управление данными",
+  "forms": {
+   "exam": [
+    4
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 64,
+   "self": 44,
+   "control": 36
+  },
+  "semesters": {
+   "4": {
+    "ze": 4,
+    "lec": 32,
+    "lab": 32,
+    "self": 44,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.12",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "на JAVA",
+  "lineName": "Объектно-ориентированное на JAVA программирование",
+  "forms": {
+   "credit": [
+    7
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 84,
+   "self": 60
+  },
+  "semesters": {
+   "7": {
+    "ze": 4,
+    "lec": 28,
+    "lab": 28,
+    "pr": 28,
+    "self": 60
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.13",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Большие данные Экономико-правовые основы инженерной",
+  "lineName": "Большие данные",
+  "forms": {
+   "exam": [
+    6
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 66,
+   "self": 78,
+   "control": 36
+  },
+  "semesters": {
+   "6": {
+    "ze": 5,
+    "lec": 18,
+    "lab": 32,
+    "pr": 16,
+    "self": 78,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.01.14",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "деятельности",
+  "lineName": "Экономико-правовые деятельности основы инженерной",
+  "forms": {
+   "credit": [
+    6
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 36,
+   "self": 36
+  },
+  "semesters": {
+   "6": {
+    "ze": 2,
+    "lec": 18,
+    "pr": 18,
+    "self": 36
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.01",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Дисциплины по выбору Б1.В.ДВ.1",
+  "lineName": "Дисциплины по выбору Б1.В.ДВ.1",
+  "forms": {
+   "exam": [
+    6
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 64,
+   "self": 80,
+   "control": 36
+  },
+  "semesters": {
+   "6": {
+    "ze": 5,
+    "lec": 32,
+    "lab": 32,
+    "self": 80,
+    "control": 36
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.В.ДВ.01.01",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Компьютерное моделирование в среде Matlab",
+  "lineName": "Компьютерное моделирование в среде Matlab",
+  "forms": {
+   "exam": [
+    6
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 64,
+   "self": 80,
+   "control": 36
+  },
+  "semesters": {
+   "6": {
+    "ze": 5,
+    "lec": 32,
+    "lab": 32,
+    "self": 80,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.01.02",
+  "counted": false,
+  "part": "Б1.В",
+  "planName": "Интернет программирование",
+  "lineName": "Интернет программирование",
+  "forms": {
+   "exam": [
+    6
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 64,
+   "self": 80,
+   "control": 36
+  },
+  "semesters": {
+   "6": {
+    "ze": 5,
+    "lec": 32,
+    "lab": 32,
+    "self": 80,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.02",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Дисциплины по выбору Б1.В.ДВ.2",
+  "lineName": "Дисциплины по выбору Б1.В.ДВ.2",
+  "forms": {
+   "credit": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 30,
+   "self": 42,
+   "practical": 12
+  },
+  "semesters": {
+   "3": {
+    "ze": 2,
+    "lab": 30,
+    "self": 42
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.В.ДВ.02.01",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Цифровой практикум на Python Моделирование и программирование в среде",
+  "lineName": "Цифровой практикум на Python",
+  "forms": {
+   "credit": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 30,
+   "self": 42,
+   "practical": 12
+  },
+  "semesters": {
+   "3": {
+    "ze": 2,
+    "lab": 30,
+    "self": 42
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.02.02",
+  "counted": false,
+  "part": "Б1.В",
+  "planName": "Blender",
+  "lineName": "Моделирование Blender и программирование в среде",
+  "forms": {
+   "credit": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 30,
+   "self": 42,
+   "practical": 12
+  },
+  "semesters": {
+   "3": {
+    "ze": 2,
+    "lab": 30,
+    "self": 42
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.03",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Дисциплины по выбору Б1.В.ДВ.3",
+  "lineName": "Дисциплины по выбору Б1.В.ДВ.3",
+  "forms": {
+   "exam": [
+    8
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 94,
+   "self": 14,
+   "control": 36,
+   "practical": 18
+  },
+  "semesters": {
+   "8": {
+    "ze": 4,
+    "lec": 30,
+    "lab": 32,
+    "pr": 32,
+    "self": 14,
+    "control": 36
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.В.ДВ.03.01",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Безопасность сетей",
+  "lineName": "Безопасность сетей",
+  "forms": {
+   "exam": [
+    8
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 94,
+   "self": 14,
+   "control": 36,
+   "practical": 18
+  },
+  "semesters": {
+   "8": {
+    "ze": 4,
+    "lec": 30,
+    "lab": 32,
+    "pr": 32,
+    "self": 14,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.03.02",
+  "counted": false,
+  "part": "Б1.В",
+  "planName": "Геоинформационные системы",
+  "lineName": "Геоинформационные системы",
+  "forms": {
+   "exam": [
+    8
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 94,
+   "self": 14,
+   "control": 36,
+   "practical": 18
+  },
+  "semesters": {
+   "8": {
+    "ze": 4,
+    "lec": 30,
+    "lab": 32,
+    "pr": 32,
+    "self": 14,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.04",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Дисциплины по выбору Б1.В.ДВ.4 Перспективные технологии и языки веб-",
+  "lineName": "Дисциплины по выбору Б1.В.ДВ.4",
+  "forms": {
+   "exam": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 60,
+   "self": 84,
+   "control": 36,
+   "practical": 20
+  },
+  "semesters": {
+   "3": {
+    "ze": 5,
+    "lec": 30,
+    "lab": 30,
+    "self": 84,
+    "control": 36
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.В.ДВ.04.01",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "разработки",
+  "lineName": "Перспективные разработки технологии и языки веб-",
+  "forms": {
+   "exam": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 60,
+   "self": 84,
+   "control": 36,
+   "practical": 20
+  },
+  "semesters": {
+   "3": {
+    "ze": 5,
+    "lec": 30,
+    "lab": 30,
+    "self": 84,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.04.02",
+  "counted": false,
+  "part": "Б1.В",
+  "planName": "Электронный документооборот",
+  "lineName": "Электронный документооборот",
+  "forms": {
+   "exam": [
+    3
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 60,
+   "self": 84,
+   "control": 36,
+   "practical": 20
+  },
+  "semesters": {
+   "3": {
+    "ze": 5,
+    "lec": 30,
+    "lab": 30,
+    "self": 84,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.05",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Дисциплины по выбору Б1.В.ДВ.5 Инженерно- техническая защита информации",
+  "lineName": "Дисциплины по выбору Б1.В.ДВ.5",
+  "forms": {
+   "exam": [
+    5
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 60,
+   "self": 84,
+   "control": 36,
+   "practical": 18
+  },
+  "semesters": {
+   "5": {
+    "ze": 5,
+    "lec": 28,
+    "lab": 32,
+    "self": 84,
+    "control": 36
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.В.ДВ.05.01",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "информации",
+  "lineName": "Инженерно- информации техническая защита информации",
+  "forms": {
+   "exam": [
+    5
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 60,
+   "self": 84,
+   "control": 36,
+   "practical": 18
+  },
+  "semesters": {
+   "5": {
+    "ze": 5,
+    "lec": 28,
+    "lab": 32,
+    "self": 84,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.05.02",
+  "counted": false,
+  "part": "Б1.В",
+  "planName": "Техническая защита информации",
+  "lineName": "Техническая защита информации",
+  "forms": {
+   "exam": [
+    5
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "contact": 60,
+   "self": 84,
+   "control": 36,
+   "practical": 18
+  },
+  "semesters": {
+   "5": {
+    "ze": 5,
+    "lec": 28,
+    "lab": 32,
+    "self": 84,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.06",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Дисциплины по выбору Б1.В.ДВ.6",
+  "lineName": "Дисциплины по выбору Б1.В.ДВ.6",
+  "forms": {
+   "exam": [
+    5
+   ]
+  },
+  "totals": {
+   "ze": 6,
+   "hours": 216,
+   "contact": 60,
+   "self": 120,
+   "control": 36
+  },
+  "semesters": {
+   "5": {
+    "ze": 6,
+    "lec": 28,
+    "lab": 32,
+    "self": 120,
+    "control": 36
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.В.ДВ.06.01",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Разработка мобильных приложений Инструментальные средства в управлении",
+  "lineName": "Разработка мобильных приложений",
+  "forms": {
+   "exam": [
+    5
+   ]
+  },
+  "totals": {
+   "ze": 6,
+   "hours": 216,
+   "contact": 60,
+   "self": 120,
+   "control": 36
+  },
+  "semesters": {
+   "5": {
+    "ze": 6,
+    "lec": 28,
+    "lab": 32,
+    "self": 120,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.06.02",
+  "counted": false,
+  "part": "Б1.В",
+  "planName": "проектами",
+  "lineName": "Инструментальные проектами средства в управлении",
+  "forms": {
+   "exam": [
+    5
+   ]
+  },
+  "totals": {
+   "ze": 6,
+   "hours": 216,
+   "contact": 60,
+   "self": 120,
+   "control": 36
+  },
+  "semesters": {
+   "5": {
+    "ze": 6,
+    "lec": 28,
+    "lab": 32,
+    "self": 120,
+    "control": 36
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.07",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Дисциплины по выбору Б1.В.ДВ.7 Метрология, стандартизация, сертификация и",
+  "lineName": "Дисциплины по выбору Б1.В.ДВ.7",
+  "forms": {
+   "credit": [
+    8
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 32,
+   "self": 40,
+   "practical": 4
+  },
+  "semesters": {
+   "8": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 16,
+    "self": 40
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.В.ДВ.07.01",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "техническое документоведение Приборы и методы контроля информационных",
+  "lineName": "Метрология, техническое документоведение стандартизация, сертификация и",
+  "forms": {
+   "credit": [
+    8
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 32,
+   "self": 40,
+   "practical": 4
+  },
+  "semesters": {
+   "8": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 16,
+    "self": 40
+   }
+  },
+  "dept": "62",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.07.02",
+  "counted": false,
+  "part": "Б1.В",
+  "planName": "систем",
+  "lineName": "Приборы систем и методы контроля информационных",
+  "forms": {
+   "credit": [
+    8
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 32,
+   "self": 40,
+   "practical": 4
+  },
+  "semesters": {
+   "8": {
+    "ze": 2,
+    "lec": 16,
+    "pr": 16,
+    "self": 40
+   }
+  },
+  "dept": "62",
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.08",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "Модуль мобильности Технологии облачных вычислений (Онлайн-курс",
+  "lineName": "Модуль мобильности",
+  "forms": {
+   "credit": [
+    7
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 14,
+   "self": 130,
+   "practical": 4
+  },
+  "semesters": {
+   "7": {
+    "ze": 4,
+    "lec": 14,
+    "self": 130
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "Б1.В.ДВ.08.01",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "НОУ ИНТУИТ) Физические основы информационных",
+  "lineName": "Технологии НОУ ИНТУИТ) облачных вычислений (Онлайн-курс",
+  "forms": {
+   "credit": [
+    7
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 14,
+   "self": 130,
+   "practical": 4
+  },
+  "semesters": {
+   "7": {
+    "ze": 4,
+    "lec": 14,
+    "self": 130
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "Б1.В.ДВ.08.02",
+  "counted": false,
+  "part": "Б1.В",
+  "planName": "технологий (Онлайн-курс СПбГЭТУ «ЛЭТИ»)",
+  "lineName": "Физические технологий (Онлайн-курс основы информационных СПбГЭТУ «ЛЭТИ»)",
+  "forms": {
+   "credit": [
+    7
+   ]
+  },
+  "totals": {
+   "ze": 4,
+   "hours": 144,
+   "contact": 14,
+   "self": 130,
+   "practical": 4
+  },
+  "semesters": {
+   "7": {
+    "ze": 4,
+    "lec": 14,
+    "self": 130
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "К.М.Комплексные",
+  "counted": true,
+  "part": null,
+  "planName": "Комплексный модуль: Физическая",
+  "lineName": "",
+  "forms": {},
+  "totals": {
+   "ze": 2,
+   "hours": 400,
+   "contact": 178,
+   "self": 222
+  },
+  "semesters": {
+   "1": {
+    "ze": 1,
+    "pr": 32,
+    "self": 58
+   },
+   "2": {
+    "ze": 1,
+    "pr": 32,
+    "self": 58
+   },
+   "3": {
+    "pr": 32,
+    "self": 22
+   },
+   "4": {
+    "pr": 32,
+    "self": 22
+   },
+   "5": {
+    "pr": 16,
+    "self": 20
+   },
+   "6": {
+    "pr": 18,
+    "self": 18
+   },
+   "7": {
+    "pr": 16,
+    "self": 24
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "К.М.01",
+  "counted": true,
+  "part": "К.М",
+  "planName": "культура и спорт",
+  "lineName": "Комплексный культура и спорт модуль: Физическая",
+  "forms": {
+   "credit": [
+    2,
+    4,
+    6,
+    7
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 400,
+   "contact": 178,
+   "self": 222
+  },
+  "semesters": {
+   "1": {
+    "ze": 1,
+    "pr": 32,
+    "self": 58
+   },
+   "2": {
+    "ze": 1,
+    "pr": 32,
+    "self": 58
+   },
+   "3": {
+    "pr": 32,
+    "self": 22
+   },
+   "4": {
+    "pr": 32,
+    "self": 22
+   },
+   "5": {
+    "pr": 16,
+    "self": 20
+   },
+   "6": {
+    "pr": 18,
+    "self": 18
+   },
+   "7": {
+    "pr": 16,
+    "self": 24
+   }
+  },
+  "dept": null,
+  "isGroup": true
+ },
+ {
+  "code": "К.М.01.01",
+  "counted": true,
+  "part": "Б1.О",
+  "planName": "Физическая культура и спорт Элективные дисциплины по физической",
+  "lineName": "Физическая культура и спорт",
+  "forms": {
+   "credit": [
+    2
+   ]
+  },
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 32,
+   "self": 40
+  },
+  "semesters": {
+   "1": {
+    "ze": 1,
+    "pr": 16,
+    "self": 20
+   },
+   "2": {
+    "ze": 1,
+    "pr": 16,
+    "self": 20
+   }
+  },
+  "dept": "102",
+  "isGroup": false
+ },
+ {
+  "code": "К.М.01.02",
+  "counted": true,
+  "part": "Б1.В",
+  "planName": "культуре и спорту",
+  "lineName": "Элективные культуре и спорту дисциплины по физической",
+  "forms": {
+   "credit": [
+    4,
+    6,
+    7
+   ]
+  },
+  "totals": {
+   "hours": 328,
+   "contact": 146,
+   "self": 182
+  },
+  "semesters": {
+   "1": {
+    "pr": 16,
+    "self": 38
+   },
+   "2": {
+    "pr": 16,
+    "self": 38
+   },
+   "3": {
+    "pr": 32,
+    "self": 22
+   },
+   "4": {
+    "pr": 32,
+    "self": 22
+   },
+   "5": {
+    "pr": 16,
+    "self": 20
+   },
+   "6": {
+    "pr": 18,
+    "self": 18
+   },
+   "7": {
+    "pr": 16,
+    "self": 24
+   }
+  },
+  "dept": "102",
+  "isGroup": false
+ },
+ {
+  "code": "Б2.О.Практика",
+  "counted": true,
+  "part": null,
+  "planName": "Учебная практика, научно-исследовательская",
+  "lineName": "",
+  "forms": {},
+  "totals": {
+   "ze": 23,
+   "hours": 828,
+   "self": 828,
+   "practical": 190
+  },
+  "semesters": {
+   "5": {
+    "ze": 6,
+    "self": 216
+   },
+   "6": {
+    "ze": 5,
+    "self": 180
+   },
+   "7": {
+    "ze": 6,
+    "self": 216
+   },
+   "8": {
+    "ze": 6,
+    "self": 216
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "Б2.О.О.01(У)",
+  "counted": true,
+  "part": "Б2.О.О",
+  "planName": "работа (получение первичных навыков научно- исследовательской работы) Производственная практика, научно-",
+  "lineName": "работа (получение первичных навыков научно-",
+  "forms": {
+   "credit": [
+    5
+   ]
+  },
+  "totals": {
+   "ze": 6,
+   "hours": 216,
+   "self": 216,
+   "practical": 60
+  },
+  "semesters": {
+   "5": {
+    "ze": 6,
+    "self": 216
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б2.О.О.02(П)",
+  "counted": true,
+  "part": "Б2.О.О",
+  "planName": "исследовательская работа участниками образовательных отношений Учебная практика, технологическая(проектно-",
+  "lineName": "Производственная исследовательская практика, работа научно-",
+  "forms": {
+   "gradedCredit": [
+    8
+   ]
+  },
+  "totals": {
+   "ze": 6,
+   "hours": 216,
+   "self": 216,
+   "practical": 40
+  },
+  "semesters": {
+   "8": {
+    "ze": 6,
+    "self": 216
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "Б2.О.В.01(У)",
+  "counted": true,
+  "part": "Б2.О.В",
+  "planName": "технологическая)",
+  "lineName": "Учебная технологическая) практика, технологическая(проектно-",
+  "forms": {
+   "credit": [
+    7
+   ]
+  },
+  "totals": {
+   "ze": 6,
+   "hours": 216,
+   "self": 216,
+   "practical": 60
+  },
+  "semesters": {
+   "7": {
+    "ze": 6,
+    "self": 216
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "Б2.О.В.02(П)",
+  "counted": true,
+  "part": "Б2.О.В",
+  "planName": "Производственная практика, эксплуатационная итоговая аттестация Подготовка к процедуре защиты и защита",
+  "lineName": "Производственная практика, эксплуатационная",
+  "forms": {
+   "credit": [
+    6
+   ]
+  },
+  "totals": {
+   "ze": 5,
+   "hours": 180,
+   "self": 180,
+   "practical": 30
+  },
+  "semesters": {
+   "6": {
+    "ze": 5,
+    "self": 180
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "Б3.О.01(Д)",
+  "counted": true,
+  "part": "Б3.О",
+  "planName": "выпускной квалификационной работы",
+  "lineName": "Подготовка выпускной квалификационной к процедуре защиты работы и защита",
+  "forms": {},
+  "totals": {
+   "ze": 9,
+   "hours": 324,
+   "contact": 144,
+   "self": 180,
+   "practical": 100
+  },
+  "semesters": {
+   "8": {
+    "ze": 9,
+    "pr": 144,
+    "self": 180
+   }
+  },
+  "dept": "65",
+  "isGroup": false
+ },
+ {
+  "code": "ФТД.Факультативы",
+  "counted": true,
+  "part": null,
+  "planName": "участниками образовательных отношений",
+  "lineName": "",
+  "forms": {},
+  "totals": {
+   "ze": 2,
+   "hours": 72,
+   "contact": 24,
+   "self": 48
+  },
+  "semesters": {
+   "7": {
+    "ze": 2,
+    "lec": 24,
+    "self": 48
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "ФТД.В.01",
+  "counted": true,
+  "part": "ФТД.В",
+  "planName": "Нейронные сети",
+  "lineName": "Нейронные сети",
+  "forms": {
+   "credit": [
+    7
+   ]
+  },
+  "totals": {
+   "ze": 1,
+   "hours": 36,
+   "contact": 12,
+   "self": 24
+  },
+  "semesters": {
+   "7": {
+    "ze": 1,
+    "lec": 12,
+    "self": 24
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ },
+ {
+  "code": "ФТД.В.02",
+  "counted": true,
+  "part": "ФТД.В",
+  "planName": "IP-телефония Итого з.е./акад.часов (без факультативов) Недельная нагрузка в периодах обучения (акад.час/нед)",
+  "lineName": "IP-телефония",
+  "forms": {
+   "credit": [
+    7
+   ]
+  },
+  "totals": {
+   "ze": 1,
+   "hours": 36,
+   "contact": 12,
+   "self": 24
+  },
+  "semesters": {
+   "7": {
+    "ze": 1,
+    "lec": 12,
+    "self": 24
+   }
+  },
+  "dept": null,
+  "isGroup": false
+ }
+]
