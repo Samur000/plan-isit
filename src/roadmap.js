@@ -517,6 +517,31 @@
   if (mqNarrow.addEventListener) mqNarrow.addEventListener('change', onMq); else mqNarrow.addListener(onMq);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleDraw);
 
+  // ---------- блок «После выпуска» ----------
+  function renderOutcomes() {
+    var box = $('outcomes'), o = P.outcomes;
+    box.style.display = o ? '' : 'none';
+    if (!o) { box.innerHTML = ''; return; }
+    var skills = (o.skills || []).map(function (sk) {
+      var chips = (sk.codes || []).filter(function (c) { return byCode[c]; }).map(function (c) {
+        return '<button type="button" class="rm-out-chip" data-open="' + esc(c) + '" title="' + esc(byCode[c].node.name) + '">' +
+          esc(byCode[c].node.short) + '</button>';
+      }).join('');
+      return '<li style="' + vars(sk.track) + '"><i aria-hidden="true"></i><div><b>' + esc(sk.title) + '</b><p>' + esc(sk.text) +
+        '</p><div class="rm-out-chips">' + chips + '</div></div></li>';
+    }).join('');
+    box.innerHTML =
+      '<div class="rm-out-head"><h2 id="rm-out-title">' + esc(o.title) + '</h2>' +
+      (o.lead || []).map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') + '</div>' +
+      '<div class="rm-out-grid">' +
+        '<div><h3>' + esc(o.skillsTitle) + '</h3><ul class="rm-out-skills">' + skills + '</ul></div>' +
+        '<aside class="rm-out-side"><h3>' + esc(o.rolesTitle) + '</h3><ul class="rm-out-roles">' +
+          (o.roles || []).map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul>' +
+          (o.spheres ? '<h3>' + esc(o.spheresTitle || 'Сферы') + '</h3><p class="rm-out-spheres">' + esc(o.spheres) + '</p>' : '') +
+          (o.note ? '<p class="rm-out-note">' + esc(o.note) + '</p>' : '') +
+        '</aside></div>';
+  }
+
   function renderHint() {
     var touch = window.matchMedia('(hover: none)').matches;
     $('hint').textContent = touch
@@ -531,6 +556,7 @@
     renderHeader();
     renderTracks();
     renderGrid();
+    renderOutcomes();
   }
   renderAll();
   readHash();

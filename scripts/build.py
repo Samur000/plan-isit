@@ -136,7 +136,15 @@ def build_program(cur_path):
     for e in eor:
         if e not in used:
             warnings.append(f"{cur['id']}: {e} есть в ЭОР, но не найден в плане")
-    return {"id": cur["id"], "meta": cur["meta"], "tracks": cur["tracks"], "nodes": nodes, "edges": edges}
+    outcomes = cur.get("outcomes")
+    if outcomes:
+        all_codes = set(ids) | {o["code"] for n in nodes for o in n.get("options", [])}
+        for sk in outcomes.get("skills", []):
+            for c in sk.get("codes", []):
+                if c not in all_codes:
+                    warnings.append(f"{cur['id']}: в блоке «После выпуска» указан несуществующий код {c}")
+    return {"id": cur["id"], "meta": cur["meta"], "tracks": cur["tracks"], "nodes": nodes, "edges": edges,
+            "outcomes": outcomes}
 
 
 FONT_LOADER = """<script>
