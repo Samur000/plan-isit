@@ -538,6 +538,18 @@
         '<aside class="rm-out-side"><h3>' + esc(o.rolesTitle) + '</h3><ul class="rm-out-roles">' +
           (o.roles || []).map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul>' +
           (o.spheres ? '<h3>' + esc(o.spheresTitle || 'Сферы') + '</h3><p class="rm-out-spheres">' + esc(o.spheres) + '</p>' : '') +
+          (o.searches && o.searches.length ? '<h3>' + esc(o.hhTitle) + '</h3><ul class="rm-out-search">' +
+            o.searches.map(function (q) {
+              return '<li><a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.label) + ICON_LINK + '</a></li>';
+            }).join('') + '</ul>' : '') +
+          (o.companyGroups && o.companyGroups.length ? '<h3>' + esc(o.companiesTitle) + '</h3>' +
+            o.companyGroups.map(function (g) {
+              return '<div class="rm-out-cgroup"><span>' + esc(g.title) + '</span><div class="rm-out-companies">' +
+                g.items.map(function (c) {
+                  return '<a href="https://hh.ru/employer/' + encodeURIComponent(c.id) + '" target="_blank" rel="noopener" title="' +
+                    esc(c.name) + ' на hh.ru">' + esc(c.name) + '</a>';
+                }).join('') + '</div></div>';
+            }).join('') : '') +
           (o.note ? '<p class="rm-out-note">' + esc(o.note) + '</p>' : '') +
         '</aside></div>';
   }

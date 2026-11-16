@@ -438,6 +438,111 @@
     ],
     "spheresTitle": "Сферы",
     "spheres": "IT-компании и студии разработки, банки, государственные информационные системы, промышленность и связь, вузы и научные организации.",
-    "note": "Профессии приведены как примеры: на них прямо работают дисциплины этой программы."
+    "note": "Профессии приведены как примеры: на них прямо работают дисциплины этой программы. Ссылки ведут на hh.ru, список компаний сверен в ноябре 2026 г.",
+    "hhTitle": "Вакансии и стажировки на hh.ru",
+    "searches": [
+      {
+        "label": "IT-вакансии в Дагестане",
+        "url": "https://hh.ru/search/vacancy?area=1424&professional_role=96&professional_role=160&professional_role=10&professional_role=156&professional_role=165&professional_role=112&professional_role=113&professional_role=114&professional_role=116&professional_role=124&professional_role=148"
+      },
+      {
+        "label": "Стажировки в IT по России",
+        "url": "https://hh.ru/search/vacancy?area=113&professional_role=96&professional_role=160&professional_role=10&professional_role=156&professional_role=165&professional_role=112&professional_role=113&professional_role=114&professional_role=116&professional_role=124&professional_role=148&text=%D1%81%D1%82%D0%B0%D0%B6%D0%B5%D1%80%20OR%20%D1%81%D1%82%D0%B0%D0%B6%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0%20OR%20%D1%81%D1%82%D0%B0%D0%B6%D1%91%D1%80%20OR%20intern"
+      },
+      {
+        "label": "Удалённо и без опыта",
+        "url": "https://hh.ru/search/vacancy?area=113&professional_role=96&professional_role=160&professional_role=10&professional_role=156&professional_role=165&professional_role=112&professional_role=113&professional_role=114&professional_role=116&professional_role=124&professional_role=148&experience=noExperience&work_format=REMOTE"
+      },
+      {
+        "label": "Информационная безопасность без опыта",
+        "url": "https://hh.ru/search/vacancy?area=113&professional_role=116&experience=noExperience"
+      }
+    ],
+    "companiesTitle": "Компании на hh.ru",
+    "companyGroups": [
+      {
+        "title": "В Дагестане",
+        "items": [
+          {
+            "name": "05.ру",
+            "id": 1150295
+          },
+          {
+            "name": "МФЦ Республики Дагестан",
+            "id": 5690892
+          }
+        ]
+      },
+      {
+        "title": "Кибербезопасность",
+        "items": [
+          {
+            "name": "Лаборатория Касперского",
+            "id": 1057
+          },
+          {
+            "name": "Positive Technologies",
+            "id": 26624
+          },
+          {
+            "name": "BI.ZONE",
+            "id": 2367681
+          },
+          {
+            "name": "Солар",
+            "id": 1793216
+          },
+          {
+            "name": "ИнфоТеКС",
+            "id": 3778
+          },
+          {
+            "name": "Код Безопасности",
+            "id": 2562304
+          }
+        ]
+      },
+      {
+        "title": "IT-компании и банки",
+        "items": [
+          {
+            "name": "Яндекс",
+            "id": 1740
+          },
+          {
+            "name": "Сбер",
+            "id": 3529
+          },
+          {
+            "name": "Т-Банк",
+            "id": 78638
+          },
+          {
+            "name": "VK",
+            "id": 15478
+          },
+          {
+            "name": "Ozon",
+            "id": 2180
+          },
+          {
+            "name": "Авито",
+            "id": 84585
+          },
+          {
+            "name": "Альфа-Банк",
+            "id": 80
+          },
+          {
+            "name": "МТС",
+            "id": 3776
+          },
+          {
+            "name": "Ростелеком",
+            "id": 2748
+          }
+        ]
+      }
+    ]
   }
 }
