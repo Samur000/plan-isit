@@ -19,77 +19,44 @@
      "научно-исследовательский (основной)",
      "производственно-технологический"
     ],
-    "planUrl": "https://dgu.ru/files-oop/10062026_104111_Ucheb_plan_Napr_09_03_02_ISIT_TRBPOIS_Ochn_2026.pdf"
+    "planUrl": "https://dgu.ru/files-oop/10062026_104111_Ucheb_plan_Napr_09_03_02_ISIT_TRBPOIS_Ochn_2026.pdf",
+    "eorUrl": "https://oop.dgu.ru/sved/eor.html?profileId=16456"
    },
    "tracks": [
     {
-     "id": "o1",
-     "name": "Общеобразовательный модуль",
-     "codes": "Б1.О.01",
-     "prefixes": [
-      "Б1.О.01."
-     ],
-     "compact": true
+     "id": "math",
+     "name": "Математика и физика"
     },
     {
-     "id": "o2",
-     "name": "Модули: БЖД, коммуникация, ИТ",
-     "codes": "Б1.О.02–Б1.О.04",
-     "prefixes": [
-      "Б1.О.02.",
-      "Б1.О.03.",
-      "Б1.О.04."
-     ],
-     "compact": true
+     "id": "prog",
+     "name": "Программирование"
     },
     {
-     "id": "base",
-     "name": "Базовый модуль направления",
-     "codes": "Б1.О.05",
-     "prefixes": [
-      "Б1.О.05."
-     ]
+     "id": "data",
+     "name": "Данные и ИИ"
     },
     {
-     "id": "prof",
-     "name": "Модуль профильной направленности",
-     "codes": "Б1.В.01",
-     "prefixes": [
-      "Б1.В.01."
-     ]
+     "id": "sys",
+     "name": "Системы и сети"
     },
     {
-     "id": "dv",
-     "name": "Дисциплины по выбору",
-     "codes": "Б1.В.ДВ",
-     "prefixes": [
-      "Б1.В.ДВ."
-     ]
+     "id": "sec",
+     "name": "Безопасность"
     },
     {
      "id": "prac",
-     "name": "Практика и ГИА",
-     "codes": "Б2, Б3",
-     "prefixes": [
-      "Б2.",
-      "Б3."
-     ]
+     "name": "Практика и ВКР"
     },
     {
-     "id": "extra",
-     "name": "Физкультура и факультативы",
-     "codes": "К.М.01, ФТД",
-     "prefixes": [
-      "К.М.",
-      "ФТД."
-     ],
-     "compact": true
+     "id": "gen",
+     "name": "Общая подготовка"
     }
    ],
    "nodes": [
     {
      "code": "Б1.О.01.01",
      "name": "Философия",
+     "short": "Философия",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -98,45 +65,40 @@
      ],
      "ze": 3,
      "hours": 108,
-     "contact": 58,
      "hoursBy": {
       "lec": 28,
       "lab": 0,
       "pr": 30,
-      "iz": 0,
-      "krp": 0,
       "self": 50,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 4,
        "ze": 3,
-       "total": 108,
-       "contact": 58,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 28,
        "lab": null,
        "pr": 30,
-       "iz": null,
-       "krp": null,
        "self": 50,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/30062026_031922_20263006fiit65-1.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/30062026_041622_FOS_20260630fiit65-1.pdf",
      "module": "Общеобразовательный модуль",
-     "track": "o1",
+     "track": "gen",
      "start": 4
     },
     {
      "code": "Б1.О.01.02",
      "name": "История России",
+     "short": "История России",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -146,63 +108,53 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 116,
      "hoursBy": {
       "lec": 58,
       "lab": 0,
       "pr": 58,
-      "iz": 0,
-      "krp": 0,
       "self": 28,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 1,
        "ze": 2,
-       "total": 72,
-       "contact": 60,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 30,
        "lab": null,
        "pr": 30,
-       "iz": null,
-       "krp": null,
        "self": 12,
-       "exam": null
+       "control": null
       },
       {
        "sem": 2,
        "ze": 2,
-       "total": 72,
-       "contact": 56,
-       "weeks": null,
        "forms": [
         "Зачёт с оценкой"
        ],
        "lec": 28,
        "lab": null,
        "pr": 28,
-       "iz": null,
-       "krp": null,
        "self": 16,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт",
       "Зачёт с оценкой"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/06072026_005310_20260607fiit65-3.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/06072026_525710_FOS_20260607fiit65-3.pdf",
      "module": "Общеобразовательный модуль",
-     "track": "o1",
+     "track": "gen",
      "start": 1
     },
     {
      "code": "Б1.О.01.03",
      "name": "Правоведение",
+     "short": "Правоведение",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -211,45 +163,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 30,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 14,
-      "iz": 0,
-      "krp": 0,
       "self": 42,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 2,
        "ze": 2,
-       "total": 72,
-       "contact": 30,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": null,
        "pr": 14,
-       "iz": null,
-       "krp": null,
        "self": 42,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/27102026_324711_20261027fiit65-1.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/27102026_493611_FOS20261027fiit65-1.pdf",
      "module": "Общеобразовательный модуль",
-     "track": "o1",
+     "track": "gen",
      "start": 2
     },
     {
      "code": "Б1.О.01.04",
      "name": "Менеджмент",
+     "short": "Менеджмент",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -258,45 +205,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 30,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 14,
-      "iz": 0,
-      "krp": 0,
       "self": 42,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 3,
        "ze": 2,
-       "total": 72,
-       "contact": 30,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": null,
        "pr": 14,
-       "iz": null,
-       "krp": null,
        "self": 42,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/15072026_243717_20261507fiit65-2.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/15072026_493717_FOS_20261507fiit65-2.pdf",
      "module": "Общеобразовательный модуль",
-     "track": "o1",
+     "track": "gen",
      "start": 3
     },
     {
      "code": "Б1.О.01.05",
      "name": "Управление персоналом",
+     "short": "Управление персоналом",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -305,45 +247,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 30,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 14,
-      "iz": 0,
-      "krp": 0,
       "self": 42,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 7,
        "ze": 2,
-       "total": 72,
-       "contact": 30,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": null,
        "pr": 14,
-       "iz": null,
-       "krp": null,
        "self": 42,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/30062026_534022_20263006fiit65-3.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/30062026_473822_FOS_20263006fiit65-3.pdf",
      "module": "Общеобразовательный модуль",
-     "track": "o1",
+     "track": "gen",
      "start": 7
     },
     {
      "code": "Б1.О.01.06",
      "name": "Религиоведение",
+     "short": "Религиоведение",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -352,45 +289,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 30,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 14,
-      "iz": 0,
-      "krp": 0,
       "self": 42,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 3,
        "ze": 2,
-       "total": 72,
-       "contact": 30,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": null,
        "pr": 14,
-       "iz": null,
-       "krp": null,
        "self": 42,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/27082026_464014_15102025_105914_20251015fiit65-3.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/22072026_581911_FOS_20262207fiit65-2.pdf",
      "module": "Общеобразовательный модуль",
-     "track": "o1",
+     "track": "gen",
      "start": 3
     },
     {
      "code": "Б1.О.01.07",
      "name": "Экономика",
+     "short": "Экономика",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -399,45 +331,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 32,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 16,
-      "iz": 0,
-      "krp": 0,
       "self": 40,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 2,
        "ze": 2,
-       "total": 72,
-       "contact": 32,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 40,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/06072026_400311_20260607fiit65-6.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/06072026_220511_FOS_20260607fiit65-5.pdf",
      "module": "Общеобразовательный модуль",
-     "track": "o1",
+     "track": "gen",
      "start": 2
     },
     {
      "code": "Б1.О.01.08",
      "name": "Основы российской государственности",
+     "short": "Основы российской государственности",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -446,45 +373,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 32,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 16,
-      "iz": 0,
-      "krp": 0,
       "self": 40,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 1,
        "ze": 2,
-       "total": 72,
-       "contact": 32,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 40,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/06072026_273510_20260607fiit65-2.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/06072026_334110_FOS_20260607fiit65-1.pdf",
      "module": "Общеобразовательный модуль",
-     "track": "o1",
+     "track": "gen",
      "start": 1
     },
     {
      "code": "Б1.О.02.01",
      "name": "Основы военной подготовки",
+     "short": "Основы военной подготовки",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -493,45 +415,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 56,
      "hoursBy": {
       "lec": 28,
       "lab": 0,
       "pr": 28,
-      "iz": 0,
-      "krp": 0,
       "self": 16,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 4,
        "ze": 2,
-       "total": 72,
-       "contact": 56,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 28,
        "lab": null,
        "pr": 28,
-       "iz": null,
-       "krp": null,
        "self": 16,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/08072026_484211_RP_OSN.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/08072026_264311_FOS_Osn.docx",
      "module": "Модуль: Безопасность жизнедеятельности",
-     "track": "o2",
+     "track": "gen",
      "start": 4
     },
     {
      "code": "Б1.О.02.02",
      "name": "Безопасность жизнедеятельности",
+     "short": "Безопасность жизнедеятельности",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -540,45 +457,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 30,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 14,
-      "iz": 0,
-      "krp": 0,
       "self": 42,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 3,
        "ze": 2,
-       "total": 72,
-       "contact": 30,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": null,
        "pr": 14,
-       "iz": null,
-       "krp": null,
        "self": 42,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/30062026_245822_20263006fiit65-5.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/30062026_251423_FOS_20263006fiit65-5.pdf",
      "module": "Модуль: Безопасность жизнедеятельности",
-     "track": "o2",
+     "track": "gen",
      "start": 3
     },
     {
      "code": "Б1.О.03.01",
      "name": "Иностранный язык (базовый курс)",
+     "short": "Иностранный язык",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -590,93 +502,73 @@
      ],
      "ze": 10,
      "hours": 360,
-     "contact": 192,
      "hoursBy": {
       "lec": 0,
       "lab": 0,
       "pr": 192,
-      "iz": 0,
-      "krp": 0,
       "self": 168,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 1,
        "ze": 2,
-       "total": 72,
-       "contact": 48,
-       "weeks": null,
        "forms": [],
        "lec": null,
        "lab": null,
        "pr": 48,
-       "iz": null,
-       "krp": null,
        "self": 24,
-       "exam": null
+       "control": null
       },
       {
        "sem": 2,
        "ze": 2,
-       "total": 72,
-       "contact": 48,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": null,
        "lab": null,
        "pr": 48,
-       "iz": null,
-       "krp": null,
        "self": 24,
-       "exam": null
+       "control": null
       },
       {
        "sem": 3,
        "ze": 2,
-       "total": 72,
-       "contact": 48,
-       "weeks": null,
        "forms": [],
        "lec": null,
        "lab": null,
        "pr": 48,
-       "iz": null,
-       "krp": null,
        "self": 24,
-       "exam": null
+       "control": null
       },
       {
        "sem": 4,
        "ze": 4,
-       "total": 144,
-       "contact": 48,
-       "weeks": null,
        "forms": [
         "Зачёт с оценкой"
        ],
        "lec": null,
        "lab": null,
        "pr": 48,
-       "iz": null,
-       "krp": null,
        "self": 96,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт",
       "Зачёт с оценкой"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/30062026_543223_20263006fiit65-7.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/30062026_364023_FOS_20263006fiit65-8.pdf",
      "module": "Модуль: Коммуникация",
-     "track": "o2",
+     "track": "gen",
      "start": 1
     },
     {
      "code": "Б1.О.03.02",
      "name": "Русский язык и культура речи",
+     "short": "Русский язык и культура речи",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -685,45 +577,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 32,
      "hoursBy": {
       "lec": 0,
       "lab": 0,
       "pr": 32,
-      "iz": 0,
-      "krp": 0,
       "self": 40,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 1,
        "ze": 2,
-       "total": 72,
-       "contact": 32,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": null,
        "lab": null,
        "pr": 32,
-       "iz": null,
-       "krp": null,
        "self": 40,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/08072026_275211_20260807fiit65-2.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/08072026_423811_FOS_20260807fiit65-1.pdf",
      "module": "Модуль: Коммуникация",
-     "track": "o2",
+     "track": "gen",
      "start": 1
     },
     {
      "code": "Б1.О.04.01",
      "name": "Введение в информационные технологии",
+     "short": "Введение в информационные технологии",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -732,45 +619,40 @@
      ],
      "ze": 3,
      "hours": 108,
-     "contact": 34,
      "hoursBy": {
       "lec": 0,
       "lab": 34,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 38,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 1,
        "ze": 3,
-       "total": 108,
-       "contact": 34,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": null,
        "lab": 34,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 38,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/01072026_095522_05092025_134510_RPVVedenueVitIsit26.doc",
+     "fos": "https://oop.dgu.ru/sved/files-oop/01072026_140123_05092025_294610_FOSVVedenieVitIsit2026.docx",
      "module": "Модуль: Информационные технологии",
-     "track": "o2",
+     "track": "data",
      "start": 1
     },
     {
      "code": "Б1.О.04.02",
      "name": "Системы искусственного интеллекта",
+     "short": "Системы искусственного интеллекта",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -779,45 +661,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 32,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 16,
-      "iz": 0,
-      "krp": 0,
       "self": 40,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 3,
        "ze": 2,
-       "total": 72,
-       "contact": 32,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 40,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/01072026_520223_08092025_312413_RP_SII_isit-26.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/01072026_360523_08092025_352013_FOS_SII_Isit_2026.docx",
      "module": "Модуль: Информационные технологии",
-     "track": "o2",
+     "track": "data",
      "start": 3
     },
     {
      "code": "Б1.О.05.01",
      "name": "Математический анализ",
+     "short": "Математический анализ",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -827,63 +704,53 @@
      ],
      "ze": 8,
      "hours": 288,
-     "contact": 116,
      "hoursBy": {
       "lec": 66,
       "lab": 0,
       "pr": 50,
-      "iz": 0,
-      "krp": 0,
       "self": 136,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 1,
        "ze": 3,
-       "total": 108,
-       "contact": 48,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 32,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 60,
-       "exam": null
+       "control": null
       },
       {
        "sem": 2,
        "ze": 5,
-       "total": 180,
-       "contact": 68,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 34,
        "lab": null,
        "pr": 34,
-       "iz": null,
-       "krp": null,
        "self": 76,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен",
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_190517_20260207fiit65-2.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_470517_FOS_20260207fiit65-2.pdf",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "math",
      "start": 1
     },
     {
      "code": "Б1.О.05.02",
      "name": "Алгебра и геометрия",
+     "short": "Алгебра и геометрия",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -892,45 +759,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 32,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 16,
-      "iz": 0,
-      "krp": 0,
       "self": 40,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 3,
        "ze": 2,
-       "total": 72,
-       "contact": 32,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 40,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/01072026_432300_20263006fiit65-11.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/01072026_402500_FOS_20263006fiit65-11.pdf",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "math",
      "start": 3
     },
     {
      "code": "Б1.О.05.03",
      "name": "Методы анализа и обработки данных",
+     "short": "Методы анализа и обработки данных",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -939,45 +801,40 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 48,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 32,
-      "iz": 0,
-      "krp": 0,
       "self": 60,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 4,
        "ze": 4,
-       "total": 144,
-       "contact": 48,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 16,
        "lab": null,
        "pr": 32,
-       "iz": null,
-       "krp": null,
        "self": 60,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/27082026_434714_15092025_094518_методы_анализа_25.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/27082026_554214_21102025_502217_FOS_MAOID_ISIT2025.docx",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "data",
      "start": 4
     },
     {
      "code": "Б1.О.05.04",
      "name": "Вычислительная математика",
+     "short": "Вычислительная математика",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -986,45 +843,40 @@
      ],
      "ze": 3,
      "hours": 108,
-     "contact": 32,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 16,
-      "iz": 0,
-      "krp": 0,
       "self": 76,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 3,
        "ze": 3,
-       "total": 108,
-       "contact": 32,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 76,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/07072026_033516_20260707fiit65-5.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/07072026_473816_FOS_20260707fiit65-4.pdf",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "math",
      "start": 3
     },
     {
      "code": "Б1.О.05.05",
      "name": "Физика",
+     "short": "Физика",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -1034,63 +886,53 @@
      ],
      "ze": 8,
      "hours": 288,
-     "contact": 118,
      "hoursBy": {
       "lec": 50,
       "lab": 68,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 134,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 1,
        "ze": 3,
-       "total": 108,
-       "contact": 54,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 18,
        "lab": 36,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 54,
-       "exam": null
+       "control": null
       },
       {
        "sem": 2,
        "ze": 5,
-       "total": 180,
-       "contact": 64,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 32,
        "lab": 32,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 80,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен",
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/01072026_111300_20263006fiit65-10.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/01072026_011600_FOS_20263006fiit65-9.pdf",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "math",
      "start": 1
     },
     {
      "code": "Б1.О.05.06",
      "name": "Схемотехника и электроника",
+     "short": "Схемотехника и электроника",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -1099,45 +941,40 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 82,
      "hoursBy": {
       "lec": 32,
       "lab": 32,
       "pr": 18,
-      "iz": 0,
-      "krp": 0,
       "self": 62,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 6,
        "ze": 4,
-       "total": 144,
-       "contact": 82,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 32,
        "lab": 32,
        "pr": 18,
-       "iz": null,
-       "krp": null,
        "self": 62,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/07072026_544411_20260707fiit65-2.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/07072026_114811_FOS_20260707fiit65-1.pdf",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "sys",
      "start": 6
     },
     {
      "code": "Б1.О.05.07",
      "name": "Теория информации, данные, знания",
+     "short": "Теория информации, данные, знания",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -1146,45 +983,40 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 48,
      "hoursBy": {
       "lec": 16,
       "lab": 0,
       "pr": 32,
-      "iz": 0,
-      "krp": 0,
       "self": 96,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 4,
        "ze": 4,
-       "total": 144,
-       "contact": 48,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": null,
        "pr": 32,
-       "iz": null,
-       "krp": null,
        "self": 96,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/11092026_055013_RP_TI_26.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/11092026_405213_FOS_TI_26.pdf",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "data",
      "start": 4
     },
     {
      "code": "Б1.О.05.08",
      "name": "Архитектура информационных систем",
+     "short": "Архитектура информационных систем",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -1193,45 +1025,40 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 34,
      "hoursBy": {
       "lec": 18,
       "lab": 16,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 110,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 8,
        "ze": 4,
-       "total": 144,
-       "contact": 34,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 18,
        "lab": 16,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 110,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/06072026_132911_z_RP_AIS_ISIT2026.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/06072026_073311_Z_FOS_AIS_ISIT2026_(1).docx",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "sys",
      "start": 8
     },
     {
      "code": "Б1.О.05.09",
      "name": "Информационные технологии и программирование",
+     "short": "ИТ и программирование",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -1240,45 +1067,40 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": 54,
      "hoursBy": {
       "lec": 36,
       "lab": 18,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 90,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 1,
        "ze": 5,
-       "total": 180,
-       "contact": 54,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 36,
        "lab": 18,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 90,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/01072026_051423_15092025_300209_20250915fiit65-3R.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/01072026_351523_15092025_082109_FOS20250915fiit65-2F.docx",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "prog",
      "start": 1
     },
     {
      "code": "Б1.О.05.10",
      "name": "Методы и средства проектирования информационных систем",
+     "short": "Методы и средства проектирования ИС",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -1287,45 +1109,40 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 36,
      "hoursBy": {
       "lec": 18,
       "lab": 18,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 108,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 6,
        "ze": 4,
-       "total": 144,
-       "contact": 36,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 18,
        "lab": 18,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 108,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/06072026_584211_z_RP_MIS_PIS_26.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/06072026_254311_z_FOS_MIS_PIC_266.docx",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "sys",
      "start": 6
     },
     {
      "code": "Б1.О.05.11",
      "name": "Информационная безопасность и защита информации",
+     "short": "Информационная безопасность и защита информации",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -1334,45 +1151,40 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 60,
      "hoursBy": {
       "lec": 28,
       "lab": 32,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 84,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 5,
        "ze": 4,
-       "total": 144,
-       "contact": 60,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 28,
        "lab": 32,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 84,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/01072026_462923_12092025_111616_20250912fiit65-5IBIZI.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/01072026_183123_12092025_262516_FOS20250912fiit65-5ibizi.docx",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "sec",
      "start": 5
     },
     {
      "code": "Б1.О.05.12",
      "name": "Вычислительные сети",
+     "short": "Вычислительные сети",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -1381,45 +1193,40 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": 96,
      "hoursBy": {
       "lec": 32,
       "lab": 32,
       "pr": 32,
-      "iz": 0,
-      "krp": 0,
       "self": 48,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 6,
        "ze": 5,
-       "total": 180,
-       "contact": 96,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 32,
        "lab": 32,
        "pr": 32,
-       "iz": null,
-       "krp": null,
        "self": 48,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/21082026_310213_РП_ВЫЧИСЛИТЕЛЬНЫЕ_СЕТИ_ИСиТ_2026.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/06072026_462316_ФОС_Вычислительные_сети_ИСИТ_2026_1.pdf",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "sys",
      "start": 6
     },
     {
      "code": "Б1.О.05.13",
      "name": "Технологии программирования",
+     "short": "Технологии программирования",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -1428,45 +1235,40 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 64,
      "hoursBy": {
       "lec": 32,
       "lab": 32,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 44,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 4,
        "ze": 4,
-       "total": 144,
-       "contact": 64,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 32,
        "lab": 32,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 44,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/06072026_150612_z_RP_TIMPR_isit_26_(1).docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/06072026_400612_z_FOS_TIMPR_isit_26_(1).docx",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "prog",
      "start": 4
     },
     {
      "code": "Б1.О.05.14",
      "name": "Алгоритмы и структуры данных",
+     "short": "Алгоритмы и структуры данных",
      "kind": "core",
      "part": "Обязательная часть",
      "counted": true,
@@ -1475,45 +1277,40 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": 64,
      "hoursBy": {
       "lec": 32,
       "lab": 32,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 80,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 2,
        "ze": 5,
-       "total": 180,
-       "contact": 64,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 32,
        "lab": 32,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 80,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/06072026_301312_z_RP_AD_tagudin_2026_(1).docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/06072026_451312_z_FOS_ISIT_AISD_26_(1).docx",
      "module": "Базовый модуль направления",
-     "track": "base",
+     "track": "prog",
      "start": 2
     },
     {
      "code": "Б1.В.01.01",
      "name": "Информатика и программирование на языке Python",
+     "short": "Информатика и программирование на языке Python",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -1523,62 +1320,52 @@
      ],
      "ze": 8,
      "hours": 288,
-     "contact": 94,
      "hoursBy": {
       "lec": 48,
       "lab": 46,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 122,
-      "exam": 72
+      "control": 72
      },
      "perSem": [
       {
        "sem": 1,
        "ze": 4,
-       "total": 144,
-       "contact": 58,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 30,
        "lab": 28,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 50,
-       "exam": 36
+       "control": 36
       },
       {
        "sem": 2,
        "ze": 4,
-       "total": 144,
-       "contact": 36,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 18,
        "lab": 18,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 72,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/11092026_064513_RP_Python_220.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/08072025_291022_FOS_PROG_ISIT25.pdf",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "prog",
      "start": 1
     },
     {
      "code": "Б1.В.01.02",
      "name": "Операционные системы",
+     "short": "Операционные системы",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -1588,60 +1375,50 @@
      ],
      "ze": 9,
      "hours": 324,
-     "contact": 148,
      "hoursBy": {
       "lec": 60,
       "lab": 60,
       "pr": 28,
-      "iz": 0,
-      "krp": 0,
       "self": 140,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 7,
        "ze": 4,
-       "total": 144,
-       "contact": 84,
-       "weeks": null,
        "forms": [],
        "lec": 28,
        "lab": 28,
        "pr": 28,
-       "iz": null,
-       "krp": null,
        "self": 60,
-       "exam": null
+       "control": null
       },
       {
        "sem": 8,
        "ze": 5,
-       "total": 180,
-       "contact": 64,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 32,
        "lab": 32,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 80,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_160718_15092025_114312_20250915fiit65-9.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_440818_15092025_335313_FOS20250915fiit65-7_(1).docx",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "sys",
      "start": 7
     },
     {
      "code": "Б1.В.01.03",
      "name": "Защита программ и данных",
+     "short": "Защита программ и данных",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -1650,45 +1427,40 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": 96,
      "hoursBy": {
       "lec": 28,
       "lab": 32,
       "pr": 0,
-      "iz": 0,
-      "krp": 36,
       "self": 48,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 5,
        "ze": 5,
-       "total": 180,
-       "contact": 96,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 28,
        "lab": 32,
        "pr": null,
-       "iz": null,
-       "krp": 36,
        "self": 48,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_361118_15092025_523016_20250915fiit65-12r-tr.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_121318_15092025_563616_FOS20250915fiit65-10аf.docx",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "sec",
      "start": 5
     },
     {
      "code": "Б1.В.01.04",
      "name": "Компьютерная геометрия и графика",
+     "short": "Компьютерная геометрия и графика",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -1697,45 +1469,40 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": 84,
      "hoursBy": {
       "lec": 28,
       "lab": 28,
       "pr": 28,
-      "iz": 0,
-      "krp": 0,
       "self": 60,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 7,
        "ze": 5,
-       "total": 180,
-       "contact": 84,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 28,
        "lab": 28,
        "pr": 28,
-       "iz": null,
-       "krp": null,
        "self": 60,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_221518_15092025_000509_20250915fiit65-4r.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_451618_15092025_062309_FOS20250915fiit65-3_(1).docx",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "prog",
      "start": 7
     },
     {
      "code": "Б1.В.01.05",
      "name": "Физические основы построения ЭВМ",
+     "short": "Физические основы построения ЭВМ",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -1744,45 +1511,40 @@
      ],
      "ze": 3,
      "hours": 108,
-     "contact": 32,
      "hoursBy": {
       "lec": 16,
       "lab": 16,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 76,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 1,
        "ze": 3,
-       "total": 108,
-       "contact": 32,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 16,
        "lab": 16,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 76,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_221818_08092025_021313_RP_FIZ_osn_isit_2025.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_251918_08092025_422713_Fos_Tagudin_2025.docx",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "sys",
      "start": 1
     },
     {
      "code": "Б1.В.01.06",
      "name": "Роботизированные комплексы и системы",
+     "short": "Роботизированные комплексы и системы",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -1791,45 +1553,40 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": 64,
      "hoursBy": {
       "lec": 32,
       "lab": 32,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 80,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 4,
        "ze": 5,
-       "total": 180,
-       "contact": 64,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 32,
        "lab": 32,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 80,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_212018_15092025_081409_20250915fiit65-7_(1).docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/21082026_412811_Роботизированные_комплексы_и_системы_ФОС_ИСиТ.pdf",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "sys",
      "start": 4
     },
     {
      "code": "Б1.В.01.07",
      "name": "Системы управления базами данных",
+     "short": "Системы управления базами данных",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -1838,45 +1595,40 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 96,
      "hoursBy": {
       "lec": 32,
       "lab": 32,
       "pr": 32,
-      "iz": 0,
-      "krp": 0,
       "self": 12,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 3,
        "ze": 4,
-       "total": 144,
-       "contact": 96,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 32,
        "lab": 32,
        "pr": 32,
-       "iz": null,
-       "krp": null,
        "self": 12,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_282218_15092025_270219_субд_2025_(1).docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/15092025_460219_фос_субд_2025.docx",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "data",
      "start": 3
     },
     {
      "code": "Б1.В.01.08",
      "name": "Администрирование информационных систем",
+     "short": "Администрирование информационных систем",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -1885,45 +1637,40 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 88,
      "hoursBy": {
       "lec": 28,
       "lab": 32,
       "pr": 28,
-      "iz": 0,
-      "krp": 0,
       "self": 56,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 5,
        "ze": 4,
-       "total": 144,
-       "contact": 88,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 28,
        "lab": 32,
        "pr": 28,
-       "iz": null,
-       "krp": null,
        "self": 56,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_282418_14092025_091522_РП_Аминистрирование_ИС.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_472518_14092025_041222_Администрирование_а_ИС_2025_ИСИТ_(1).docx",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "sys",
      "start": 5
     },
     {
      "code": "Б1.В.01.09",
      "name": "Программирование на языке высокого уровня",
+     "short": "Программирование на языке высокого уровня",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -1933,40 +1680,29 @@
      ],
      "ze": 6,
      "hours": 216,
-     "contact": 84,
      "hoursBy": {
       "lec": 34,
       "lab": 50,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 96,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 2,
        "ze": 2,
-       "total": 72,
-       "contact": 36,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 18,
        "lab": 18,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 36,
-       "exam": null
+       "control": null
       },
       {
        "sem": 3,
        "ze": 4,
-       "total": 144,
-       "contact": 48,
-       "weeks": null,
        "forms": [
         "Экзамен",
         "Курсовая работа"
@@ -1974,10 +1710,8 @@
        "lec": 16,
        "lab": 32,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 60,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
@@ -1985,13 +1719,16 @@
       "Зачёт",
       "Курсовая работа"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/08072026_010412_z_RPProgrammISIT25_(2).docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/08072026_170412_FOS_C++26.docx",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "prog",
      "start": 2
     },
     {
      "code": "Б1.В.01.10",
      "name": "Разработка Интернет приложений",
+     "short": "Разработка интернет-приложений",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -2000,23 +1737,17 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": 84,
      "hoursBy": {
       "lec": 28,
       "lab": 28,
       "pr": 28,
-      "iz": 0,
-      "krp": 0,
       "self": 60,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 7,
        "ze": 5,
-       "total": 180,
-       "contact": 84,
-       "weeks": null,
        "forms": [
         "Экзамен",
         "Курсовая работа"
@@ -2024,23 +1755,24 @@
        "lec": 28,
        "lab": 28,
        "pr": 28,
-       "iz": null,
-       "krp": null,
        "self": 60,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен",
       "Курсовая работа"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_262918_15092025_414416_20250915fiit65-13.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_023018_15092025_445016_FOS20250915fiit65-11.docx",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "prog",
      "start": 7
     },
     {
      "code": "Б1.В.01.11",
      "name": "Управление данными",
+     "short": "Управление данными",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -2049,45 +1781,40 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 64,
      "hoursBy": {
       "lec": 32,
       "lab": 32,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 44,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 4,
        "ze": 4,
-       "total": 144,
-       "contact": 64,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 32,
        "lab": 32,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 44,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_283118_15092025_000017_20250915fiit65-14.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_213218_15092025_081017_FOS20250915fiit65-12.docx",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "data",
      "start": 4
     },
     {
      "code": "Б1.В.01.12",
      "name": "Объектно-ориентированное программирование на JAVA",
+     "short": "ООП на Java",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -2096,45 +1823,40 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 84,
      "hoursBy": {
       "lec": 28,
       "lab": 28,
       "pr": 28,
-      "iz": 0,
-      "krp": 0,
       "self": 60,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 7,
        "ze": 4,
-       "total": 144,
-       "contact": 84,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 28,
        "lab": 28,
        "pr": 28,
-       "iz": null,
-       "krp": null,
        "self": 60,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/11092026_365613_RP_OOP_Java_26.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/11092026_545613_FOS_OOP_Java_26.pdf",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "prog",
      "start": 7
     },
     {
      "code": "Б1.В.01.13",
      "name": "Большие данные",
+     "short": "Большие данные",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -2143,45 +1865,40 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": 66,
      "hoursBy": {
       "lec": 18,
       "lab": 32,
       "pr": 16,
-      "iz": 0,
-      "krp": 0,
       "self": 78,
-      "exam": 36
+      "control": 36
      },
      "perSem": [
       {
        "sem": 6,
        "ze": 5,
-       "total": 180,
-       "contact": 66,
-       "weeks": null,
        "forms": [
         "Экзамен"
        ],
        "lec": 18,
        "lab": 32,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 78,
-       "exam": 36
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_173818_15092025_110619_большие_данные_2025.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_263918_15092025_230819_фос_большие_данные_2025.docx",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "data",
      "start": 6
     },
     {
      "code": "Б1.В.01.14",
      "name": "Экономико-правовые основы инженерной деятельности",
+     "short": "Экономико-правовые основы инженерной деятельности",
      "kind": "variable",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -2190,45 +1907,40 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 36,
      "hoursBy": {
       "lec": 18,
       "lab": 0,
       "pr": 18,
-      "iz": 0,
-      "krp": 0,
       "self": 36,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 6,
        "ze": 2,
-       "total": 72,
-       "contact": 36,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 18,
        "lab": null,
        "pr": 18,
-       "iz": null,
-       "krp": null,
        "self": 36,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/27082026_190215_21102025_184516_RP_2025.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/27082026_460515_21102025_324516_FOS_2025.docx",
      "module": "Модуль профильной направленности",
-     "track": "prof",
+     "track": "gen",
      "start": 6
     },
     {
      "code": "Б1.В.ДВ.01",
-     "name": "Дисциплины по выбору Б1.В.ДВ.1",
+     "name": "Дисциплина по выбору",
+     "short": "Дисциплина по выбору",
      "kind": "choice",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -2237,15 +1949,12 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": 64,
      "hoursBy": {
-      "lec": 0,
-      "lab": 0,
+      "lec": 32,
+      "lab": 32,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
-      "self": 0,
-      "exam": 0
+      "self": 80,
+      "control": 36
      },
      "perSem": [
       {
@@ -2253,16 +1962,24 @@
        "ze": 5,
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "lec": 32,
+       "lab": 32,
+       "pr": null,
+       "self": 80,
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": null,
+     "fos": null,
      "options": [
       {
        "code": "Б1.В.ДВ.01.01",
        "name": "Компьютерное моделирование в среде Matlab",
+       "short": "Моделирование в Matlab",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": true,
@@ -2271,42 +1988,37 @@
        ],
        "ze": 5,
        "hours": 180,
-       "contact": 64,
        "hoursBy": {
         "lec": 32,
         "lab": 32,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 80,
-        "exam": 36
+        "control": 36
        },
        "perSem": [
         {
          "sem": 6,
          "ze": 5,
-         "total": 180,
-         "contact": 64,
-         "weeks": null,
          "forms": [
           "Экзамен"
          ],
          "lec": 32,
          "lab": 32,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 80,
-         "exam": 36
+         "control": 36
         }
        ],
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/21082026_422311_Компьютерное_моделирование_в_среде_Matlab_РПД_ИСиТ.pdf",
+       "fos": "https://oop.dgu.ru/sved/files-oop/21082026_033411_Компьютерное_моделирование_в_среде_Matlab_ФОС_ИСиТ.pdf"
       },
       {
        "code": "Б1.В.ДВ.01.02",
        "name": "Интернет программирование",
+       "short": "Интернет программирование",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": false,
@@ -2315,48 +2027,42 @@
        ],
        "ze": 5,
        "hours": 180,
-       "contact": 64,
        "hoursBy": {
         "lec": 32,
         "lab": 32,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 80,
-        "exam": 36
+        "control": 36
        },
        "perSem": [
         {
          "sem": 6,
          "ze": 5,
-         "total": 180,
-         "contact": 64,
-         "weeks": null,
          "forms": [
           "Экзамен"
          ],
          "lec": 32,
          "lab": 32,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 80,
-         "exam": 36
+         "control": 36
         }
        ],
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/21082026_353111_Интернет_программирование_РПД_ИСиТ.pdf",
+       "fos": "https://oop.dgu.ru/sved/files-oop/21082026_043711_Интернет_программирование_ФОС_ИСиТ.pdf"
       }
      ],
-     "module": "Дисциплины по выбору Б1.В.ДВ.1",
-     "mobility": false,
-     "track": "dv",
+     "module": "Дисциплина по выбору",
+     "track": "prog",
      "start": 6
     },
     {
      "code": "Б1.В.ДВ.02",
-     "name": "Дисциплины по выбору Б1.В.ДВ.2",
+     "name": "Дисциплина по выбору",
+     "short": "Дисциплина по выбору",
      "kind": "choice",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -2365,15 +2071,12 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 30,
      "hoursBy": {
       "lec": 0,
-      "lab": 0,
+      "lab": 30,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
-      "self": 0,
-      "exam": 0
+      "self": 42,
+      "control": 0
      },
      "perSem": [
       {
@@ -2381,16 +2084,24 @@
        "ze": 2,
        "forms": [
         "Зачёт"
-       ]
+       ],
+       "lec": null,
+       "lab": 30,
+       "pr": null,
+       "self": 42,
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": null,
+     "fos": null,
      "options": [
       {
        "code": "Б1.В.ДВ.02.01",
        "name": "Цифровой практикум на Python",
+       "short": "Цифровой практикум на Python",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": true,
@@ -2399,42 +2110,37 @@
        ],
        "ze": 2,
        "hours": 72,
-       "contact": 30,
        "hoursBy": {
         "lec": 0,
         "lab": 30,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 42,
-        "exam": 0
+        "control": 0
        },
        "perSem": [
         {
          "sem": 3,
          "ze": 2,
-         "total": 72,
-         "contact": 30,
-         "weeks": null,
          "forms": [
           "Зачёт"
          ],
          "lec": null,
          "lab": 30,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 42,
-         "exam": null
+         "control": null
         }
        ],
        "forms": [
         "Зачёт"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_354818_15092025_033617_20250915fiit65-16_(1).docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_314918_15092025_033917_FOS20250915fiit65-14.docx"
       },
       {
        "code": "Б1.В.ДВ.02.02",
        "name": "Моделирование и программирование в среде Blender",
+       "short": "Моделирование в Blender",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": false,
@@ -2443,48 +2149,42 @@
        ],
        "ze": 2,
        "hours": 72,
-       "contact": 30,
        "hoursBy": {
         "lec": 0,
         "lab": 30,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 42,
-        "exam": 0
+        "control": 0
        },
        "perSem": [
         {
          "sem": 3,
          "ze": 2,
-         "total": 72,
-         "contact": 30,
-         "weeks": null,
          "forms": [
           "Зачёт"
          ],
          "lec": null,
          "lab": 30,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 42,
-         "exam": null
+         "control": null
         }
        ],
        "forms": [
         "Зачёт"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_195018_15092025_594317_20250915fiit65-17.docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_055118_15092025_424717_FOS20250915fiit65-15.docx"
       }
      ],
-     "module": "Дисциплины по выбору Б1.В.ДВ.2",
-     "mobility": false,
-     "track": "dv",
+     "module": "Дисциплина по выбору",
+     "track": "prog",
      "start": 3
     },
     {
      "code": "Б1.В.ДВ.03",
-     "name": "Дисциплины по выбору Б1.В.ДВ.3",
+     "name": "Дисциплина по выбору",
+     "short": "Дисциплина по выбору",
      "kind": "choice",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -2493,15 +2193,12 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 94,
      "hoursBy": {
-      "lec": 0,
-      "lab": 0,
-      "pr": 0,
-      "iz": 0,
-      "krp": 0,
-      "self": 0,
-      "exam": 0
+      "lec": 30,
+      "lab": 32,
+      "pr": 32,
+      "self": 14,
+      "control": 36
      },
      "perSem": [
       {
@@ -2509,16 +2206,24 @@
        "ze": 4,
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "lec": 30,
+       "lab": 32,
+       "pr": 32,
+       "self": 14,
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": null,
+     "fos": null,
      "options": [
       {
        "code": "Б1.В.ДВ.03.01",
        "name": "Безопасность сетей",
+       "short": "Безопасность сетей",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": true,
@@ -2527,42 +2232,37 @@
        ],
        "ze": 4,
        "hours": 144,
-       "contact": 94,
        "hoursBy": {
         "lec": 30,
         "lab": 32,
         "pr": 32,
-        "iz": 0,
-        "krp": 0,
         "self": 14,
-        "exam": 36
+        "control": 36
        },
        "perSem": [
         {
          "sem": 8,
          "ze": 4,
-         "total": 144,
-         "contact": 94,
-         "weeks": null,
          "forms": [
           "Экзамен"
          ],
          "lec": 30,
          "lab": 32,
          "pr": 32,
-         "iz": null,
-         "krp": null,
          "self": 14,
-         "exam": 36
+         "control": 36
         }
        ],
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/15102026_054316_20261015fiit65-8.pdf",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_035318_14092025_115021_ФОС_БЕЗОПАСНОСТЬ_СЕТЕЙ_ИСИТ_2025.docx"
       },
       {
        "code": "Б1.В.ДВ.03.02",
        "name": "Геоинформационные системы",
+       "short": "Геоинформационные системы",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": false,
@@ -2571,48 +2271,42 @@
        ],
        "ze": 4,
        "hours": 144,
-       "contact": 94,
        "hoursBy": {
         "lec": 30,
         "lab": 32,
         "pr": 32,
-        "iz": 0,
-        "krp": 0,
         "self": 14,
-        "exam": 36
+        "control": 36
        },
        "perSem": [
         {
          "sem": 8,
          "ze": 4,
-         "total": 144,
-         "contact": 94,
-         "weeks": null,
          "forms": [
           "Экзамен"
          ],
          "lec": 30,
          "lab": 32,
          "pr": 32,
-         "iz": null,
-         "krp": null,
          "self": 14,
-         "exam": 36
+         "control": 36
         }
        ],
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_425318_15092025_200009_20250915fiit65-2.docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_065518_15092025_071909_FOS20250915fiit65-1.docx"
       }
      ],
-     "module": "Дисциплины по выбору Б1.В.ДВ.3",
-     "mobility": false,
-     "track": "dv",
+     "module": "Дисциплина по выбору",
+     "track": "sec",
      "start": 8
     },
     {
      "code": "Б1.В.ДВ.04",
-     "name": "Дисциплины по выбору Б1.В.ДВ.4",
+     "name": "Дисциплина по выбору",
+     "short": "Дисциплина по выбору",
      "kind": "choice",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -2621,15 +2315,12 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": 60,
      "hoursBy": {
-      "lec": 0,
-      "lab": 0,
+      "lec": 30,
+      "lab": 30,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
-      "self": 0,
-      "exam": 0
+      "self": 84,
+      "control": 36
      },
      "perSem": [
       {
@@ -2637,16 +2328,24 @@
        "ze": 5,
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "lec": 30,
+       "lab": 30,
+       "pr": null,
+       "self": 84,
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": null,
+     "fos": null,
      "options": [
       {
        "code": "Б1.В.ДВ.04.01",
        "name": "Перспективные технологии и языки веб-разработки",
+       "short": "Перспективные технологии веб-разработки",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": true,
@@ -2655,42 +2354,37 @@
        ],
        "ze": 5,
        "hours": 180,
-       "contact": 60,
        "hoursBy": {
         "lec": 30,
         "lab": 30,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 84,
-        "exam": 36
+        "control": 36
        },
        "perSem": [
         {
          "sem": 3,
          "ze": 5,
-         "total": 180,
-         "contact": 60,
-         "weeks": null,
          "forms": [
           "Экзамен"
          ],
          "lec": 30,
          "lab": 30,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 84,
-         "exam": 36
+         "control": 36
         }
        ],
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_175618_15092025_151109_20250915fiit65-6.docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_295718_15092025_593009_FOS20250915fiit65-5.docx"
       },
       {
        "code": "Б1.В.ДВ.04.02",
        "name": "Электронный документооборот",
+       "short": "Электронный документооборот",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": false,
@@ -2699,48 +2393,42 @@
        ],
        "ze": 5,
        "hours": 180,
-       "contact": 60,
        "hoursBy": {
         "lec": 30,
         "lab": 30,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 84,
-        "exam": 36
+        "control": 36
        },
        "perSem": [
         {
          "sem": 3,
          "ze": 5,
-         "total": 180,
-         "contact": 60,
-         "weeks": null,
          "forms": [
           "Экзамен"
          ],
          "lec": 30,
          "lab": 30,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 84,
-         "exam": 36
+         "control": 36
         }
        ],
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_145818_09092025_505111_rpddokumentooborot_2025__ISIT.docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_360019_09092025_333011_fos2025isitdokumentooborot.docx"
       }
      ],
-     "module": "Дисциплины по выбору Б1.В.ДВ.4",
-     "mobility": false,
-     "track": "dv",
+     "module": "Дисциплина по выбору",
+     "track": "prog",
      "start": 3
     },
     {
      "code": "Б1.В.ДВ.05",
-     "name": "Дисциплины по выбору Б1.В.ДВ.5",
+     "name": "Дисциплина по выбору",
+     "short": "Дисциплина по выбору",
      "kind": "choice",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -2749,15 +2437,12 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": 60,
      "hoursBy": {
-      "lec": 0,
-      "lab": 0,
+      "lec": 28,
+      "lab": 32,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
-      "self": 0,
-      "exam": 0
+      "self": 84,
+      "control": 36
      },
      "perSem": [
       {
@@ -2765,16 +2450,24 @@
        "ze": 5,
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "lec": 28,
+       "lab": 32,
+       "pr": null,
+       "self": 84,
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": null,
+     "fos": null,
      "options": [
       {
        "code": "Б1.В.ДВ.05.01",
-       "name": "Инженерно- техническая защита информации информации",
+       "name": "Инженерно-техническая защита информации",
+       "short": "Инженерно-техническая защита информации",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": true,
@@ -2783,42 +2476,37 @@
        ],
        "ze": 5,
        "hours": 180,
-       "contact": 60,
        "hoursBy": {
         "lec": 28,
         "lab": 32,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 84,
-        "exam": 36
+        "control": 36
        },
        "perSem": [
         {
          "sem": 5,
          "ze": 5,
-         "total": 180,
-         "contact": 60,
-         "weeks": null,
          "forms": [
           "Экзамен"
          ],
          "lec": 28,
          "lab": 32,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 84,
-         "exam": 36
+         "control": 36
         }
        ],
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_420119_12092025_403516_20250912fiit65-6.docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_440219_12092025_244016_FOS20250912fiit65-6.docx"
       },
       {
        "code": "Б1.В.ДВ.05.02",
        "name": "Техническая защита информации",
+       "short": "Техническая защита информации",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": false,
@@ -2827,48 +2515,42 @@
        ],
        "ze": 5,
        "hours": 180,
-       "contact": 60,
        "hoursBy": {
         "lec": 28,
         "lab": 32,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 84,
-        "exam": 36
+        "control": 36
        },
        "perSem": [
         {
          "sem": 5,
          "ze": 5,
-         "total": 180,
-         "contact": 60,
-         "weeks": null,
          "forms": [
           "Экзамен"
          ],
          "lec": 28,
          "lab": 32,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 84,
-         "exam": 36
+         "control": 36
         }
        ],
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_270519_09092025_073812_RP_TZI_ISIT_2025.docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_500619_09092025_084812_FOS_TZI_ISIT_2025.docx"
       }
      ],
-     "module": "Дисциплины по выбору Б1.В.ДВ.5",
-     "mobility": false,
-     "track": "dv",
+     "module": "Дисциплина по выбору",
+     "track": "sec",
      "start": 5
     },
     {
      "code": "Б1.В.ДВ.06",
-     "name": "Дисциплины по выбору Б1.В.ДВ.6",
+     "name": "Дисциплина по выбору",
+     "short": "Дисциплина по выбору",
      "kind": "choice",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -2877,15 +2559,12 @@
      ],
      "ze": 6,
      "hours": 216,
-     "contact": 60,
      "hoursBy": {
-      "lec": 0,
-      "lab": 0,
+      "lec": 28,
+      "lab": 32,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
-      "self": 0,
-      "exam": 0
+      "self": 120,
+      "control": 36
      },
      "perSem": [
       {
@@ -2893,16 +2572,24 @@
        "ze": 6,
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "lec": 28,
+       "lab": 32,
+       "pr": null,
+       "self": 120,
+       "control": 36
       }
      ],
      "forms": [
       "Экзамен"
      ],
+     "rpd": null,
+     "fos": null,
      "options": [
       {
        "code": "Б1.В.ДВ.06.01",
        "name": "Разработка мобильных приложений",
+       "short": "Разработка мобильных приложений",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": true,
@@ -2911,42 +2598,37 @@
        ],
        "ze": 6,
        "hours": 216,
-       "contact": 60,
        "hoursBy": {
         "lec": 28,
         "lab": 32,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 120,
-        "exam": 36
+        "control": 36
        },
        "perSem": [
         {
          "sem": 5,
          "ze": 6,
-         "total": 216,
-         "contact": 60,
-         "weeks": null,
          "forms": [
           "Экзамен"
          ],
          "lec": 28,
          "lab": 32,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 120,
-         "exam": 36
+         "control": 36
         }
        ],
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/11092026_311014_Rp_Aida-26.pdf",
+       "fos": "https://oop.dgu.ru/sved/files-oop/11092026_461014_FOS_Aida_26.pdf"
       },
       {
        "code": "Б1.В.ДВ.06.02",
        "name": "Инструментальные средства в управлении проектами",
+       "short": "Инструменты управления проектами",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": false,
@@ -2955,48 +2637,42 @@
        ],
        "ze": 6,
        "hours": 216,
-       "contact": 60,
        "hoursBy": {
         "lec": 28,
         "lab": 32,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 120,
-        "exam": 36
+        "control": 36
        },
        "perSem": [
         {
          "sem": 5,
          "ze": 6,
-         "total": 216,
-         "contact": 60,
-         "weeks": null,
          "forms": [
           "Экзамен"
          ],
          "lec": 28,
          "lab": 32,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 120,
-         "exam": 36
+         "control": 36
         }
        ],
        "forms": [
         "Экзамен"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_480919_08092025_104609_20250908fiit65-1.docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_331019_10092025_594111_FOS_ISIT_INSTRUM_2025.docx"
       }
      ],
-     "module": "Дисциплины по выбору Б1.В.ДВ.6",
-     "mobility": false,
-     "track": "dv",
+     "module": "Дисциплина по выбору",
+     "track": "prog",
      "start": 5
     },
     {
      "code": "Б1.В.ДВ.07",
-     "name": "Дисциплины по выбору Б1.В.ДВ.7",
+     "name": "Дисциплина по выбору",
+     "short": "Дисциплина по выбору",
      "kind": "choice",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -3005,15 +2681,12 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 32,
      "hoursBy": {
-      "lec": 0,
+      "lec": 16,
       "lab": 0,
-      "pr": 0,
-      "iz": 0,
-      "krp": 0,
-      "self": 0,
-      "exam": 0
+      "pr": 16,
+      "self": 40,
+      "control": 0
      },
      "perSem": [
       {
@@ -3021,16 +2694,24 @@
        "ze": 2,
        "forms": [
         "Зачёт"
-       ]
+       ],
+       "lec": 16,
+       "lab": null,
+       "pr": 16,
+       "self": 40,
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": null,
+     "fos": null,
      "options": [
       {
        "code": "Б1.В.ДВ.07.01",
        "name": "Метрология, стандартизация, сертификация и техническое документоведение",
+       "short": "Метрология, стандартизация и сертификация",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": true,
@@ -3039,42 +2720,37 @@
        ],
        "ze": 2,
        "hours": 72,
-       "contact": 32,
        "hoursBy": {
         "lec": 16,
         "lab": 0,
         "pr": 16,
-        "iz": 0,
-        "krp": 0,
         "self": 40,
-        "exam": 0
+        "control": 0
        },
        "perSem": [
         {
          "sem": 8,
          "ze": 2,
-         "total": 72,
-         "contact": 32,
-         "weeks": null,
          "forms": [
           "Зачёт"
          ],
          "lec": 16,
          "lab": null,
          "pr": 16,
-         "iz": null,
-         "krp": null,
          "self": 40,
-         "exam": null
+         "control": null
         }
        ],
        "forms": [
         "Зачёт"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_381119_15092025_382819_метрология2025.docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_131219_15092025_563019_фос_метрология2025.docx"
       },
       {
        "code": "Б1.В.ДВ.07.02",
        "name": "Приборы и методы контроля информационных систем",
+       "short": "Приборы и методы контроля ИС",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": false,
@@ -3083,48 +2759,42 @@
        ],
        "ze": 2,
        "hours": 72,
-       "contact": 32,
        "hoursBy": {
         "lec": 16,
         "lab": 0,
         "pr": 16,
-        "iz": 0,
-        "krp": 0,
         "self": 40,
-        "exam": 0
+        "control": 0
        },
        "perSem": [
         {
          "sem": 8,
          "ze": 2,
-         "total": 72,
-         "contact": 32,
-         "weeks": null,
          "forms": [
           "Зачёт"
          ],
          "lec": 16,
          "lab": null,
          "pr": 16,
-         "iz": null,
-         "krp": null,
          "self": 40,
-         "exam": null
+         "control": null
         }
        ],
        "forms": [
         "Зачёт"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_321319_15092025_081819_приборы_и_методы_контр2025.docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_171419_15092025_502019_фос_приборы_и_методы_контр2025.docx"
       }
      ],
-     "module": "Дисциплины по выбору Б1.В.ДВ.7",
-     "mobility": false,
-     "track": "dv",
+     "module": "Дисциплина по выбору",
+     "track": "sys",
      "start": 8
     },
     {
      "code": "Б1.В.ДВ.08",
      "name": "Модуль мобильности",
+     "short": "Модуль мобильности",
      "kind": "choice",
      "part": "Часть, формируемая участниками образовательных отношений",
      "counted": true,
@@ -3133,15 +2803,12 @@
      ],
      "ze": 4,
      "hours": 144,
-     "contact": 14,
      "hoursBy": {
-      "lec": 0,
+      "lec": 14,
       "lab": 0,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
-      "self": 0,
-      "exam": 0
+      "self": 130,
+      "control": 0
      },
      "perSem": [
       {
@@ -3149,16 +2816,24 @@
        "ze": 4,
        "forms": [
         "Зачёт"
-       ]
+       ],
+       "lec": 14,
+       "lab": null,
+       "pr": null,
+       "self": 130,
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": null,
+     "fos": null,
      "options": [
       {
        "code": "Б1.В.ДВ.08.01",
        "name": "Технологии облачных вычислений (Онлайн-курс НОУ ИНТУИТ)",
+       "short": "Облачные вычисления (онлайн, ИНТУИТ)",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": true,
@@ -3167,42 +2842,37 @@
        ],
        "ze": 4,
        "hours": 144,
-       "contact": 14,
        "hoursBy": {
         "lec": 14,
         "lab": 0,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 130,
-        "exam": 0
+        "control": 0
        },
        "perSem": [
         {
          "sem": 7,
          "ze": 4,
-         "total": 144,
-         "contact": 14,
-         "weeks": null,
          "forms": [
           "Зачёт"
          ],
          "lec": 14,
          "lab": null,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 130,
-         "exam": null
+         "control": null
         }
        ],
        "forms": [
         "Зачёт"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_191519_15092025_331219_технология_облачных_выч_2025.docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_171619_15092025_201519_фос_облачные_выч2025.docx"
       },
       {
        "code": "Б1.В.ДВ.08.02",
        "name": "Физические основы информационных технологий (Онлайн-курс СПбГЭТУ «ЛЭТИ»)",
+       "short": "Физ. основы ИТ (онлайн, ЛЭТИ)",
        "kind": "choice",
        "part": "Часть, формируемая участниками образовательных отношений",
        "counted": false,
@@ -3211,50 +2881,44 @@
        ],
        "ze": 4,
        "hours": 144,
-       "contact": 14,
        "hoursBy": {
         "lec": 14,
         "lab": 0,
         "pr": 0,
-        "iz": 0,
-        "krp": 0,
         "self": 130,
-        "exam": 0
+        "control": 0
        },
        "perSem": [
         {
          "sem": 7,
          "ze": 4,
-         "total": 144,
-         "contact": 14,
-         "weeks": null,
          "forms": [
           "Зачёт"
          ],
          "lec": 14,
          "lab": null,
          "pr": null,
-         "iz": null,
-         "krp": null,
          "self": 130,
-         "exam": null
+         "control": null
         }
        ],
        "forms": [
         "Зачёт"
-       ]
+       ],
+       "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_141719_15092025_362319_физические_основы2025.docx",
+       "fos": "https://oop.dgu.ru/sved/files-oop/02072026_591719_15092025_402519_фос_физические_основы2025.docx"
       }
      ],
      "module": "Модуль мобильности",
-     "mobility": true,
-     "track": "dv",
+     "track": "sys",
      "start": 7
     },
     {
      "code": "К.М.01.01",
      "name": "Физическая культура и спорт",
+     "short": "Физическая культура и спорт",
      "kind": "sport",
-     "part": "Комплексный модуль",
+     "part": "Комплексный модуль: физическая культура и спорт",
      "counted": true,
      "sems": [
       1,
@@ -3262,62 +2926,52 @@
      ],
      "ze": 2,
      "hours": 72,
-     "contact": 32,
      "hoursBy": {
       "lec": 0,
       "lab": 0,
       "pr": 32,
-      "iz": 0,
-      "krp": 0,
       "self": 40,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 1,
        "ze": 1,
-       "total": 36,
-       "contact": 16,
-       "weeks": null,
        "forms": [],
        "lec": null,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 20,
-       "exam": null
+       "control": null
       },
       {
        "sem": 2,
        "ze": 1,
-       "total": 36,
-       "contact": 16,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": null,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 20,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
-     "module": "Комплексный модуль: Физическая культура и спорт",
-     "track": "extra",
+     "rpd": "https://oop.dgu.ru/sved/files-oop/03082026_171814_20260308fiit65-3.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/03082026_101514_FOS_20260308fiit65-3.pdf",
+     "module": "Комплексный модуль: физическая культура и спорт",
+     "track": "gen",
      "start": 1
     },
     {
      "code": "К.М.01.02",
      "name": "Элективные дисциплины по физической культуре и спорту",
+     "short": "Элективы по физкультуре",
      "kind": "sport",
-     "part": "Комплексный модуль",
+     "part": "Комплексный модуль: физическая культура и спорт",
      "counted": true,
      "sems": [
       1,
@@ -3330,139 +2984,104 @@
      ],
      "ze": null,
      "hours": 328,
-     "contact": 146,
      "hoursBy": {
       "lec": 0,
       "lab": 0,
       "pr": 146,
-      "iz": 0,
-      "krp": 0,
       "self": 182,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 1,
        "ze": null,
-       "total": 54,
-       "contact": 16,
-       "weeks": null,
        "forms": [],
        "lec": null,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 38,
-       "exam": null
+       "control": null
       },
       {
        "sem": 2,
        "ze": null,
-       "total": 54,
-       "contact": 16,
-       "weeks": null,
        "forms": [],
        "lec": null,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 38,
-       "exam": null
+       "control": null
       },
       {
        "sem": 3,
        "ze": null,
-       "total": 54,
-       "contact": 32,
-       "weeks": null,
        "forms": [],
        "lec": null,
        "lab": null,
        "pr": 32,
-       "iz": null,
-       "krp": null,
        "self": 22,
-       "exam": null
+       "control": null
       },
       {
        "sem": 4,
        "ze": null,
-       "total": 54,
-       "contact": 32,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": null,
        "lab": null,
        "pr": 32,
-       "iz": null,
-       "krp": null,
        "self": 22,
-       "exam": null
+       "control": null
       },
       {
        "sem": 5,
        "ze": null,
-       "total": 36,
-       "contact": 16,
-       "weeks": null,
        "forms": [],
        "lec": null,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 20,
-       "exam": null
+       "control": null
       },
       {
        "sem": 6,
        "ze": null,
-       "total": 36,
-       "contact": 18,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": null,
        "lab": null,
        "pr": 18,
-       "iz": null,
-       "krp": null,
        "self": 18,
-       "exam": null
+       "control": null
       },
       {
        "sem": 7,
        "ze": null,
-       "total": 40,
-       "contact": 16,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": null,
        "lab": null,
        "pr": 16,
-       "iz": null,
-       "krp": null,
        "self": 24,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
-     "module": "Комплексный модуль: Физическая культура и спорт",
-     "track": "extra",
+     "rpd": "https://oop.dgu.ru/sved/files-oop/03082026_432014_20260308fiit65-4.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/03082026_221614_FOS_20260308fiit65-4.pdf",
+     "module": "Комплексный модуль: физическая культура и спорт",
+     "track": "gen",
      "start": 1
     },
     {
      "code": "Б2.О.О.01(У)",
      "name": "Учебная практика, научно-исследовательская работа (получение первичных навыков научно-исследовательской работы)",
+     "short": "Учебная практика: НИР",
      "kind": "practice",
      "part": "Блок 2. Практика",
      "counted": true,
@@ -3471,38 +3090,32 @@
      ],
      "ze": 6,
      "hours": 216,
-     "contact": null,
      "hoursBy": {
       "lec": 0,
       "lab": 0,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 216,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 5,
        "ze": 6,
-       "total": 216,
-       "contact": null,
-       "weeks": 4,
        "forms": [
         "Зачёт"
        ],
        "lec": null,
        "lab": null,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 216,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/09092026_391313_02072026_572219_05092025_395512_RP_UCHEB_Prak_ISIT.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_382319_05092025_452613_FOS_2025_UCHEB_PRAC_ISIT_NIR.docx",
      "module": null,
      "track": "prac",
      "start": 5
@@ -3510,6 +3123,7 @@
     {
      "code": "Б2.О.О.02(П)",
      "name": "Производственная практика, научно-исследовательская работа",
+     "short": "Производственная практика: НИР",
      "kind": "practice",
      "part": "Блок 2. Практика",
      "counted": true,
@@ -3518,38 +3132,32 @@
      ],
      "ze": 6,
      "hours": 216,
-     "contact": null,
      "hoursBy": {
       "lec": 0,
       "lab": 0,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 216,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 8,
        "ze": 6,
-       "total": 216,
-       "contact": null,
-       "weeks": 4,
        "forms": [
         "Зачёт с оценкой"
        ],
        "lec": null,
        "lab": null,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 216,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт с оценкой"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/09092026_172514_02072026_062419_05092025_515311_RP_ISIT_PROIZ_NIR_2025.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_452519_05092025_550813_FOS_PRAK_NIR_ISIT_2025.docx",
      "module": null,
      "track": "prac",
      "start": 8
@@ -3557,6 +3165,7 @@
     {
      "code": "Б2.О.В.01(У)",
      "name": "Учебная практика, технологическая(проектно-технологическая)",
+     "short": "Учебная практика: проектно-технологическая",
      "kind": "practice",
      "part": "Блок 2. Практика",
      "counted": true,
@@ -3565,38 +3174,32 @@
      ],
      "ze": 6,
      "hours": 216,
-     "contact": null,
      "hoursBy": {
       "lec": 0,
       "lab": 0,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 216,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 7,
        "ze": 6,
-       "total": 216,
-       "contact": null,
-       "weeks": 4,
        "forms": [
         "Зачёт"
        ],
        "lec": null,
        "lab": null,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 216,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/09092026_522013_02072026_151919_05092025_395212_RR_UCheb_prakt_Tekhnolog_ISIT.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_561919_05092025_522013_FOS_2025_UCHEB_PRAC_ISIT.docx",
      "module": null,
      "track": "prac",
      "start": 7
@@ -3604,6 +3207,7 @@
     {
      "code": "Б2.О.В.02(П)",
      "name": "Производственная практика, эксплуатационная",
+     "short": "Производственная практика: эксплуатационная",
      "kind": "practice",
      "part": "Блок 2. Практика",
      "counted": true,
@@ -3612,38 +3216,32 @@
      ],
      "ze": 5,
      "hours": 180,
-     "contact": null,
      "hoursBy": {
       "lec": 0,
       "lab": 0,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 180,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 6,
        "ze": 5,
-       "total": 180,
-       "contact": null,
-       "weeks": "3 1/3",
        "forms": [
         "Зачёт"
        ],
        "lec": null,
        "lab": null,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 180,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/09092026_422214_02072026_032119_05092025_182012_RP_ISIT_PROIZ_PRAK_Yakspl2025.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_402119_05092025_593911_FOSPROIZPRAK_ISIT_24.docx",
      "module": null,
      "track": "prac",
      "start": 6
@@ -3651,6 +3249,7 @@
     {
      "code": "Б3.О.01(Д)",
      "name": "Подготовка к процедуре защиты и защита выпускной квалификационной работы",
+     "short": "Защита выпускной квалификационной работы",
      "kind": "gia",
      "part": "Блок 3. Государственная итоговая аттестация",
      "counted": true,
@@ -3659,36 +3258,30 @@
      ],
      "ze": 9,
      "hours": 324,
-     "contact": 144,
      "hoursBy": {
       "lec": 0,
       "lab": 0,
       "pr": 144,
-      "iz": 0,
-      "krp": 0,
       "self": 180,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 8,
        "ze": 9,
-       "total": 324,
-       "contact": 144,
-       "weeks": 6,
        "forms": [],
        "lec": null,
        "lab": null,
        "pr": 144,
-       "iz": null,
-       "krp": null,
        "self": 180,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Защита ВКР"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/09092026_403614_Z_Ига_2026.pdf",
+     "fos": "https://oop.dgu.ru/sved/files-oop/09092026_424014_27082026_471015_21102025_365116_FosGiaIsit2025.pdf",
      "module": null,
      "track": "prac",
      "start": 9
@@ -3696,95 +3289,85 @@
     {
      "code": "ФТД.В.01",
      "name": "Нейронные сети",
+     "short": "Нейронные сети",
      "kind": "optional",
-     "part": "Факультативы",
+     "part": "Факультатив (по желанию, не входит в 240 з.е.)",
      "counted": true,
      "sems": [
       7
      ],
      "ze": 1,
      "hours": 36,
-     "contact": 12,
      "hoursBy": {
       "lec": 12,
       "lab": 0,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 24,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 7,
        "ze": 1,
-       "total": 36,
-       "contact": 12,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 12,
        "lab": null,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 24,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_182819_21102025_292917_RP_NS_ISIT2025.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_362919_21102025_472917_FOS_NS_ISIT2025.docx",
      "module": null,
-     "track": "extra",
+     "track": "data",
      "start": 7
     },
     {
      "code": "ФТД.В.02",
      "name": "IP-телефония",
+     "short": "IP-телефония",
      "kind": "optional",
-     "part": "Факультативы",
+     "part": "Факультатив (по желанию, не входит в 240 з.е.)",
      "counted": true,
      "sems": [
       7
      ],
      "ze": 1,
      "hours": 36,
-     "contact": 12,
      "hoursBy": {
       "lec": 12,
       "lab": 0,
       "pr": 0,
-      "iz": 0,
-      "krp": 0,
       "self": 24,
-      "exam": 0
+      "control": 0
      },
      "perSem": [
       {
        "sem": 7,
        "ze": 1,
-       "total": 36,
-       "contact": 12,
-       "weeks": null,
        "forms": [
         "Зачёт"
        ],
        "lec": 12,
        "lab": null,
        "pr": null,
-       "iz": null,
-       "krp": null,
        "self": 24,
-       "exam": null
+       "control": null
       }
      ],
      "forms": [
       "Зачёт"
      ],
+     "rpd": "https://oop.dgu.ru/sved/files-oop/02072026_403019_21102025_252617_RP_IPTEL_ISIT2025.docx",
+     "fos": "https://oop.dgu.ru/sved/files-oop/02072026_003219_21102025_462617__FOS_IPTEL_ISIT2025.docx",
      "module": null,
-     "track": "extra",
+     "track": "sys",
      "start": 7
     }
    ],
@@ -4177,164 +3760,6 @@
       ]
      }
     ]
-   },
-   "summary": [
-    {
-     "code": "",
-     "name": "Итого (с факультативами)",
-     "ze": 242,
-     "perSem": {
-      "1": 30,
-      "2": 30,
-      "3": 30,
-      "4": 30,
-      "5": 30,
-      "6": 30,
-      "7": 32,
-      "8": 30
-     }
-    },
-    {
-     "code": "",
-     "name": "Итого по ОП (без факультативов)",
-     "ze": 240,
-     "perSem": {
-      "1": 30,
-      "2": 30,
-      "3": 30,
-      "4": 30,
-      "5": 30,
-      "6": 30,
-      "7": 30,
-      "8": 30
-     }
-    },
-    {
-     "code": "Б1",
-     "name": "Дисциплины (модули)",
-     "ze": 208,
-     "perSem": {
-      "1": 30,
-      "2": 30,
-      "3": 30,
-      "4": 30,
-      "5": 24,
-      "6": 25,
-      "7": 24,
-      "8": 15
-     }
-    },
-    {
-     "code": "Б1.О",
-     "name": "Обязательная часть",
-     "ze": 106,
-     "perSem": {
-      "1": 23,
-      "2": 24,
-      "3": 15,
-      "4": 21,
-      "5": 4,
-      "6": 13,
-      "7": 2,
-      "8": 4
-     }
-    },
-    {
-     "code": "Б1.В",
-     "name": "Часть, формируемая участниками образовательных отношений",
-     "ze": 102,
-     "perSem": {
-      "1": 7,
-      "2": 6,
-      "3": 15,
-      "4": 9,
-      "5": 20,
-      "6": 12,
-      "7": 22,
-      "8": 11
-     }
-    },
-    {
-     "code": "Б2.О",
-     "name": "Практика",
-     "ze": 23,
-     "perSem": {
-      "5": 6,
-      "6": 5,
-      "7": 6,
-      "8": 6
-     }
-    },
-    {
-     "code": "Б2.О.О",
-     "name": "Обязательная часть",
-     "ze": 12,
-     "perSem": {
-      "5": 6,
-      "8": 6
-     }
-    },
-    {
-     "code": "Б2.О.В",
-     "name": "Часть, формируемая участниками образовательных отношений",
-     "ze": 11,
-     "perSem": {
-      "6": 5,
-      "7": 6
-     }
-    },
-    {
-     "code": "Б3",
-     "name": "Государственная итоговая аттестация",
-     "ze": 9,
-     "perSem": {
-      "8": 9
-     }
-    },
-    {
-     "code": "Б3.О",
-     "name": "Обязательная часть",
-     "ze": 9,
-     "perSem": {
-      "8": 9
-     }
-    },
-    {
-     "code": "ФТД",
-     "name": "Факультативы",
-     "ze": 2,
-     "perSem": {
-      "7": 2
-     }
-    },
-    {
-     "code": "ФТД.В",
-     "name": "Часть, формируемая участниками образовательных отношений",
-     "ze": 2,
-     "perSem": {
-      "7": 2
-     }
-    }
-   ],
-   "weeks": {
-    "1": "ТО: 18 Э: 2",
-    "2": "ТО: 17 1/3 Э: 2 2/3",
-    "3": "ТО: 18 Э: 2",
-    "4": "ТО: 17 1/3 Э: 2 2/3",
-    "5": "ТО: 14 Э: 2",
-    "6": "ТО: 14 2/3 Э: 2",
-    "7": "ТО: 14 2/3 Э: 1 1/3",
-    "8": "ТО: 8 2/3 Э: 1 1/3"
-   },
-   "holidays": {
-    "1": "1 3/6",
-    "2": "8 2/6",
-    "3": "1 2/6",
-    "4": "8 4/6",
-    "5": "1",
-    "6": "8 5/6",
-    "7": "1 5/6",
-    "8": "8"
    }
   }
  ]
