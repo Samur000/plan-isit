@@ -134,6 +134,14 @@ def build_program(cur_path):
             warnings.append(f"{cur['id']}: связь {a} -> {b} не идёт вперёд по семестрам")
         edges.append([a, b])
 
+    outcomes = cur.get("outcomes")
+    if outcomes:
+        all_codes = set(ids) | {o["code"] for n in nodes for o in n.get("options", [])}
+        for sk in outcomes.get("skills", []):
+            for c in sk.get("codes", []):
+                if c not in all_codes:
+                    warnings.append(f"{cur['id']}: в блоке «После выпуска» указан несуществующий код {c}")
+
     # сверка с «Сводными данными» (стр. 10): з.е. по семестрам
     summary = courses.get("summary", [])
     total_row = next((x for x in summary if x["name"].startswith("Итого по ОП")), None)
@@ -144,7 +152,7 @@ def build_program(cur_path):
             if got != ze:
                 warnings.append(f"{cur['id']}: семестр {s}: на странице {got} з.е., в сводных данных {ze}")
     return {"id": cur["id"], "meta": cur["meta"], "tracks": cur["tracks"], "nodes": nodes, "edges": edges,
-            "summary": summary, "weeks": courses.get("weeks"), "holidays": courses.get("holidays")}
+            "outcomes": outcomes, "summary": summary, "weeks": courses.get("weeks"), "holidays": courses.get("holidays")}
 
 
 FONT_LOADER = """<script>

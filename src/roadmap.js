@@ -13,7 +13,14 @@
     prof:  { c: '#7C3AED', t: '#EDE7FD', d: '#4C1D95' },
     dv:    { c: '#D97706', t: '#FEF3C7', d: '#92400E' },
     prac:  { c: '#16A34A', t: '#DCF5E3', d: '#14532D' },
-    extra: { c: '#DB2777', t: '#FCE4F0', d: '#8A1747' }
+    extra: { c: '#DB2777', t: '#FCE4F0', d: '#8A1747' },
+    // цвета пунктов в блоке «После выпуска»
+    math:  { c: '#D97706', t: '#FEF3C7', d: '#92400E' },
+    prog:  { c: '#1D5FD6', t: '#DCE8FC', d: '#123E8C' },
+    data:  { c: '#0F9488', t: '#CCF2EC', d: '#0B5F57' },
+    sys:   { c: '#7C3AED', t: '#EDE7FD', d: '#4C1D95' },
+    sec:   { c: '#DC2626', t: '#FDE2E2', d: '#8F1D1D' },
+    gen:   { c: '#64748B', t: '#EEF1F5', d: '#334155' }
   };
   var FALLBACK = PALETTE.o1;
   var HOURS = [
@@ -27,6 +34,7 @@
   ];
   var SHORT_HOURS = { lec: 'лекции', lab: 'лаб.', pr: 'практ.', iz: 'ИЗ', krp: 'КРП', self: 'самост.', exam: 'контроль' };
   var ICON_DOC = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>';
+  var ICON_LINK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
   var ICON_X = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
 
   var mqNarrow = window.matchMedia('(max-width: 760px)');
@@ -518,6 +526,43 @@
   if (mqNarrow.addEventListener) mqNarrow.addEventListener('change', onMq); else mqNarrow.addListener(onMq);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleDraw);
 
+  // ---------- блок «После выпуска» ----------
+  function renderOutcomes() {
+    var box = $('outcomes'), o = P.outcomes;
+    box.style.display = o ? '' : 'none';
+    if (!o) { box.innerHTML = ''; return; }
+    var skills = (o.skills || []).map(function (sk) {
+      var chips = (sk.codes || []).filter(function (c) { return byCode[c]; }).map(function (c) {
+        return '<button type="button" class="rm-out-chip" data-open="' + esc(c) + '" title="' + esc(byCode[c].node.name) + '">' +
+          esc(byCode[c].node.name) + '</button>';
+      }).join('');
+      return '<li style="' + vars(sk.track) + '"><i aria-hidden="true"></i><div><b>' + esc(sk.title) + '</b><p>' + esc(sk.text) +
+        '</p><div class="rm-out-chips">' + chips + '</div></div></li>';
+    }).join('');
+    box.innerHTML =
+      '<div class="rm-out-head"><h2 id="rm-out-title">' + esc(o.title) + '</h2>' +
+      (o.lead || []).map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') + '</div>' +
+      '<div class="rm-out-grid">' +
+        '<div><h3>' + esc(o.skillsTitle) + '</h3><ul class="rm-out-skills">' + skills + '</ul></div>' +
+        '<aside class="rm-out-side"><h3>' + esc(o.rolesTitle) + '</h3><ul class="rm-out-roles">' +
+          (o.roles || []).map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul>' +
+          (o.spheres ? '<h3>' + esc(o.spheresTitle || 'Сферы') + '</h3><p class="rm-out-spheres">' + esc(o.spheres) + '</p>' : '') +
+          (o.searches && o.searches.length ? '<h3>' + esc(o.hhTitle) + '</h3><ul class="rm-out-search">' +
+            o.searches.map(function (q) {
+              return '<li><a href="' + esc(q.url) + '" target="_blank" rel="noopener">' + esc(q.label) + ICON_LINK + '</a></li>';
+            }).join('') + '</ul>' : '') +
+          (o.companyGroups && o.companyGroups.length ? '<h3>' + esc(o.companiesTitle) + '</h3>' +
+            o.companyGroups.map(function (g) {
+              return '<div class="rm-out-cgroup"><span>' + esc(g.title) + '</span><div class="rm-out-companies">' +
+                g.items.map(function (c) {
+                  return '<a href="https://hh.ru/employer/' + encodeURIComponent(c.id) + '" target="_blank" rel="noopener" title="' +
+                    esc(c.name) + ' на hh.ru">' + esc(c.name) + '</a>';
+                }).join('') + '</div></div>';
+            }).join('') : '') +
+          (o.note ? '<p class="rm-out-note">' + esc(o.note) + '</p>' : '') +
+        '</aside></div>';
+  }
+
   function renderHint() {
     var touch = window.matchMedia('(hover: none)').matches;
     $('hint').textContent = touch
@@ -532,6 +577,7 @@
     renderHeader();
     renderTracks();
     renderGrid();
+    renderOutcomes();
   }
   renderAll();
   readHash();
