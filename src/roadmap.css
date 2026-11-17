@@ -111,7 +111,7 @@
 #dgu-roadmap .rm-card { position: relative; display: flex; flex-direction: column; gap: 6px; width: 100%; background: var(--rm-white); border: 1px solid var(--rm-line); border-radius: var(--rm-radius); padding: 11px 12px 10px; box-shadow: inset 0 3px 0 var(--c); transition: transform .15s, box-shadow .15s, opacity .2s, border-color .15s; }
 #dgu-roadmap button.rm-card:hover, #dgu-roadmap .rm-opt:hover { border-color: var(--c); box-shadow: inset 0 3px 0 var(--c), 0 6px 18px rgba(27, 58, 107, .12); transform: translateY(-1px); }
 #dgu-roadmap .rm-card-name, #dgu-roadmap .rm-opt { -webkit-hyphens: auto; hyphens: auto; overflow-wrap: break-word; }
-#dgu-roadmap .rm-card-name { font-size: 13.5px; line-height: 1.3; font-weight: 500; color: var(--rm-ink); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+#dgu-roadmap .rm-card-name { font-size: 13.5px; line-height: 1.3; font-weight: 500; color: var(--rm-ink); }
 #dgu-roadmap .rm-card-meta { display: flex; flex-wrap: wrap; gap: 4px; font-size: 11.5px; color: var(--rm-muted); }
 #dgu-roadmap .rm-pill { display: inline-block; padding: 1px 7px; border-radius: 999px; background: var(--rm-bg); white-space: nowrap; }
 #dgu-roadmap .rm-pill--c { background: var(--t); color: var(--d); }
@@ -125,7 +125,7 @@
 #dgu-roadmap button.rm-card--gia:hover { box-shadow: 0 6px 18px rgba(20, 83, 45, .25); }
 #dgu-roadmap .rm-card--optional { border: 1.5px dotted #A9B6C9; box-shadow: none; }
 #dgu-roadmap .rm-card--compact { padding: 7px 10px 6px; gap: 2px; border-radius: 11px; box-shadow: none; border-color: #E6EAF0; }
-#dgu-roadmap .rm-card--compact .rm-card-name { font-size: 12.5px; font-weight: 300; line-height: 1.25; -webkit-line-clamp: 2; }
+#dgu-roadmap .rm-card--compact .rm-card-name { font-size: 12.5px; font-weight: 300; line-height: 1.25; }
 #dgu-roadmap .rm-card--compact .rm-card-meta { font-size: 11px; color: var(--rm-faint); display: block; }
 #dgu-roadmap .rm-card--choice { background: #FAFBFD; border: 1.5px dashed var(--c); box-shadow: none; padding: 9px 8px 8px; gap: 5px; }
 #dgu-roadmap .rm-choice-head { display: flex; justify-content: space-between; gap: 6px; font-size: 11.5px; color: var(--d); font-weight: 500; padding: 0 3px; }
@@ -187,8 +187,6 @@
 #dgu-roadmap .rm-rel-item i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }
 #dgu-roadmap .rm-rel-item small { color: var(--rm-faint); margin-left: auto; white-space: nowrap; font-size: 11.5px; }
 #dgu-roadmap .rm-rel-empty { font-size: 13px; color: var(--rm-faint); }
-#dgu-roadmap .rm-docs { display: flex; flex-wrap: wrap; gap: 8px; }
-#dgu-roadmap .rm-docs-empty { font-size: 13px; color: var(--rm-muted); background: var(--rm-bg); border-radius: 10px; padding: 10px 12px; }
 #dgu-roadmap .rm-m-foot { font-size: 12px; color: var(--rm-faint); margin-top: 18px !important; }
 #dgu-roadmap .rm-note { font-size: 12.5px; color: var(--rm-faint); margin-top: 16px !important; max-width: 900px; }
 
@@ -221,52 +219,8 @@
   #dgu-roadmap .rm-rel { grid-template-columns: 1fr; }
   #dgu-roadmap .rm-semrow { grid-template-columns: 80px 1fr; }
   #dgu-roadmap .rm-semrow em { grid-column: 2; }
-  #dgu-roadmap .rm-docs .rm-btn { flex: 1 1 100%; justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   #dgu-roadmap * { animation: none !important; transition: none !important; }
 }
 
-/* ---------- После выпуска ---------- */
-#dgu-roadmap .rm-out { background: var(--rm-white); border-radius: 20px; padding: 28px 32px 30px; border: 1px solid var(--rm-line); margin-top: 16px; }
-#dgu-roadmap .rm-out-head { max-width: 860px; }
-#dgu-roadmap .rm-out-head h2 { font-size: 26px; line-height: 1.2; font-weight: 600; color: var(--rm-navy); margin-bottom: 10px; }
-#dgu-roadmap .rm-out-head p { font-size: 16px; line-height: 1.55; color: var(--rm-ink); }
-#dgu-roadmap .rm-out-head p + p { margin-top: 8px; color: var(--rm-muted); font-size: 15px; }
-#dgu-roadmap .rm-out-grid { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); gap: 32px; margin-top: 24px; }
-#dgu-roadmap .rm-out h3 { font-size: 15px; font-weight: 600; color: var(--rm-navy); margin-bottom: 6px; }
-#dgu-roadmap .rm-out-skills li { display: grid; grid-template-columns: 12px 1fr; gap: 12px; padding: 14px 0; border-top: 1px solid var(--rm-line); }
-#dgu-roadmap .rm-out-skills li:first-child { border-top: 0; padding-top: 8px; }
-#dgu-roadmap .rm-out-skills li > i { width: 10px; height: 10px; border-radius: 50%; background: var(--c); margin-top: 6px; }
-#dgu-roadmap .rm-out-skills b { display: block; font-size: 15.5px; font-weight: 500; color: var(--rm-ink); }
-#dgu-roadmap .rm-out-skills p { font-size: 14px; color: var(--rm-muted); margin-top: 2px; }
-#dgu-roadmap .rm-out-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-#dgu-roadmap .rm-out-chip { font-size: 12.5px; line-height: 1.3; padding: 4px 10px; border-radius: 10px; background: var(--t); color: var(--d); transition: box-shadow .15s; }
-#dgu-roadmap .rm-out-chip:hover { box-shadow: 0 0 0 1.5px var(--c); }
-#dgu-roadmap .rm-out-side { background: var(--rm-bg); border-radius: 16px; padding: 18px 20px; align-self: start; }
-#dgu-roadmap .rm-out-roles li { position: relative; padding: 7px 0 7px 18px; font-size: 14px; line-height: 1.4; border-top: 1px solid #E4EAF3; }
-#dgu-roadmap .rm-out-roles li:first-child { border-top: 0; }
-#dgu-roadmap .rm-out-roles li::before { content: ""; position: absolute; left: 2px; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--rm-blue); }
-#dgu-roadmap .rm-out-side h3 + .rm-out-spheres, #dgu-roadmap .rm-out-side .rm-out-roles + h3 { margin-top: 14px; }
-#dgu-roadmap .rm-out-spheres { font-size: 14px; line-height: 1.5; }
-#dgu-roadmap .rm-out-note { font-size: 12.5px; color: var(--rm-faint); margin-top: 14px !important; }
-@media (max-width: 900px) {
-  #dgu-roadmap .rm-out-grid { grid-template-columns: 1fr; gap: 20px; }
-  #dgu-roadmap .rm-out-side { position: static; }
-}
-@media (max-width: 760px) {
-  #dgu-roadmap .rm-out { padding: 20px 16px 22px; border-radius: 16px; }
-  #dgu-roadmap .rm-out-head h2 { font-size: 22px; }
-  #dgu-roadmap .rm-out-head p { font-size: 15px; }
-}
-#dgu-roadmap .rm-out-search li { border-top: 1px solid #E4EAF3; }
-#dgu-roadmap .rm-out-search li:first-child { border-top: 0; }
-#dgu-roadmap .rm-out-search a { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 0; font-size: 14px; font-weight: 500; }
-#dgu-roadmap .rm-out-search a:hover { text-decoration: underline; text-underline-offset: 3px; }
-#dgu-roadmap .rm-out-search svg { width: 15px; height: 15px; flex: none; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-#dgu-roadmap .rm-out-side .rm-out-search + h3, #dgu-roadmap .rm-out-side .rm-out-spheres + h3 { margin-top: 16px; }
-#dgu-roadmap .rm-out-cgroup + .rm-out-cgroup { margin-top: 10px; }
-#dgu-roadmap .rm-out-cgroup > span { display: block; font-size: 12.5px; color: var(--rm-muted); margin-bottom: 6px; }
-#dgu-roadmap .rm-out-companies { display: flex; flex-wrap: wrap; gap: 6px; }
-#dgu-roadmap .rm-out-companies a { font-size: 13px; padding: 5px 10px; border-radius: 10px; background: var(--rm-white); border: 1px solid var(--rm-line); color: var(--rm-ink); transition: border-color .15s, color .15s; }
-#dgu-roadmap .rm-out-companies a:hover { border-color: var(--rm-blue); color: var(--rm-blue); }

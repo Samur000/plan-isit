@@ -1,8 +1,14 @@
-"""Собирает дорожную карту: данные учебных планов + ЭОР + треки/связи -> docs/.
+"""Собирает дорожную карту только по учебному плану -> docs/.
 
 Запуск (из корня проекта):
     python3 -E scripts/extract_plan.py source/pdf/isit_09.03.02.pdf source/plan_isit.json
+    python3 -E scripts/extract_courses.py source/pdf/isit_09.03.02.pdf source/courses_isit.json
     python3 -E scripts/build.py
+
+Источник — PDF учебного плана:
+    стр. 4–5   план (структура, группы по выбору)      -> source/plan_isit.json
+    стр. 6–9   «КУРС 1–4»: полные названия, часы и формы контроля по семестрам,
+    стр. 10    «Сводные данные»: з.е. по блокам плана   -> source/courses_isit.json
 
 Результат (папка docs/ публикуется через GitHub Pages):
     docs/index.html         — самостоятельная страница
@@ -18,25 +24,14 @@ ROOT = Path(__file__).resolve().parent.parent
 LEAF = re.compile(r"^(Б[123]|К\.М|ФТД)(\.[А-ЯA-Z]{1,2})*(\.\d{2})+(\([А-Я]\))?$")
 FORM_LABEL = {"exam": "Экзамен", "credit": "Зачёт", "gradedCredit": "Зачёт с оценкой",
               "courseWork": "Курсовая работа", "courseProject": "Курсовой проект"}
-# Пока публикуем только ИСИТ. Чтобы добавить ИБ: допишите "source/curation_ib.json" —
-# на странице автоматически появится переключатель направлений.
+FORM_SHORT = {"Эк": "Экзамен", "За": "Зачёт", "ЗаО": "Зачёт с оценкой", "КР": "Курсовая работа", "КП": "Курсовой проект"}
+HOURS = ["lec", "lab", "pr", "iz", "krp", "self", "exam"]
 PROGRAMS = ["source/curation_isit.json"]
 warnings = []
 
 
 def clean(s):
-    s = re.sub(r"\s+", " ", s or "").strip()
-    s = re.sub(r"\s+-\s*", "-", s) if "Он- лайн" in s else s
-    return s.replace("Инженерно- техническая", "Инженерно-техническая")
-
-
-def doc_url(files):
-    if not files:
-        return None
-    f = files[0]  # как на странице ЭОР: берётся первый файл
-    if f.get("linkToFile"):
-        return f["linkToFile"].replace(" ", "%20")
-    return "https://oop.dgu.ru/sved/files-oop/" + f["name"].replace(" ", "%20")
+    return re.sub(r"\s+", " ", s or "").strip()
 
 
 def part_of(code):
@@ -51,49 +46,56 @@ def part_of(code):
     if code.startswith("Б3"):
         return "gia", "Блок 3. Государственная итоговая аттестация"
     if code.startswith("ФТД"):
-        return "optional", "Факультатив (по желанию, не входит в 240 з.е.)"
+        return "optional", "Факультативы"
     if code.startswith("К.М"):
-        return "sport", "Комплексный модуль: физическая культура и спорт"
+        return "sport", "Комплексный модуль"
     return "other", ""
 
 
-def discipline(row, names, short, eor, check_eor=True):
+def discipline(row, course):
+    """row — строка плана (стр. 4–5), course — та же дисциплина со страниц «КУРС» (стр. 6–9)."""
     code = row["code"]
-    sems = sorted(int(k) for k in row["semesters"])
-    per_sem = []
-    totals = {"lec": 0, "lab": 0, "pr": 0, "self": 0, "control": 0}
-    for s in sems:
-        d = row["semesters"][str(s)]
-        forms = [FORM_LABEL[k] for k, v in row["forms"].items() if s in v]
-        per_sem.append({"sem": s, "ze": d.get("ze"), "forms": forms,
-                        **{k: d.get(k) for k in totals}})
-        for k in totals:
-            totals[k] += d.get(k) or 0
     kind, part_label = part_of(code)
-    e = eor.get(code, {})
-    name = clean(names.get(code) or e.get("disciplineName") or row["planName"])
-    if not e and check_eor:
-        warnings.append(f"{code}: нет в ЭОР (нет ссылок на РПД/ФОС)")
+    per_sem, totals = [], {k: 0 for k in HOURS}
+    if course and course["sems"]:
+        for s in sorted(course["sems"], key=int):
+            d = course["sems"][s]
+            forms = [FORM_SHORT[t] for t in d.get("control", "").split() if t in FORM_SHORT]
+            item = {"sem": int(s), "ze": d.get("ze"), "total": d.get("total"), "contact": d.get("contact"),
+                    "weeks": d.get("weeks"), "forms": forms, **{k: d.get(k) for k in HOURS}}
+            per_sem.append(item)
+            for k in HOURS:
+                totals[k] += d.get(k) or 0
+    else:  # практики и ГИА: на страницах «КУРС» часов по видам нет — берём из плана
+        for s in sorted(int(k) for k in row["semesters"]):
+            d = row["semesters"][str(s)]
+            forms = [FORM_LABEL[k] for k, v in row["forms"].items() if s in v]
+            per_sem.append({"sem": s, "ze": d.get("ze"), "forms": forms})
+    name = clean(course["name"]) if course and course.get("name") else clean(row.get("lineName") or row["planName"])
     return {
-        "code": code, "name": name, "short": short.get(code, name), "kind": kind,
-        "part": part_label, "counted": row["counted"], "sems": sems,
-        "ze": row["totals"].get("ze"), "hours": row["totals"].get("hours"),
-        "hoursBy": totals, "perSem": per_sem,
+        "code": code, "name": name, "kind": kind, "part": part_label, "counted": row["counted"],
+        "sems": [p["sem"] for p in per_sem], "ze": row["totals"].get("ze"), "hours": row["totals"].get("hours"),
+        "contact": row["totals"].get("contact"), "hoursBy": totals, "perSem": per_sem,
         "forms": sorted({f for p in per_sem for f in p["forms"]}, key=list(FORM_LABEL.values()).index),
-        "rpd": doc_url(e.get("fileRPD")), "fos": doc_url(e.get("fileFOS")),
     }
 
 
 def build_program(cur_path):
     cur = json.load(open(ROOT / cur_path, encoding="utf-8"))
     plan = json.load(open(ROOT / cur["plan"], encoding="utf-8"))
-    eor_raw = json.load(open(ROOT / cur["eor"], encoding="utf-8"))
-    eor = {d["code"]: d for d in eor_raw["profile"]["disciplines"]}
+    courses = json.load(open(ROOT / cur["courses"], encoding="utf-8"))
+    crow = {r["code"]: r for r in courses["rows"]}
     rows = {r["code"]: r for r in plan if LEAF.match(r["code"])}
-    modules = {r["code"]: clean(r.get("lineName") or r["planName"]) for r in plan if r["isGroup"] and not r["code"].startswith("Б1.В.ДВ")}
-    track_of = {c: t for t, codes in cur["assign"].items() for c in codes}
+    modules = {c: clean(r["name"]) for c, r in crow.items() if any(o.startswith(c + ".") for o in crow)}
 
-    nodes, used = [], set()
+    def track_of(code):
+        for t in cur["tracks"]:
+            if any(code.startswith(p) for p in t["prefixes"]):
+                return t["id"]
+        warnings.append(f"{code}: не попал ни в одну колонку")
+        return None
+
+    nodes = []
     for code, r in rows.items():
         if r["isGroup"] and not code.startswith("Б1.В.ДВ"):
             continue
@@ -101,50 +103,48 @@ def build_program(cur_path):
         if not r["isGroup"] and parent in rows and rows[parent]["isGroup"] and parent.startswith("Б1.В.ДВ"):
             continue  # вариант выбора — войдёт в карточку группы
         if r["isGroup"]:  # группа «по выбору»
-            opts = [discipline(rows[c], cur["names"], cur["short"], eor)
-                    for c in rows if c.startswith(code + ".") and not rows[c]["isGroup"]]
-            base = discipline(r, {}, {}, {}, check_eor=False)
-            title = "Модуль мобильности" if "мобильност" in r["planName"] else "Дисциплина по выбору"
-            node = {**base, "name": title, "short": title, "kind": "choice", "options": opts,
-                    "rpd": None, "fos": None, "module": title}
-            used.update(o["code"] for o in opts)
+            opts = [discipline(rows[c], crow.get(c)) for c in rows if c.startswith(code + ".") and not rows[c]["isGroup"]]
+            for o in opts:
+                if not crow.get(o["code"]):
+                    warnings.append(f"{o['code']}: нет на страницах «КУРС»")
+            base = discipline(r, None)
+            title = clean(r.get("lineName") or r["planName"])
+            node = {**base, "name": title, "kind": "choice", "options": opts, "module": title,
+                    "mobility": "мобильност" in title.lower()}
         else:
-            node = discipline(r, cur["names"], cur["short"], eor)
+            if not crow.get(code):
+                warnings.append(f"{code}: нет на страницах «КУРС»")
+            node = discipline(r, crow.get(code))
             mod = next((modules[m] for m in sorted(modules, key=len, reverse=True) if code.startswith(m + ".")), None)
-            node["module"] = "Комплексный модуль: физическая культура и спорт" if code.startswith("К.М") else mod
+            node["module"] = mod
             if node["kind"] == "gia":
                 node["forms"] = ["Защита ВКР"]
-        node["track"] = track_of.get(code)
-        if not node["track"]:
-            warnings.append(f"{code} ({node['name']}): не назначен трек")
+        node["track"] = track_of(code)
         node["start"] = 9 if node["kind"] == "gia" else (node["sems"][0] if node["sems"] else 1)
         nodes.append(node)
-        used.add(code)
 
+    # связи между дисциплинами (стрелки): в плане их нет, заданы вручную в curation (edges)
     ids = {n["code"]: n for n in nodes}
-    for c in track_of:
-        if c not in ids:
-            warnings.append(f"{cur['id']}: трек назначен несуществующему коду {c}")
     edges = []
-    for a, b in cur["edges"]:
+    for a, b in cur.get("edges", []):
         if a not in ids or b not in ids:
-            warnings.append(f"{cur['id']}: связь {a} -> {b}: нет такого узла")
+            warnings.append(f"{cur['id']}: связь {a} -> {b}: нет такого блока")
             continue
         if ids[a]["start"] >= ids[b]["start"]:
             warnings.append(f"{cur['id']}: связь {a} -> {b} не идёт вперёд по семестрам")
         edges.append([a, b])
-    for e in eor:
-        if e not in used:
-            warnings.append(f"{cur['id']}: {e} есть в ЭОР, но не найден в плане")
-    outcomes = cur.get("outcomes")
-    if outcomes:
-        all_codes = set(ids) | {o["code"] for n in nodes for o in n.get("options", [])}
-        for sk in outcomes.get("skills", []):
-            for c in sk.get("codes", []):
-                if c not in all_codes:
-                    warnings.append(f"{cur['id']}: в блоке «После выпуска» указан несуществующий код {c}")
+
+    # сверка с «Сводными данными» (стр. 10): з.е. по семестрам
+    summary = courses.get("summary", [])
+    total_row = next((x for x in summary if x["name"].startswith("Итого по ОП")), None)
+    if total_row:
+        for s, ze in total_row["perSem"].items():
+            got = sum((p.get("ze") or 0) for n in nodes if n["kind"] != "optional"
+                      for p in n["perSem"] if str(p["sem"]) == str(s))
+            if got != ze:
+                warnings.append(f"{cur['id']}: семестр {s}: на странице {got} з.е., в сводных данных {ze}")
     return {"id": cur["id"], "meta": cur["meta"], "tracks": cur["tracks"], "nodes": nodes, "edges": edges,
-            "outcomes": outcomes}
+            "summary": summary, "weeks": courses.get("weeks"), "holidays": courses.get("holidays")}
 
 
 FONT_LOADER = """<script>
@@ -184,7 +184,7 @@ def main():
     (out / "index.html").write_text(page, encoding="utf-8")
 
     for p in data["programs"]:
-        print(f"{p['meta']['code']} {p['meta']['short']}: узлов {len(p['nodes'])}, связей {len(p['edges'])}")
+        print(f"{p['meta']['code']} {p['meta']['short']}: блоков {len(p['nodes'])}, связей {len(p['edges'])}")
     if warnings:
         print("\nПредупреждения:")
         for w in warnings:
