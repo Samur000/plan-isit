@@ -29,11 +29,10 @@
   var ICON_DOC = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg>';
   var ICON_LINK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
   var ICON_X = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
-  var ICON_FLAG = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4M5 4h12l-2.5 4L17 12H5"/></svg>';
 
   var mqNarrow = window.matchMedia('(max-width: 760px)');
-  var state = { pi: 0, track: 'all', query: '', hover: null, pinned: null, review: false };
-  var P, R, flags, byCode, outAdj, inAdj, cardEls, edgeEls, lastOpener, prevOverflow;
+  var state = { pi: 0, track: 'all', query: '', hover: null, pinned: null };
+  var P, byCode, outAdj, inAdj, cardEls, edgeEls, lastOpener, prevOverflow;
 
   // ---------- утилиты ----------
   function $(name) { return root.querySelector('[data-rm="' + name + '"]'); }
@@ -70,8 +69,6 @@
   // ---------- данные программы ----------
   function indexProgram() {
     P = DATA.programs[state.pi];
-    R = P.review || null;
-    flags = (R && R.flags) || {};
     byCode = {}; outAdj = {}; inAdj = {};
     P.nodes.forEach(function (n) {
       byCode[n.code] = { node: n, parent: null };
@@ -93,16 +90,6 @@
     });
     return set;
   }
-  // замечания из разбора плана: по коду дисциплины или варианта выбора
-  function flagsOf(code) { return flags[code] || []; }
-  function nodeFlagged(n) {
-    return !!(flags[n.code] || (n.options || []).some(function (o) { return flags[o.code]; }));
-  }
-  function flagPill(code) {
-    var f = flagsOf(code)[0], k = f && R.kinds[f.kind];
-    return k ? '<span class="rm-flag">' + esc(k.pill) + '</span>' : '';
-  }
-
   function matches(n, q) {
     if (!q) return false;
     var hay = norm(n.name + ' ' + n.short + ' ' + n.code);
@@ -140,7 +127,6 @@
     $('links').innerHTML =
       '<a href="' + esc(m.planUrl) + '" target="_blank" rel="noopener">' + ICON_DOC + 'Учебный план (PDF)</a>' +
       '<a href="' + esc(m.eorUrl) + '" target="_blank" rel="noopener">' + ICON_LINK + 'Электронные образовательные ресурсы</a>' +
-      (R ? '<button type="button" class="rm-linkbtn" data-rm="reviewjump">' + ICON_FLAG + 'Разбор плана</button>' : '') +
       '<span style="color:var(--rm-faint)">' + esc(m.fgos) + ' · набор ' + m.startYear + ' г.</span>';
   }
 
@@ -158,9 +144,9 @@
     if (n.kind === 'choice') {
       var head = n.name === 'Модуль мобильности' ? 'Модуль мобильности' : 'По выбору';
       var opts = n.options.map(function (o) {
-        return '<button type="button" class="rm-opt" data-open="' + esc(o.code) + '" title="' + esc(o.name) + '">' + esc(o.short) + flagPill(o.code) + '</button>';
+        return '<button type="button" class="rm-opt" data-open="' + esc(o.code) + '" title="' + esc(o.name) + '">' + esc(o.short) + '</button>';
       }).join('<span class="rm-or">или</span>');
-      return '<div class="rm-card rm-card--choice' + (nodeFlagged(n) ? ' has-flag' : '') + '" data-code="' + esc(n.code) + '" style="' + vars(n.track) + '">' +
+      return '<div class="rm-card rm-card--choice" data-code="' + esc(n.code) + '" style="' + vars(n.track) + '">' +
         '<div class="rm-choice-head">' + head + '<span>' + esc(volume(n)) + (mainForm(n) ? ' · ' + mainForm(n) : '') + '</span></div>' +
         opts + '</div>';
     }
@@ -169,18 +155,16 @@
     if (n.kind === 'practice') cls += ' rm-card--practice';
     if (n.kind === 'gia') cls += ' rm-card--gia';
     if (n.kind === 'optional') cls += ' rm-card--optional';
-    if (nodeFlagged(n)) cls += ' has-flag';
     var form = mainForm(n);
     if (n.track === 'gen') {
       var bits = [volume(n), form, n.sems.length > 1 ? range(n.sems) + ' сем.' : ''].filter(Boolean).join(' · ');
       return '<button type="button" class="' + cls + '" data-code="' + esc(n.code) + '" data-open="' + esc(n.code) + '" style="' + vars(n.track) + '" aria-label="' + esc(n.name) + '">' +
-        '<span class="rm-card-name">' + esc(n.short) + '</span><span class="rm-card-meta">' + esc(bits) + '</span>' + flagPill(n.code) + '</button>';
+        '<span class="rm-card-name">' + esc(n.short) + '</span><span class="rm-card-meta">' + esc(bits) + '</span></button>';
     }
     var meta = '<span class="rm-pill">' + esc(volume(n)) + '</span>';
     if (form) meta += '<span class="rm-pill' + (form === 'экзамен' ? ' rm-pill--exam' : '') + '">' + form + '</span>';
     if (n.sems.length > 1) meta += '<span class="rm-pill rm-pill--c">' + range(n.sems) + ' сем.</span>';
     if (n.kind === 'optional') meta += '<span class="rm-pill">факультатив</span>';
-    meta += flagPill(n.code);
     return '<button type="button" class="' + cls + '" data-code="' + esc(n.code) + '" data-open="' + esc(n.code) + '" style="' + vars(n.track) + '" aria-label="' + esc(n.name) + '">' +
       '<span class="rm-card-name">' + esc(n.short) + '</span><span class="rm-card-meta">' + meta + '</span></button>';
   }
@@ -319,23 +303,16 @@
     else if (q) {
       active = {}; mode = 'search';
       P.nodes.forEach(function (n) { if (matches(n, q)) active[n.code] = true; });
-    } else if (state.review && R) {
-      active = {}; mode = 'review';
-      P.nodes.forEach(function (n) {
-        if (nodeFlagged(n) && (state.track === 'all' || n.track === state.track)) active[n.code] = true;
-      });
     } else if (state.track !== 'all') {
       active = {}; mode = 'track';
       P.nodes.forEach(function (n) { if (n.track === state.track) active[n.code] = true; });
     }
     $('tree').classList.toggle('rm-dim', !!active);
-    $('reviewtoggle').setAttribute('aria-pressed', String(!!(state.review && R)));
     Object.keys(cardEls).forEach(function (code) {
       var c = cardEls[code];
       c.classList.toggle('is-on', !!(active && active[code]));
       c.classList.toggle('is-self', mode === 'focus' && code === focus);
       c.classList.toggle('is-match', mode === 'search' && !!active[code]);
-      c.classList.toggle('is-flag', mode === 'review' && !!active[code]);
     });
     (edgeEls || []).forEach(function (e) {
       e.el.classList.toggle('is-on', !!(active && active[e.a] && active[e.b]));
@@ -393,14 +370,6 @@
     }
     if (n.kind === 'optional') {
       html += '<div class="rm-sec"><div class="rm-choicebox">Факультатив: изучается по желанию и не входит в 240 з.е. программы.</div></div>';
-    }
-    var fl = flagsOf(n.code);
-    if (fl.length) {
-      html += '<div class="rm-sec"><div class="rm-sec-title">Замечания из разбора плана</div><div class="rm-flagbox">' +
-        fl.map(function (f) {
-          return '<p><b>' + esc(R.kinds[f.kind].title) + '.</b> ' + esc(f.text) + '</p>' +
-            (f.fix ? '<p class="rm-flagfix"><b>Предложение.</b> ' + esc(f.fix) + '</p>' : '');
-        }).join('') + '</div></div>';
     }
 
     var hb = n.hoursBy || {}, total = HOURS.reduce(function (s, h) { return s + (hb[h[0]] || 0); }, 0);
@@ -497,14 +466,7 @@
   root.addEventListener('click', function (ev) {
     var t = ev.target;
     var sw = t.closest('.rm-switch button');
-    if (sw) { state.pi = +sw.getAttribute('data-pi'); state.track = 'all'; state.pinned = null; state.review = false; renderAll(); return; }
-    if (t.closest('[data-rm="reviewtoggle"]')) { state.review = !state.review; state.pinned = null; applyState(); return; }
-    if (t.closest('[data-rm="reviewshow"]')) {
-      state.review = true; state.pinned = null; applyState();
-      root.querySelector('.rm-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      return;
-    }
-    if (t.closest('[data-rm="reviewjump"]')) { $('review').scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
+    if (sw) { state.pi = +sw.getAttribute('data-pi'); state.track = 'all'; state.pinned = null; renderAll(); return; }
     var chip = t.closest('[data-track]');
     if (chip) {
       state.track = chip.getAttribute('data-track'); state.pinned = null;
@@ -592,54 +554,6 @@
         '</aside></div>';
   }
 
-  // ---------- разбор плана ----------
-  function renderReview() {
-    var box = $('review');
-    $('reviewtoggle').hidden = !R;
-    $('reviewlegend').hidden = !R;
-    box.style.display = R ? '' : 'none';
-    if (!R) { box.innerHTML = ''; return; }
-    var cnt = P.nodes.filter(nodeFlagged).length;
-    $('reviewlabel').textContent = 'Замечания по плану · ' + cnt;
-
-    function chip(code) {
-      var e = byCode[code];
-      if (!e) return '';
-      var n = e.node, base = e.parent || n;
-      return '<button type="button" class="rm-out-chip" data-open="' + esc(code) + '" style="' + vars(base.track) + '" title="' + esc(n.name) + '">' +
-        esc(n.short) + ' <small>' + range(n.sems) + ' сем.</small></button>';
-    }
-    var html = '<div class="rm-rv-head"><h2 id="rm-review-title">' + esc(R.title) + '</h2>' +
-      (R.lead || []).map(function (t) { return '<p>' + esc(t) + '</p>'; }).join('') +
-      '<button type="button" class="rm-btn rm-btn--outline" data-rm="reviewshow">' + ICON_FLAG + 'Показать замечания на дереве</button></div>';
-    if (R.stats && R.stats.length) {
-      html += '<ul class="rm-rv-stats">' + R.stats.map(function (s) {
-        return '<li><b>' + esc(s.value) + '</b><span>' + esc(s.label) + '</span></li>';
-      }).join('') + '</ul>';
-    }
-    (R.sections || []).forEach(function (s) {
-      html += '<div class="rm-rv-sec rm-rv-sec--' + esc(s.kind) + '"><h3>' + esc(s.title) + '</h3><div class="rm-rv-items">' +
-        s.items.map(function (it) {
-          return '<div class="rm-rv-item"><b>' + esc(it.title) + '</b><p>' + esc(it.text) + '</p>' +
-            (it.codes && it.codes.length ? '<div class="rm-out-chips">' + it.codes.map(chip).join('') + '</div>' : '') + '</div>';
-        }).join('') + '</div></div>';
-    });
-    var pl = R.plan;
-    if (pl && pl.rows && pl.rows.length) {
-      html += '<div class="rm-rv-plan"><h3>' + esc(pl.title) + '</h3>' + (pl.lead ? '<p>' + esc(pl.lead) + '</p>' : '') +
-        '<table class="rm-rv-table"><thead><tr><th>Семестр</th><th>Сейчас</th><th>Предлагается</th><th>з.е.</th></tr></thead><tbody>' +
-        pl.rows.map(function (r) {
-          return '<tr><td data-l="Семестр">' + esc(r.sem) + '</td>' +
-            '<td data-l="Сейчас"><div class="rm-out-chips">' + r.out.map(chip).join('') + '</div></td>' +
-            '<td data-l="Предлагается">' + esc(r.in) + '</td>' +
-            '<td data-l="з.е.">' + (r.ze == null ? '—' : r.ze) + '</td></tr>';
-        }).join('') + '</tbody></table>' +
-        (pl.total ? '<p class="rm-rv-total">' + esc(pl.total) + '</p>' : '') + '</div>';
-    }
-    if (R.note) html += '<p class="rm-rv-note">' + esc(R.note) + '</p>';
-    box.innerHTML = html;
-  }
-
   function renderHint() {
     var touch = window.matchMedia('(hover: none)').matches;
     $('hint').textContent = touch
@@ -653,7 +567,6 @@
     indexProgram();
     renderHeader();
     renderTracks();
-    renderReview();
     renderGrid();
     renderOutcomes();
   }
