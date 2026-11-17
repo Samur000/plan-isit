@@ -14,6 +14,7 @@
   <section class="rm-panel">
     <div class="rm-toolbar">
       <div class="rm-tracks" role="group" aria-label="Показать направление" data-rm="tracks"></div>
+      <button type="button" class="rm-chip rm-chip--review" data-rm="reviewtoggle" aria-pressed="false" hidden><i></i><span data-rm="reviewlabel">Замечания по плану</span></button>
       <label class="rm-search">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         <input type="search" placeholder="Найти дисциплину" aria-label="Найти дисциплину" data-rm="search">
@@ -25,6 +26,7 @@
       <span><i class="rm-lg rm-lg--practice"></i>Практика</span>
       <span><i class="rm-lg rm-lg--optional"></i>Факультатив</span>
       <span><i class="rm-lg rm-lg--arrow"></i>Связь: знания нужны дальше</span>
+      <span data-rm="reviewlegend" hidden><i class="rm-lg rm-lg--flag"></i>Замечание из разбора плана</span>
     </div>
     <p class="rm-hint" data-rm="hint">Нажмите на блок, чтобы открыть подробности. Наведите курсор — подсветится вся цепочка связей.</p>
     <div class="rm-focusbar" data-rm="focusbar">
@@ -41,6 +43,8 @@
 
     <p class="rm-note">Блоки и семестры — по утверждённому учебному плану. Стрелки показывают логику обучения: какие дисциплины готовят к следующим. Они составлены по плану и содержанию дисциплин и носят рекомендательный характер. Рабочие программы и оценочные средства открываются из ЭОР ДГУ.</p>
   </section>
+
+  <section class="rm-review" data-rm="review" aria-labelledby="rm-review-title"></section>
 
   <section class="rm-out" data-rm="outcomes" aria-labelledby="rm-out-title"></section>
 

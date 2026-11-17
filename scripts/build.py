@@ -136,15 +136,28 @@ def build_program(cur_path):
     for e in eor:
         if e not in used:
             warnings.append(f"{cur['id']}: {e} есть в ЭОР, но не найден в плане")
+    all_codes = set(ids) | {o["code"] for n in nodes for o in n.get("options", [])}
     outcomes = cur.get("outcomes")
     if outcomes:
-        all_codes = set(ids) | {o["code"] for n in nodes for o in n.get("options", [])}
         for sk in outcomes.get("skills", []):
             for c in sk.get("codes", []):
                 if c not in all_codes:
                     warnings.append(f"{cur['id']}: в блоке «После выпуска» указан несуществующий код {c}")
+    review = cur.get("review")
+    if review:
+        kinds = review.get("kinds", {})
+        refs = list(review.get("flags", {}))
+        refs += [c for s in review.get("sections", []) for it in s["items"] for c in it.get("codes", [])]
+        refs += [c for r in review.get("plan", {}).get("rows", []) for c in r.get("out", [])]
+        for c in refs:
+            if c not in all_codes:
+                warnings.append(f"{cur['id']}: в разборе плана указан несуществующий код {c}")
+        for c, fl in review.get("flags", {}).items():
+            for f in fl:
+                if f["kind"] not in kinds:
+                    warnings.append(f"{cur['id']}: {c}: неизвестный тип замечания {f['kind']}")
     return {"id": cur["id"], "meta": cur["meta"], "tracks": cur["tracks"], "nodes": nodes, "edges": edges,
-            "outcomes": outcomes}
+            "outcomes": outcomes, "review": review}
 
 
 FONT_LOADER = """<script>
