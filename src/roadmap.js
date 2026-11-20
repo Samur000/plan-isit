@@ -31,7 +31,8 @@
   var ICON_X = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
 
   var mqNarrow = window.matchMedia('(max-width: 760px)');
-  var state = { pi: 0, track: 'all', query: '', hover: null, pinned: null };
+  // view: 'h' — семестры слева направо (по умолчанию), 'v' — сверху вниз
+  var state = { pi: 0, track: 'all', query: '', hover: null, pinned: null, view: 'h' };
   var P, byCode, outAdj, inAdj, cardEls, edgeEls, lastOpener, prevOverflow;
 
   // ---------- утилиты ----------
@@ -186,20 +187,55 @@
   var RANK = { core: 0, practice: 0, gia: 0, variable: 1, sport: 1, choice: 2, optional: 3 };
   function rank(n) { return RANK[n.kind] == null ? 1 : RANK[n.kind]; }
 
+  function horizontal() { return state.view === 'h'; }
+
+  function laneHead(t) {
+    var cnt = P.nodes.filter(function (n) { return n.track === t.id; }).length;
+    return '<div class="rm-lanehead" data-lane="' + t.id + '" style="' + vars(t.id) + '"><i></i><b>' + esc(t.name) + '</b><span>' +
+      cnt + ' ' + plural(cnt, 'блок', 'блока', 'блоков') + '</span></div>';
+  }
+  function cellCards(row, t) {
+    return P.nodes.filter(function (n) { return n.start === row && n.track === t.id; })
+      .sort(function (a, b) { return rank(a) - rank(b) || b.sems.length - a.sems.length || (a.code < b.code ? -1 : 1); })
+      .map(cardHtml).join('');
+  }
+
+  // горизонтальный вид: строки — направления, столбцы — семестры
+  function gridHorizontal(maxRow) {
+    var html = '<div class="rm-corner"></div>';
+    for (var col = 1; col <= maxRow; col++) {
+      var final = col === 9;
+      html += final
+        ? '<div class="rm-colhead rm-colhead--final rm-course"><b>Финиш</b><span>итоговая аттестация</span></div>'
+        : '<div class="rm-colhead' + (col % 2 === 1 ? ' rm-course' : '') + '"><b>' + col + ' семестр</b><span>' + Math.ceil(col / 2) + ' курс · ' +
+          (col % 2 ? 'осень' : 'весна') + '</span><em>' + semSummary(col) + '</em></div>';
+    }
+    P.tracks.forEach(function (t) {
+      html += laneHead(t);
+      for (var c = 1; c <= maxRow; c++) {
+        html += '<div class="rm-cell' + (c === 9 || c % 2 === 1 ? ' rm-course' : '') + '">' + cellCards(c, t) + '</div>';
+      }
+    });
+    return html;
+  }
+
   function renderGrid() {
+    var grid = $('grid');
+    var maxRow = Math.max.apply(null, P.nodes.map(function (n) { return n.start; }));
+    root.classList.toggle('rm--h', horizontal());
+    root.classList.toggle('rm--v', !horizontal());
+    if (horizontal()) {
+      root.style.setProperty('--rm-cols', maxRow);
+      grid.innerHTML = gridHorizontal(maxRow);
+      return afterGrid(grid);
+    }
     var lanes = (mqNarrow.matches && state.track !== 'all')
       ? P.tracks.filter(function (t) { return t.id === state.track; })
       : P.tracks;
-    var grid = $('grid');
     root.style.setProperty('--rm-lanes', lanes.length);
-    var maxRow = Math.max.apply(null, P.nodes.map(function (n) { return n.start; }));
 
     var html = '<div class="rm-corner"></div>';
-    lanes.forEach(function (t) {
-      var cnt = P.nodes.filter(function (n) { return n.track === t.id; }).length;
-      html += '<div class="rm-lanehead" data-lane="' + t.id + '" style="' + vars(t.id) + '"><i></i><b>' + esc(t.name) + '</b><span>' +
-        cnt + ' ' + plural(cnt, 'блок', 'блока', 'блоков') + '</span></div>';
-    });
+    lanes.forEach(function (t) { html += laneHead(t); });
     for (var row = 1; row <= maxRow; row++) {
       var final = row === 9;
       var course = !final && row % 2 === 1 ? ' rm-course' : '';
@@ -208,13 +244,14 @@
         : '<div class="rm-rowlabel' + course + '"><b>' + row + ' семестр</b><span>' + Math.ceil(row / 2) + ' курс · ' +
           (row % 2 ? 'осень' : 'весна') + '</span><em>' + semSummary(row) + '</em></div>';
       lanes.forEach(function (t) {
-        var cards = P.nodes.filter(function (n) { return n.start === row && n.track === t.id; })
-          .sort(function (a, b) { return rank(a) - rank(b) || b.sems.length - a.sems.length || (a.code < b.code ? -1 : 1); })
-          .map(cardHtml).join('');
-        html += '<div class="rm-cell' + (final ? ' rm-course' : course) + '">' + cards + '</div>';
+        html += '<div class="rm-cell' + (final ? ' rm-course' : course) + '">' + cellCards(row, t) + '</div>';
       });
     }
     grid.innerHTML = html;
+    afterGrid(grid);
+  }
+
+  function afterGrid(grid) {
     cardEls = {};
     grid.querySelectorAll('[data-code]').forEach(function (elm) { cardEls[elm.getAttribute('data-code')] = elm; });
     applyState();
@@ -234,9 +271,11 @@
     svg.setAttribute('width', W); svg.setAttribute('height', H);
     svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
     var tr = tree.getBoundingClientRect();
+    var hz = horizontal();
     function box(elm) {
       var r = elm.getBoundingClientRect();
-      return { l: r.left - tr.left, t: r.top - tr.top, w: r.width, h: r.height, cx: r.left - tr.left + r.width / 2 };
+      return { l: r.left - tr.left, t: r.top - tr.top, w: r.width, h: r.height,
+        cx: r.left - tr.left + r.width / 2, cy: r.top - tr.top + r.height / 2 };
     }
 
     var out = '<defs>';
@@ -246,10 +285,12 @@
     });
     out += '</defs>';
 
-    // фоновые «ветки»: полосы направлений
+    // фоновые «ветки»: полосы направлений (в горизонтальном виде — строки)
     grid.querySelectorAll('.rm-lanehead').forEach(function (h) {
       var b = box(h), p = PALETTE[h.getAttribute('data-lane')] || FALLBACK;
-      out += '<rect x="' + (b.l + 3) + '" y="2" width="' + (b.w - 6) + '" height="' + (H - 4) + '" rx="16" fill="' + p.t + '" fill-opacity=".38"/>';
+      out += hz
+        ? '<rect x="2" y="' + b.t + '" width="' + (W - 4) + '" height="' + b.h + '" rx="16" fill="' + p.t + '" fill-opacity=".38"/>'
+        : '<rect x="' + (b.l + 3) + '" y="2" width="' + (b.w - 6) + '" height="' + (H - 4) + '" rx="16" fill="' + p.t + '" fill-opacity=".38"/>';
     });
 
     // точки выхода/входа разносим, чтобы стрелки не сливались
@@ -261,12 +302,14 @@
       (outs[e[0]] = outs[e[0]] || []).push(e);
       (ins[e[1]] = ins[e[1]] || []).push(e);
     });
+    // в вертикальном виде точки разносятся по ширине карточки, в горизонтальном — по высоте
     function spread(list, key, otherKey) {
-      list.sort(function (a, b) { return boxes[a[otherKey]].cx - boxes[b[otherKey]].cx; });
+      var c = hz ? 'cy' : 'cx';
+      list.sort(function (a, b) { return boxes[a[otherKey]][c] - boxes[b[otherKey]][c]; });
       var b = boxes[list[0][key]], n = list.length, pos = {};
       list.forEach(function (e, i) {
         var f = n === 1 ? 0.5 : 0.25 + 0.5 * i / (n - 1);
-        pos[e[0] + '>' + e[1]] = b.l + b.w * f;
+        pos[e[0] + '>' + e[1]] = hz ? b.t + b.h * f : b.l + b.w * f;
       });
       return pos;
     }
@@ -278,12 +321,20 @@
     P.edges.forEach(function (e) {
       var a = boxes[e[0]], b = boxes[e[1]];
       if (!a || !b) return;
-      var key = e[0] + '>' + e[1];
-      var x1 = xOut[key], y1 = a.t + a.h, x2 = xIn[key], y2 = b.t - 1;
-      var dy = Math.max(26, Math.min(140, (y2 - y1) * 0.45));
+      var key = e[0] + '>' + e[1], d;
+      if (hz) {
+        var hx1 = a.l + a.w, hy1 = xOut[key], hx2 = b.l - 1, hy2 = xIn[key];
+        var dx = Math.max(26, Math.min(140, (hx2 - hx1) * 0.45));
+        d = 'M' + hx1.toFixed(1) + ' ' + hy1.toFixed(1) + ' C' + (hx1 + dx).toFixed(1) + ' ' + hy1.toFixed(1) + ' ' +
+          (hx2 - dx).toFixed(1) + ' ' + hy2.toFixed(1) + ' ' + hx2.toFixed(1) + ' ' + hy2.toFixed(1);
+      } else {
+        var x1 = xOut[key], y1 = a.t + a.h, x2 = xIn[key], y2 = b.t - 1;
+        var dy = Math.max(26, Math.min(140, (y2 - y1) * 0.45));
+        d = 'M' + x1.toFixed(1) + ' ' + y1.toFixed(1) + ' C' + x1.toFixed(1) + ' ' + (y1 + dy).toFixed(1) + ' ' +
+          x2.toFixed(1) + ' ' + (y2 - dy).toFixed(1) + ' ' + x2.toFixed(1) + ' ' + y2.toFixed(1);
+      }
       var track = byCode[e[0]].node.track;
-      out += '<path class="rm-edge" data-a="' + esc(e[0]) + '" data-b="' + esc(e[1]) + '" d="M' + x1.toFixed(1) + ' ' + y1.toFixed(1) +
-        ' C' + x1.toFixed(1) + ' ' + (y1 + dy).toFixed(1) + ' ' + x2.toFixed(1) + ' ' + (y2 - dy).toFixed(1) + ' ' + x2.toFixed(1) + ' ' + y2.toFixed(1) +
+      out += '<path class="rm-edge" data-a="' + esc(e[0]) + '" data-b="' + esc(e[1]) + '" d="' + d +
         '" stroke="' + color(track) + '" marker-end="url(#rm-ah-' + (PALETTE[track] ? track : 'gen') + ')"/>';
     });
     svg.innerHTML = out;
@@ -465,13 +516,15 @@
   // ---------- события ----------
   root.addEventListener('click', function (ev) {
     var t = ev.target;
+    var vb = t.closest('[data-view]');
+    if (vb) { setView(vb.getAttribute('data-view')); return; }
     var sw = t.closest('.rm-switch button');
     if (sw) { state.pi = +sw.getAttribute('data-pi'); state.track = 'all'; state.pinned = null; renderAll(); return; }
     var chip = t.closest('[data-track]');
     if (chip) {
       state.track = chip.getAttribute('data-track'); state.pinned = null;
       renderTracks();
-      if (mqNarrow.matches) renderGrid(); else applyState();
+      if (mqNarrow.matches && !horizontal()) renderGrid(); else applyState();
       return;
     }
     if (t.closest('[data-rm="close"]')) { closeModal(); return; }
@@ -510,6 +563,57 @@
       else if (!ev.shiftKey && document.activeElement === last) { ev.preventDefault(); first.focus(); }
     }
   });
+
+  // ---------- вид: горизонтальный / вертикальный ----------
+  function syncView() {
+    $('view').querySelectorAll('[data-view]').forEach(function (b) {
+      var on = b.getAttribute('data-view') === state.view;
+      b.setAttribute('aria-checked', String(on));
+      b.tabIndex = on ? 0 : -1;
+    });
+  }
+  function setView(v) {
+    if (v === state.view || (v !== 'h' && v !== 'v')) return;
+    state.view = v;
+    syncView();
+    $('scroll').scrollLeft = 0;
+    renderHint();
+    renderGrid();
+  }
+  $('view').addEventListener('keydown', function (ev) {
+    if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].indexOf(ev.key) < 0) return;
+    ev.preventDefault();
+    setView(state.view === 'h' ? 'v' : 'h');
+    $('view').querySelector('[data-view="' + state.view + '"]').focus();
+  });
+
+  // карту, которая не помещается по ширине, можно тянуть мышью
+  var pan = null, panClick = false;
+  $('scroll').addEventListener('pointerdown', function (ev) {
+    var sc = $('scroll');
+    if (ev.pointerType !== 'mouse' || ev.button !== 0 || sc.scrollWidth <= sc.clientWidth) return;
+    pan = { x: ev.clientX, left: sc.scrollLeft, moved: false };
+  });
+  window.addEventListener('pointermove', function (ev) {
+    if (!pan) return;
+    var dx = ev.clientX - pan.x;
+    if (!pan.moved && Math.abs(dx) > 6) {
+      pan.moved = true;
+      root.classList.add('rm--panning');
+      if (window.getSelection) window.getSelection().removeAllRanges();
+    }
+    if (pan.moved) $('scroll').scrollLeft = pan.left - dx;
+  });
+  window.addEventListener('pointerup', function () {
+    if (!pan) return;
+    if (pan.moved) { panClick = true; setTimeout(function () { panClick = false; }, 0); }
+    pan = null;
+    root.classList.remove('rm--panning');
+  });
+  // после перетаскивания не открываем карточку, на которой отпустили мышь
+  root.addEventListener('click', function (ev) {
+    if (panClick) { ev.stopPropagation(); ev.preventDefault(); panClick = false; }
+  }, true);
 
   if (window.ResizeObserver) new ResizeObserver(scheduleDraw).observe($('grid'));
   else window.addEventListener('resize', scheduleDraw);
@@ -556,13 +660,17 @@
 
   function renderHint() {
     var touch = window.matchMedia('(hover: none)').matches;
+    var hz = horizontal();
     $('hint').textContent = touch
       ? 'Нажмите на блок — откроются подробности, а на дереве подсветится цепочка связей.' +
-        (mqNarrow.matches ? ' Дерево листается вбок; кнопки направлений показывают одну ветку.' : '')
-      : 'Нажмите на блок, чтобы открыть подробности. Наведите курсор — подсветится вся цепочка связей.';
+        (hz ? ' Семестры идут слева направо, карта листается вбок.'
+            : (mqNarrow.matches ? ' Дерево листается вбок; кнопки направлений показывают одну ветку.' : ''))
+      : 'Нажмите на блок, чтобы открыть подробности. Наведите курсор — подсветится вся цепочка связей.' +
+        (hz ? ' Семестры идут слева направо: карту можно прокрутить вбок или потянуть мышью.' : '');
   }
 
   function renderAll() {
+    syncView();
     renderHint();
     indexProgram();
     renderHeader();

@@ -1,7 +1,18 @@
 <div id="dgu-roadmap" class="rm" lang="ru">
   <header class="rm-head">
-    <div class="rm-eyebrow">Дагестанский государственный университет · <span data-rm="faculty"></span></div>
-    <h1 class="rm-title">Дорожная карта обучения</h1>
+    <div class="rm-head-top">
+      <div>
+        <div class="rm-eyebrow">Дагестанский государственный университет · <span data-rm="faculty"></span></div>
+        <h1 class="rm-title">Дорожная карта обучения</h1>
+      </div>
+      <div class="rm-view">
+        <span class="rm-view-label" id="rm-view-label">Вид</span>
+        <div class="rm-view-btns" role="radiogroup" aria-labelledby="rm-view-label" data-rm="view">
+          <button type="button" role="radio" data-view="h" aria-checked="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="4.5" height="14" rx="1.2"/><rect x="9.75" y="5" width="4.5" height="14" rx="1.2"/><rect x="16.5" y="5" width="4.5" height="14" rx="1.2"/></svg>Горизонтальный</button>
+          <button type="button" role="radio" data-view="v" aria-checked="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="4.5" rx="1.2"/><rect x="5" y="9.75" width="14" height="4.5" rx="1.2"/><rect x="5" y="16.5" width="14" height="4.5" rx="1.2"/></svg>Вертикальный</button>
+        </div>
+      </div>
+    </div>
     <div class="rm-switch" role="tablist" aria-label="Направление подготовки"></div>
     <div class="rm-program">
       <div class="rm-program-name" data-rm="name"></div>
